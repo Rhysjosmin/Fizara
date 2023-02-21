@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    cursor: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+:root{
+    --accent:#FF2144;
+}
+::selection{
+    background: var(--accent);
+}
+
+#cursor0,#c1{
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    outline: 1px solid white;
+    border-radius: 50px;
+    // background: red;
+    --size:80px;
+    width: var(--size);
+    height: var(--size);
+    z-index: 1000;
+    // transition: .09s;
+}
+#MainPage{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #090909;
+    color: #f0f6ff;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background: red;
+        font-size: 9em;
+        font-family: 'Lobster Two', cursive; 
+    }
+    #menu{
+     
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: .4em;
+        h4{
+
+            opacity: .1;
+     
+            font-weight:100;
+            margin-right: .6em;
+            display: flex;
+            align-items: center;
+            transition: .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+            &:hover{
+                letter-spacing: .4em;
+            opacity: 1;
+
+                // cursor: pointer;
+        font-weight:500;
+
+                color: var(--accent);
+            }
+        }
+        // background: red;
+        font-size: 3em;
+    }
+}

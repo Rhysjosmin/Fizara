@@ -6,6 +6,8 @@
 }
 
 body {
+  color: #f0f6ff;
+  background: #090909;
   cursor: none;
   font-family: "Poppins", sans-serif;
 }
@@ -26,7 +28,7 @@ body {
   pointer-events: none;
   position: fixed;
   display: block;
-  outline: 1px solid white;
+  outline: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: 50px;
   --size:80px;
   width: var(--size);
@@ -35,13 +37,14 @@ body {
 }
 
 #MainPage {
+  background: #090909;
+  transition: opacity 0.3s;
   overflow: hidden;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background: #090909;
   color: #f0f6ff;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -74,4 +77,8 @@ body {
   opacity: 1;
   font-weight: 500;
   color: var(--accent);
+}
+
+#HomePage {
+  display: grid;
 }/*# sourceMappingURL=style.css.map */

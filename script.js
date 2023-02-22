@@ -1,17 +1,19 @@
-// const c1=document.createElement('div')
-// c1.id='c1'
+const c1=document.createElement('div')
 
-// document.body.append(c1)
-const cursor1=document.getElementById('cursor0')
+c1.id='c1'
+
+
+document.body.append(c1)
+
+const cursor1=document.getElementById('c1')
 
 window.onmousemove=(e)=>{
-console.log(e.clientX)
-console.log(e.clientY)
-mX=e.clientX- cursor1.clientWidth/2
-mY=e.clientY-cursor1.clientHeight/2
-cursor1.style.transform=`translate3d(${mX}px,${mY}px,0)`
-
+    mX=e.clientX
+    mY=e.clientY
+    cursor1.style.transform=`translate3d(${mX-cursor1.clientWidth/2}px,${mY - cursor1.clientHeight}px,0)`
+  
 }
+
 
 
 

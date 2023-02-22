@@ -6,6 +6,8 @@
     box-sizing: border-box;
 }
 body{
+    color: #f0f6ff;
+    background: #090909;
     cursor: none;
     font-family: 'Poppins', sans-serif;
 
@@ -21,23 +23,28 @@ body{
     pointer-events: none;
     position: fixed;
     display: block;
-    outline: 1px solid white;
+    outline: 1px solid rgba(255, 255, 255, 0.26);
     border-radius: 50px;
     // background: red;
     --size:80px;
     width: var(--size);
     height: var(--size);
     z-index: 1000;
+ 
     // transition: .09s;
+
 }
 #MainPage{
+    background: #090909;
+
+    transition: opacity .3s;
     overflow: hidden;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: #090909;
+    
     color: #f0f6ff;
 
     display: grid;
@@ -79,4 +86,8 @@ body{
         // background: red;
         font-size: 3em;
     }
+}
+
+#HomePage{
+    display: grid;
 }

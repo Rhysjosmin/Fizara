@@ -8,17 +8,45 @@
     <title>Home</title>
 </head>
 <body>
-    <div id="cursor0"><div id="cursor1"></div></div>
+
     <section id="MainPage">
        <h1>She<br> Arogya</h1>
        <div id="menu">
-        <h4>Home</h4>
-        <h4>About</h4>
-        <h4>Signup</h4>
-        <h4>Login</h4>
+        <h4 id="menuHomeButton">Home</h4>
+        <h4 id="menuAboutButton">About</h4>
+        <h4 id="menuSignupButton">Signup</h4>
+        <h4 id="menuLoginButton">Login</h4>
        </div> 
 
     </section>
+    <section id="HomePage">
+        <p>A Woman's Health is her capital Breath. lets goa and remind yourself that this is the only one you know you have for sure</p>
+    </section>
 </body>
 <script src="./script.js"></script>
+<script>
+    const Home=document.getElementById('menuHomeButton');
+    const About=document.getElementById('menuAboutButton');
+    const Signup=document.getElementById('menuSignupButton');
+    const Login=document.getElementById('menuLoginButton');
+
+    Home.onclick=(e)=>{
+        document.getElementById('MainPage').style.opacity=0
+        i=setInterval(()=>{
+        document.getElementById('MainPage').style.display='none'
+
+        },500)
+        clearInterval(i)
+    }
+
+    
+window.onkeypress=(e)=>{
+    document.getElementById('MainPage').style.opacity=1
+        i=setInterval(()=>{
+        document.getElementById('MainPage').style.display='block'
+
+        },500)
+        clearInterval(i)
+}
+</script>
 </html>

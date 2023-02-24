@@ -55,6 +55,8 @@
     let interval=0
     Home.onclick=(e)=>{
         clearInterval(interval)
+        document.getElementById('MainPage').style.transform='translateY(-100px)'
+
         document.getElementById('MainPage').style.opacity=0
         // document.getElementById('MainPage').style.display='none'
 
@@ -69,6 +71,8 @@
         clearInterval(interval)
         document.getElementById('MainPage').style.display='grid'
         interval=setInterval(()=>{
+        document.getElementById('MainPage').style.transform='translateY(0px)'
+
             document.getElementById('MainPage').style.opacity=1
 
         },200)

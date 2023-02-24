@@ -19,6 +19,29 @@
        </div> 
 
     </section>
+    <div id="Back" onclick="goHome(0)">
+        <style>
+            #Back{
+                padding-inline: 1.2em;
+                border-radius: 10px;
+                font-size: 1.8em;
+                font-weight: 200;
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                z-index: 0;
+                border: 1px solid rgba(255, 255, 255, 0.116);
+                /* background: rgb(34, 34, 34); */
+                transition: .2s;
+            }
+            #Back:hover{
+                background: hsl(0, 0%, 8%);
+
+
+            }
+        </style>
+        Back
+    </div>
     <section id="HomePage">
         <p>A Woman's Health is her capital Breath. lets goa and remind yourself that this is the only one you know you have for sure</p>
     </section>
@@ -29,24 +52,28 @@
     const About=document.getElementById('menuAboutButton');
     const Signup=document.getElementById('menuSignupButton');
     const Login=document.getElementById('menuLoginButton');
-
+    let interval=0
     Home.onclick=(e)=>{
+        clearInterval(interval)
         document.getElementById('MainPage').style.opacity=0
-        i=setInterval(()=>{
+        // document.getElementById('MainPage').style.display='none'
+
+        interval=setInterval(()=>{
         document.getElementById('MainPage').style.display='none'
 
         },500)
-        clearInterval(i)
+        
     }
 
-    
-window.onkeypress=(e)=>{
-    document.getElementById('MainPage').style.opacity=1
-        i=setInterval(()=>{
-        document.getElementById('MainPage').style.display='block'
+    function goHome(){
+        clearInterval(interval)
+        document.getElementById('MainPage').style.display='grid'
+        interval=setInterval(()=>{
+            document.getElementById('MainPage').style.opacity=1
 
-        },500)
-        clearInterval(i)
-}
+        },200)
+        
+    }
+
 </script>
 </html>

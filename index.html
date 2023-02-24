@@ -22,6 +22,7 @@
     <div id="Back" onclick="goHome(0)">
         <style>
             #Back{
+                opacity: 0;
                 padding-inline: 1.2em;
                 border-radius: 10px;
                 font-size: 1.8em;
@@ -60,7 +61,9 @@
         document.getElementById('MainPage').style.opacity=0
         // document.getElementById('MainPage').style.display='none'
 
+        document.getElementById('Back').style.opacity=1
         interval=setInterval(()=>{
+
         document.getElementById('MainPage').style.display='none'
 
         },500)
@@ -69,6 +72,8 @@
 
     function goHome(){
         clearInterval(interval)
+        document.getElementById('Back').style.opacity=0
+
         document.getElementById('MainPage').style.display='grid'
         interval=setInterval(()=>{
         document.getElementById('MainPage').style.transform='translateY(0px)'

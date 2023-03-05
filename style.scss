@@ -1,93 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-*{
-    margin: 0%;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
-    color: #f0f6ff;
-    background: #090909;
-    cursor: none;
     font-family: 'Poppins', sans-serif;
-
 }
 :root{
-    --accent:#FF2144;
+    --accent:rgb(255, 37, 102);
+}
+::-webkit-scrollbar{
+    width: 5px;
+    background: rgb(0, 0, 0);
 }
 ::selection{
     background: var(--accent);
 }
-
-#cursor0,#c1{
-    pointer-events: none;
-    position: fixed;
-    display: block;
-    outline: 1px solid rgba(255, 255, 255, 0.26);
-    border-radius: 50px;
-    // background: red;
-    --size:80px;
-    width: var(--size);
-    height: var(--size);
-    z-index: 1000;
- 
-    // transition: .09s;
-
+::-webkit-scrollbar-thumb{
+    background: rgb(255, 255, 255);
 }
-#MainPage{
-    background: #090909;
+*{
+    margin: 0;
+    padding: 0;
 
-    transition: opacity .3s, transform .6s;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    
-    color: #f0f6ff;
+    box-sizing: border-box;
+}
+nav{
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    h1{
+    background: white;
+    display: flex;
+    height: 4em;
+    outline: 1.2px solid black;
+   align-items: center;
+    justify-content: space-between;
+    menu{
+        margin-right: 1em;
+        gap: 1em;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        // background: red;
-        font-size: 9em;
-        font-family: 'Lobster Two', cursive; 
-    }
-    #menu{
-     
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: end;
-        gap: .4em;
-        h4{
-
-            opacity: .1;
-     
-            font-weight:100;
-            margin-right: .6em;
-            display: flex;
-            align-items: center;
-            transition: .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+        a{
+            font-weight: 400;
+            color: rgb(0, 0, 0);
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: .2s .1s ;
             &:hover{
-                letter-spacing: .4em;
-            opacity: 1;
-
-                // cursor: pointer;
-        font-weight:500;
-
                 color: var(--accent);
             }
         }
-        // background: red;
-        font-size: 3em;
+        li{
+            list-style: none;
+        }
+    }
+    h2{
+        font-size: 2em;
+        margin-left: .4em;
+    font-family: 'Poppins', sans-serif;
+
+        font-weight: 1000;
     }
 }
 
-#HomePage{
-    display: grid;
+p{
+    margin-left: 2em;
+    display: flex;
+    align-items: center;
+    font-size: min(5vw,4em);
+    font-weight: 200;
+width: 60vw;
+height: 100vh;
+}
+
+
+#login,#Signup{
+    outline: 2px solid black;
+    border-radius: 50px;
+    margin-top: 3em;
+    height: 30rem;
+    width: 28rem;
+    background: rgb(255, 255, 255);
+    box-shadow: 10px 10px black;
+    display: flex;
+    
+    form{
+        position: relative;
+        h1{
+            font-size: 3em;
+        }
+        margin-top: 3em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        flex-direction: column;
+        div{
+            margin-top: 1em;
+            // margin-bottom:3em;
+            width: 100%;
+            gap: 1em;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        #Submit{
+            bottom: 1em;
+            position: absolute;
+            background: #03265A;
+            font-size: 1.3em;
+            font-weight: 500;
+            color: aliceblue;
+            &:hover{
+                background: #194992;
+            }
+        }
+        input{
+          text-indent: 1em;
+            height: 3em;
+            outline: 1px solid black;
+            border: none;
+            border-radius: 500px;
+            width: 90%;
+            
+        }
+    }
 }

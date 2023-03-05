@@ -1,19 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-* {
-  margin: 0%;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  color: #f0f6ff;
-  background: #090909;
-  cursor: none;
   font-family: "Poppins", sans-serif;
 }
 
 :root {
-  --accent:#FF2144;
+  --accent:rgb(255, 37, 102);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: rgb(0, 0, 0);
 }
 
 ::-moz-selection {
@@ -24,61 +19,105 @@ body {
   background: var(--accent);
 }
 
-#cursor0, #c1 {
-  pointer-events: none;
-  position: fixed;
-  display: block;
-  outline: 1px solid rgba(255, 255, 255, 0.26);
-  border-radius: 50px;
-  --size:80px;
-  width: var(--size);
-  height: var(--size);
-  z-index: 1000;
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
 }
 
-#MainPage {
-  background: #090909;
-  transition: opacity 0.3s, transform 0.6s;
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  color: #f0f6ff;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#MainPage h1 {
+
+nav {
+  background: white;
   display: flex;
+  height: 4em;
+  outline: 1.2px solid black;
   align-items: center;
-  justify-content: center;
-  font-size: 9em;
-  font-family: "Lobster Two", cursive;
+  justify-content: space-between;
 }
-#MainPage #menu {
+nav menu {
+  margin-right: 1em;
+  gap: 1em;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  gap: 0.4em;
-  font-size: 3em;
 }
-#MainPage #menu h4 {
-  opacity: 0.1;
-  font-weight: 100;
-  margin-right: 0.6em;
-  display: flex;
-  align-items: center;
-  transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+nav menu a {
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: 0.2s 0.1s;
 }
-#MainPage #menu h4:hover {
-  letter-spacing: 0.4em;
-  opacity: 1;
-  font-weight: 500;
+nav menu a:hover {
   color: var(--accent);
 }
+nav menu li {
+  list-style: none;
+}
+nav h2 {
+  font-size: 2em;
+  margin-left: 0.4em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 1000;
+}
 
-#HomePage {
-  display: grid;
+p {
+  margin-left: 2em;
+  display: flex;
+  align-items: center;
+  font-size: min(5vw, 4em);
+  font-weight: 200;
+  width: 60vw;
+  height: 100vh;
+}
+
+#login, #Signup {
+  outline: 2px solid black;
+  border-radius: 50px;
+  margin-top: 3em;
+  height: 30rem;
+  width: 28rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 10px 10px black;
+  display: flex;
+}
+#login form, #Signup form {
+  position: relative;
+  margin-top: 3em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  flex-direction: column;
+}
+#login form h1, #Signup form h1 {
+  font-size: 3em;
+}
+#login form div, #Signup form div {
+  margin-top: 1em;
+  width: 100%;
+  gap: 1em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+#login form #Submit, #Signup form #Submit {
+  bottom: 1em;
+  position: absolute;
+  background: #03265A;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: aliceblue;
+}
+#login form #Submit:hover, #Signup form #Submit:hover {
+  background: #194992;
+}
+#login form input, #Signup form input {
+  text-indent: 1em;
+  height: 3em;
+  outline: 1px solid black;
+  border: none;
+  border-radius: 500px;
+  width: 90%;
 }/*# sourceMappingURL=style.css.map */

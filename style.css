@@ -135,6 +135,61 @@ p {
 }
 
 @media (max-width: 500px) {
+  #login,
+  #Signup {
+    outline: 1px solid black;
+    border-radius: 50px;
+    margin-top: 3em;
+    height: 30rem;
+    width: 90vw;
+    background: rgb(255, 255, 255);
+    display: flex;
+  }
+  #login form,
+  #Signup form {
+    position: relative;
+    margin-top: 3em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-direction: column;
+  }
+  #login form h1,
+  #Signup form h1 {
+    font-size: 3em;
+  }
+  #login form div,
+  #Signup form div {
+    margin-top: 1em;
+    width: 100%;
+    gap: 1em;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #login form #Submit,
+  #Signup form #Submit {
+    bottom: 1em;
+    position: absolute;
+    background: #03265a;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: aliceblue;
+  }
+  #login form #Submit:hover,
+  #Signup form #Submit:hover {
+    background: #194992;
+  }
+  #login form input,
+  #Signup form input {
+    text-indent: 1em;
+    height: 3em;
+    outline: 1px solid black;
+    border: none;
+    border-radius: 500px;
+    width: 90%;
+  }
   #menuButton {
     display: block;
     margin-right: 0.8em;

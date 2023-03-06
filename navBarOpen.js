@@ -1,5 +1,6 @@
 const menuButton= document.getElementById('menuButton')
 const menu=document.getElementById('menu')
+window.dispatchEvent(new Event('resize'));
 let state=true
 if(window.innerWidth>500){
     menu.style.height='auto';

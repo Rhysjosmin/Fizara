@@ -132,6 +132,9 @@ p {
 
 #menuButton {
   display: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 @media (max-width: 500px) {

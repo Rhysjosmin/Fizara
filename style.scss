@@ -119,7 +119,7 @@ p {
 }
 #menuButton{
     display: none;
-   
+   user-select: none;
 
 }
 @media (max-width: 500px) {

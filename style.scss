@@ -192,13 +192,14 @@ p {
         }
     }
   nav {
+    z-index: 100000;
     height: 4em;
     outline: 1.2px solid black;
     align-items: center;
     justify-content: space-between;
     menu {
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.123);
-      z-index: 10;
+  
+      z-index: 1;
       position: absolute;
       top: 4em;
       right: 0px;

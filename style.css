@@ -29,6 +29,11 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  background-image: url("./media/images/layered-waves-haikei.svg");
+  background-size: fit;
+}
+
 nav {
   background: white;
   display: flex;
@@ -64,12 +69,12 @@ nav h2 {
 }
 
 p {
-  margin-left: 2em;
+  margin-left: 1em;
   display: flex;
   align-items: center;
-  font-size: min(5vw, 4em);
+  font-size: min(7vw, 3em);
   font-weight: 200;
-  width: 60vw;
+  width: 55vw;
   height: 90vh;
 }
 

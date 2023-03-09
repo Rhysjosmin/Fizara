@@ -20,6 +20,10 @@ body {
 
   box-sizing: border-box;
 }
+body{
+  background-image: url('./media/images/layered-waves-haikei.svg');
+  background-size: fit;
+}
 nav {
   background: white;
   display: flex;
@@ -56,12 +60,12 @@ nav {
 }
 
 p {
-  margin-left: 2em;
+  margin-left: 1em;
   display: flex;
   align-items: center;
-  font-size: min(5vw, 4em);
+  font-size: min(7vw, 3em);
   font-weight: 200;
-  width: 60vw;
+  width: 55vw;
   height: 90vh;
 }
 
@@ -191,14 +195,13 @@ p {
             color: var(--accent);
         }
     }
-  nav {
+  nav{
     z-index: 100000;
     height: 4em;
     outline: 1.2px solid black;
     align-items: center;
     justify-content: space-between;
-    menu {
-  
+    menu{
       z-index: 1;
       position: absolute;
       top: 4em;

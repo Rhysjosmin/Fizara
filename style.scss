@@ -21,9 +21,14 @@ body {
   box-sizing: border-box;
 }
 body{
-  background-image: url('./media/images/layered-waves-haikei.svg');
-  background-size: fit;
+  
+  // background-position: 50vw 00px;
+  background-image: url('./media/images/2.svg');
+  background-size: cover;
+
 }
+
+
 nav {
   background: white;
   display: flex;
@@ -126,6 +131,12 @@ p {
    user-select: none;
 
 }
+
+
+
+
+
+
 @media (max-width: 500px) {
   p {
     margin-left: 1em;
@@ -243,3 +254,5 @@ p {
     }
   }
 }
+
+

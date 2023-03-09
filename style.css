@@ -30,8 +30,8 @@ body {
 }
 
 body {
-  background-image: url("./media/images/layered-waves-haikei.svg");
-  background-size: fit;
+  background-image: url("./media/images/2.svg");
+  background-size: cover;
 }
 
 nav {

@@ -23,17 +23,17 @@ body {
 body{
   
   // background-position: 50vw 00px;
-  background-image: url('./media/images/2.svg');
+  background-image: url('./media/images/eberhard-grossgasteiger-NvesrDbsrL4-unsplash.jpg');
   background-size: cover;
 
 }
 
 
 nav {
-  background: white;
+  // background: white;
   display: flex;
   height: 4em;
-  outline: 1.2px solid black;
+  // outline: 1.2px solid black;
   align-items: center;
   justify-content: space-between;
   menu {
@@ -42,6 +42,7 @@ nav {
     gap: 1em;
     display: flex;
     a {
+      
       font-weight: 400;
       color: rgb(0, 0, 0);
       font-size: 1.2em;

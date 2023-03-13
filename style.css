@@ -30,15 +30,13 @@ body {
 }
 
 body {
-  background-image: url("./media/images/2.svg");
+  background-image: url("./media/images/eberhard-grossgasteiger-NvesrDbsrL4-unsplash.jpg");
   background-size: cover;
 }
 
 nav {
-  background: white;
   display: flex;
   height: 4em;
-  outline: 1.2px solid black;
   align-items: center;
   justify-content: space-between;
 }

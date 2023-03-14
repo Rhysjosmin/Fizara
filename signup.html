@@ -47,6 +47,7 @@
 </body>
 <script src="./navBarOpen.js"></script>
 <script>
+   
 function Signup(){
    
 
@@ -60,24 +61,22 @@ function Signup(){
         alert('Username Exists')
 
     }
-    const FormKeys = [
-  { transform: "rotate(0) scale(1)" },
-  { transform: "rotate(360deg) scale(0)" },
-];
 
-const FormTiming = {
-  duration: 2000,
-  iterations: 1,
-};
+prevForm=document.getElementById('Form').innerHTML
 
-const Form = document.getElementById("Form");
+const Form = document.getElementById("Signup");
+// document.getElementById('Form').style.opacity=0
+document.getElementById('Form').innerHTML='<span class="material-symbols-outlined">check_circle</span>'
+document.getElementById('Form').classList.add('Done')
 
-
-  Form.animate(FormKeys, FormTiming);
+Form.style.height=`5rem`;
 
 
     }
     );
 }
+
+
+
 </script>
 </html>

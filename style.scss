@@ -76,9 +76,18 @@ p {
   width: 55vw;
   height: 90vh;
 }
-
+.Done{
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
+  span{
+  font-weight: 1000;
+    font-size: 3em;
+  }
+}
 #login,
 #Signup {
+  transition: .3s ease-in-out;
   outline: 2px solid black;
   border-radius: 50px;
   margin-top: 3em;
@@ -89,6 +98,7 @@ p {
   display: flex;
 
   form,#Form {
+    animation-fill-mode: forwards;
     position: relative;
     h1 {
       font-size: 3em;

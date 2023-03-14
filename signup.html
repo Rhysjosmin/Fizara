@@ -29,7 +29,7 @@
 
     <div id="Signup">
 
-        <form action='#' onsubmit="e()">
+        <div  id="Form">
             <h1>Signup</h1>
         <!-- <input type="text" placeholder="John Smith"> -->
         <div>
@@ -37,23 +37,47 @@
          <input type="email" name="email" id="email" placeholder="Email ID">
         <input type="password" name="password" id="password" placeholder="Password">   
         </div>
-        <button id="Submit">Submit</button>
+        <button id="Submit" onclick="Signup()">Submit</button>
         <!-- <input type="button" value="Signup" placeholder="Submit" id="Submit" > -->
 
-        </form>
+        </div>
 
     </div>
 </center>
 </body>
 <script src="./navBarOpen.js"></script>
 <script>
-function e(){
-    document.getElementById('name').value
-    console.log(document.getElementById('name').value)
-    console.log(document.getElementById('email').value)
-    console.log(document.getElementById('password').value)
-    
+function Signup(){
+   
+
     fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+    if(data=='Signed Up'){
+        alert('Signed Up')
+    }else if(data=='User Already Present'){
+        alert('Username Exists')
+
+    }
+    const FormKeys = [
+  { transform: "rotate(0) scale(1)" },
+  { transform: "rotate(360deg) scale(0)" },
+];
+
+const FormTiming = {
+  duration: 2000,
+  iterations: 1,
+};
+
+const Form = document.getElementById("Form");
+
+
+  Form.animate(FormKeys, FormTiming);
+
+
+    }
+    );
 }
 </script>
 </html>

@@ -49,9 +49,17 @@
 <script>
 
     function login(){
+        let resp=''
     fetch(`http://127.0.0.1:5000/Login/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+        resp=data
+        console.log(data)
+        if(resp=='Present'){
+        window.location.href='/Main/DoctorAdmin/index.html'
+    }
+    });
+   
     }
 </script>
 </html>

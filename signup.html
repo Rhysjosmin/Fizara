@@ -12,6 +12,7 @@
     <title>Home</title>
 </head>
 <body>
+    <img src="./media/images/bgGirl2.png" alt="" id="bg">
 
     <nav>
         <h2><a href="./index.html" style="text-decoration: none; color: black;">She Arogya</a> </h2>
@@ -28,16 +29,16 @@
 
     <div id="Signup">
 
-        <form action="">
+        <form action='#' onsubmit="e()">
             <h1>Signup</h1>
         <!-- <input type="text" placeholder="John Smith"> -->
         <div>
-         <input type="name" name="name" id="" placeholder="John Smith">
-         <input type="email" name="email" id="" placeholder="JohnSmith@JohnSmith.com">
-        <input type="password" name="password" id="" placeholder="Password">   
+         <input type="name" name="name" id="name" placeholder="Name">
+         <input type="email" name="email" id="email" placeholder="Email ID">
+        <input type="password" name="password" id="password" placeholder="Password">   
         </div>
-        
-        <input type="button" value="Signup" placeholder="Submit" id="Submit">
+        <button id="Submit">Submit</button>
+        <!-- <input type="button" value="Signup" placeholder="Submit" id="Submit" > -->
 
         </form>
 
@@ -45,4 +46,14 @@
 </center>
 </body>
 <script src="./navBarOpen.js"></script>
+<script>
+function e(){
+    document.getElementById('name').value
+    console.log(document.getElementById('name').value)
+    console.log(document.getElementById('email').value)
+    console.log(document.getElementById('password').value)
+    
+    fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+}
+</script>
 </html>

@@ -3,20 +3,12 @@ body {
 }
 
 :root {
-  --accent: rgb(255, 37, 102);
+  --accent: #fffffff5;
 }
 
 ::-webkit-scrollbar {
   width: 1px;
   background: rgb(0, 0, 0);
-}
-
-::-moz-selection {
-  background: var(--accent);
-}
-
-::selection {
-  background: var(--accent);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -29,9 +21,13 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  background-image: url("./media/images/eberhard-grossgasteiger-NvesrDbsrL4-unsplash.jpg");
-  background-size: cover;
+#bg {
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: fixed;
+  z-index: -1;
 }
 
 nav {
@@ -87,8 +83,9 @@ p {
   box-shadow: 10px 10px black;
   display: flex;
 }
-#login form,
-#Signup form {
+#login form, #login #Form,
+#Signup form,
+#Signup #Form {
   position: relative;
   margin-top: 3em;
   width: 100%;
@@ -97,12 +94,14 @@ p {
   gap: 1em;
   flex-direction: column;
 }
-#login form h1,
-#Signup form h1 {
+#login form h1, #login #Form h1,
+#Signup form h1,
+#Signup #Form h1 {
   font-size: 3em;
 }
-#login form div,
-#Signup form div {
+#login form div, #login #Form div,
+#Signup form div,
+#Signup #Form div {
   margin-top: 1em;
   width: 100%;
   gap: 1em;
@@ -110,21 +109,28 @@ p {
   display: flex;
   flex-direction: column;
 }
-#login form #Submit,
-#Signup form #Submit {
-  bottom: 1em;
+#login form #Submit, #login #Form #Submit,
+#Signup form #Submit,
+#Signup #Form #Submit {
+  border: none;
+  border-radius: 100px;
+  width: 90%;
+  bottom: 2em;
+  height: 3em;
   position: absolute;
   background: #03265a;
   font-size: 1.3em;
   font-weight: 500;
   color: aliceblue;
 }
-#login form #Submit:hover,
-#Signup form #Submit:hover {
+#login form #Submit:hover, #login #Form #Submit:hover,
+#Signup form #Submit:hover,
+#Signup #Form #Submit:hover {
   background: #194992;
 }
-#login form input,
-#Signup form input {
+#login form input, #login #Form input,
+#Signup form input,
+#Signup #Form input {
   text-indent: 1em;
   height: 3em;
   outline: 1px solid black;

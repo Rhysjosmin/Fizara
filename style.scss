@@ -2,15 +2,15 @@ body {
   font-family: "Poppins", sans-serif;
 }
 :root {
-  --accent: rgb(255, 37, 102);
+  --accent: #fffffff5;
 }
 ::-webkit-scrollbar {
   width: 1px;
   background: rgb(0, 0, 0);
 }
-::selection {
-  background: var(--accent);
-}
+// ::selection {
+//   background: var(--accent);
+// }
 ::-webkit-scrollbar-thumb {
   background: rgb(255, 255, 255);
 }
@@ -20,12 +20,12 @@ body {
 
   box-sizing: border-box;
 }
-body{
-  
-  // background-position: 50vw 00px;
-  background-image: url('./media/images/eberhard-grossgasteiger-NvesrDbsrL4-unsplash.jpg');
-  background-size: cover;
-
+#bg{
+width: 100vw;
+height: 100vh;
+object-fit: cover;
+position:fixed ;
+z-index: -1;
 }
 
 
@@ -88,7 +88,7 @@ p {
   box-shadow: 10px 10px black;
   display: flex;
 
-  form {
+  form,#Form {
     position: relative;
     h1 {
       font-size: 3em;
@@ -109,7 +109,12 @@ p {
       flex-direction: column;
     }
     #Submit {
-      bottom: 1em;
+      border: none;
+      border-radius: 100px;
+      width: 90%;
+      bottom: 2em;
+      height: 3em;
+
       position: absolute;
       background: #03265a;
       font-size: 1.3em;

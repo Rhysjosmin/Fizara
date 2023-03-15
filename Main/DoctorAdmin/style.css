@@ -1,0 +1,30 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+aside {
+  background: #0e0e0e;
+  padding-top: 1em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15rem;
+}
+aside li {
+  margin-left: 1em;
+  list-style: none;
+}
+aside li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: color 0.4s;
+}
+aside li a:hover {
+  color: aqua;
+}/*# sourceMappingURL=style.css.map */

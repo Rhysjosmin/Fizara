@@ -10,6 +10,7 @@ body {
 
 :root {
   --accent:rgb(50, 115, 255);
+  --accent2:rgb(22, 37, 252);
 }
 
 aside {
@@ -72,25 +73,51 @@ aside li a:hover {
   max-width: 50vw;
 }
 
-#UpcomingAppointments {
-  min-width: 50VH;
-  border: 5px solid #0e0e0e;
+#UpcomingAppointmentsCont {
   grid-area: UpcomingAppointments;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 5px solid #0e0e0e;
+}
+#UpcomingAppointmentsCont::-webkit-scrollbar {
+  width: 2px;
+  background: rgb(255, 255, 255);
+}
+#UpcomingAppointmentsCont::-webkit-scrollbar-thumb {
+  background: #0e0e0e;
+}
+
+#UpcomingAppointments {
+  min-width: 20vh;
   background: #0e0e0e;
   display: flex;
   flex-direction: column;
   gap: 1px;
-  overflow-y: scroll;
 }
-#UpcomingAppointments::-webkit-scrollbar {
+
+#NewsfeedCont {
+  overflow-y: scroll;
+  grid-area: Newsfeed;
+  border: 5px solid #0e0e0e;
+}
+#NewsfeedCont::-webkit-scrollbar {
   width: 2px;
   background: rgb(255, 255, 255);
 }
-#UpcomingAppointments::-webkit-scrollbar-thumb {
+#NewsfeedCont::-webkit-scrollbar-thumb {
   background: #0e0e0e;
 }
 
+#Newsfeed {
+  background: #0e0e0e;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
 #Appointment {
+  display: flex;
+  justify-content: space-between;
   text-decoration: none;
   color: #0e0e0e;
   background: rgb(255, 255, 255);
@@ -106,7 +133,27 @@ aside li a:hover {
 #Appointment:hover {
   background: var(--accent);
 }
+#Appointment .P-D2 {
+  color: var(--accent2);
+}
 
-#Newsfeed {
-  grid-area: Newsfeed;
+#News {
+  display: block;
+  text-decoration: none;
+  color: #0e0e0e;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  transition: 0.2s;
+}
+#News h1 {
+  font-size: 1em;
+}
+#News h3 {
+  font-size: 0.7em;
+}
+#News:hover {
+  background: var(--accent);
+}
+#News .P-D2 {
+  color: var(--accent2);
 }/*# sourceMappingURL=style.css.map */

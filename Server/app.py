@@ -3,19 +3,133 @@ import json
 from flask_cors import CORS
 d={}
 AppointmentDB={
-    'James':[
-        'Mary',
-        'Anya',
-        'Penelope',
-        'Adriana',
-        'Emily',
-        'Jane',
-        'Ava',
-        'Megan',
-        'Irene',
+    'James':{
+        'Mary':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Anya':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Penelope':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Adriana':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Emily':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Jane':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Ava':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Megan':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Irene':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
        
-        ],
-    'John':[],
+    },
+    'John':{
+        'Mary':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Anya':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Penelope':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Adriana':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Emily':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Jane':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Ava':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Megan':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+        'Irene':{
+            'Reason':'Checkup',
+            'Date':'12/3/23',
+            'Time':'15:00'
+            },
+       
+    },
+ 
+}
+NewsDB = {
+    'In Conversation: Is the ketogenic diet right for autoimmune conditions?': {
+        'Body': 'The ketogenic diet is often labelled controversial due to its low carb, high fat nature. However, it is also touted as one of the best diets for weight loss, improving insulin sensitivity, and controlling seizures. But could this diet also have the potential to help inflammatory autoimmune conditions and reduce chronic pain?',
+        'link': 'https://www.medicalnewstoday.com/articles/in-conversation-is-the-ketogenic-diet-right-for-autoimmune-conditions'
+    },
+    'Gout may be caused by deficiency of a protein found in joint fluid': {
+        'Body': 'Gout, a common form of inflammatory arthritis, can cause intense pain, swelling, and stiffness in the joints.',
+        'link': 'https://www.medicalnewstoday.com/articles/new-look-at-an-ancient-disease-study-finds-novel-treatment-targets-for-gout'
+    },
+    'New study suggests potential link between air pollution and dementia': {
+        'Body': 'A recent study has found a potential link between exposure to air pollution and an increased risk of developing dementia. The study analyzed data from over 13,000 people in the UK and found that those living in areas with higher levels of air pollution were more likely to develop dementia than those in cleaner areas.',
+        'link': 'https://www.theguardian.com/society/2022/feb/21/air-pollution-linked-to-increased-risk-of-dementia-major-study-suggests'
+    },
+    'Scientists discover new speciesrt of ancient human in Israel': {
+        'Body': 'Scientists have discovered a new species of ancient human in Israel, dating back around 140,000 years. The fossils were found in a cave and are believed to belong to a previously unknown group of humans, who may have interbred with Neanderthals and modern humans.',
+        'link': 'https://www.bbc.com/news/science-environment-61654780'
+    },
+    'Scientists discover new specierees of ancient human in Israel': {
+        'Body': 'Scientists have discovered a new species of ancient human in Israel, dating back around 140,000 years. The fossils were found in a cave and are believed to belong to a previously unknown group of humans, who may have interbred with Neanderthals and modern humans.',
+        'link': 'https://www.bbc.com/news/science-environment-61654780'
+    },
+    'Scientists discover new speci77es of ancient human in Israel': {
+        'Body': 'Scientists have discovered a new species of ancient human in Israel, dating back around 140,000 years. The fossils were found in a cave and are believed to belong to a previously unknown group of humans, who may have interbred with Neanderthals and modern humans.',
+        'link': 'https://www.bbc.com/news/science-environment-61654780'
+    },
+    'Scientists discover new species o54654f ancient human in Israel': {
+        'Body': 'Scientists have discovered a new species of ancient human in Israel, dating back around 140,000 years. The fossils were found in a cave and are believed to belong to a previously unknown group of humans, who may have interbred with Neanderthals and modern humans.',
+        'link': 'https://www.bbc.com/news/science-environment-61654780'
+    },
 }
 UserDatabase='UserDB.json'
 def ReadDB():
@@ -86,7 +200,17 @@ def login(name,email,password):
         
 @app.route('/<Doctor>/Appointments')
 def Appointments(Doctor):
-    return json.dumps(AppointmentDB[Doctor])
+    if Doctor in AppointmentDB:
+        return json.dumps(AppointmentDB[Doctor])
+    else:
+        NotPresent={'Present':'False'}
+        return json.dumps(NotPresent)
+    
+@app.route('/News')
+def News():
+ 
+    return json.dumps(NewsDB)
+
 
 
 if __name__=='__main__':

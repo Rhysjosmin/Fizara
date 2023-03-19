@@ -1,3 +1,4 @@
+function ToD(){
 var currentTime = new Date();
 currentTime.getHours();
 var currentHour = currentTime.getHours();
@@ -14,4 +15,5 @@ switch (true) {
         TimeOfDayDisplay.innerText = "Good Evening!";
 
         break;
+}
 }

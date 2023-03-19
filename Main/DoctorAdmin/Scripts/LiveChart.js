@@ -1,4 +1,4 @@
-
+function StartChart(){
 
 let value=0
 let size=500
@@ -67,3 +67,4 @@ setInterval(()=>{
  });
  heartRate.update()
 },50)
+}

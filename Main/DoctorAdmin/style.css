@@ -8,6 +8,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --accent:rgb(50, 115, 255);
+}
+
 aside {
   background: #0e0e0e;
   padding-top: 1em;
@@ -17,14 +21,92 @@ aside {
   width: 15rem;
 }
 aside li {
+  color: rgb(255, 255, 255);
   margin-left: 1em;
   list-style: none;
 }
 aside li a {
-  color: rgb(255, 255, 255);
+  color: inherit;
   text-decoration: none;
   transition: color 0.4s;
 }
 aside li a:hover {
-  color: aqua;
+  color: var(--accent);
+}
+
+#rside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 15rem;
+}
+
+#grid {
+  height: 100%;
+  display: grid;
+  padding: 8px;
+  gap: 8px;
+  grid-template-areas: " Greeting UpcomingAppointments" " Live UpcomingAppointments" "Newsfeed Newsfeed";
+  grid-template-rows: 0.1fr 50vh 2fr;
+  grid-template-columns: 4fr 2fr;
+}
+
+#main section {
+  margin: 1px;
+}
+
+#Greeting {
+  display: flex;
+  font-weight: 800;
+  font-size: 1.6em;
+  grid-area: Greeting;
+}
+
+#Live {
+  grid-area: Live;
+  /* background: rgb(197, 197, 197); */
+}
+#Live canvas {
+  max-height: 90%;
+  max-width: 50vw;
+}
+
+#UpcomingAppointments {
+  min-width: 50VH;
+  border: 5px solid #0e0e0e;
+  grid-area: UpcomingAppointments;
+  background: #0e0e0e;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow-y: scroll;
+}
+#UpcomingAppointments::-webkit-scrollbar {
+  width: 2px;
+  background: rgb(255, 255, 255);
+}
+#UpcomingAppointments::-webkit-scrollbar-thumb {
+  background: #0e0e0e;
+}
+
+#Appointment {
+  text-decoration: none;
+  color: #0e0e0e;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  transition: 0.2s;
+}
+#Appointment h1 {
+  font-size: 1em;
+}
+#Appointment h3 {
+  font-size: 0.7em;
+}
+#Appointment:hover {
+  background: var(--accent);
+}
+
+#Newsfeed {
+  grid-area: Newsfeed;
 }/*# sourceMappingURL=style.css.map */

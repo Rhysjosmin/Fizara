@@ -2,7 +2,21 @@ from flask import Flask,request
 import json
 from flask_cors import CORS
 d={}
-
+AppointmentDB={
+    'James':[
+        'Mary',
+        'Anya',
+        'Penelope',
+        'Adriana',
+        'Emily',
+        'Jane',
+        'Ava',
+        'Megan',
+        'Irene',
+       
+        ],
+    'John':[],
+}
 UserDatabase='UserDB.json'
 def ReadDB():
 
@@ -68,5 +82,12 @@ def login(name,email,password):
         
             return json.dumps('Not')
         
+        
+        
+@app.route('/<Doctor>/Appointments')
+def Appointments(Doctor):
+    return json.dumps(AppointmentDB[Doctor])
+
+
 if __name__=='__main__':
     app.run(debug=True)

@@ -1,32 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <aside>
-      <ul>
-        <!-- <li><a href="">Home</a></li> -->
-        <li><a href="">Appointments</a></li>
-        <li><a href="">Past Patients</a></li>
-      </ul>
-    </aside>
-  </body>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <aside>
+    <ul>
+      <li><a href="../../index.html"><h1>Home</h1></a></li>
+      <li><a href="">Appointments</a></li>
+      <li><a href="">Past Patients</a></li>
+    </ul>
+  </aside>
+  <section id="rside">
+    <section id="grid">
+      <section id="Greeting">
+        <h1><span id="TimeOfDay">Good Morning</span> <span id="DoctorName">Dr James</span> </h1>
+      </section>
+      <section id="Live">
+        <h3>Patient 3654</h3>
+        <canvas id="myChart"></canvas>
+      </section>
+      <section id="UpcomingAppointments">
+       
+      </section>
+      <section id="Newsfeed">
+      </section>
+    </section>
+  </section>
+  <template id="appointmentTemplate">
+    <a id="Appointment" href="">
+    <h1 id="AppointmentName"></h1>
+    <h3 id="AppointmentReason"></h3>
+  </a>
+  </template>
+</body>
+<style>
+  
+</style>
+
+<script
+src="./Scripts/Chart.js">
+</script>
+<script src="./Scripts/LiveChart.js"></script>
+  <script>
+    const Appointments=document.getElementById('UpcomingAppointments')
+     appointment=document.getElementById('appointmentTemplate')
+    AppointmentsArray=['1','2',3,5]
+    let content=appointment.content.cloneNode(true)
+
+    fetch('http://127.0.0.1:5000/James/Appointments')
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data)
+      AppointmentsArray=data
+    })
+    .then(()=>{
+
+    for (let index = 0; index < AppointmentsArray.length; index++) {
+    content=appointment.content.cloneNode(true)
+
+      content.getElementById('AppointmentName').innerText=AppointmentsArray[index]
+      content.getElementById('AppointmentReason').innerText=AppointmentsArray[index]
+    Appointments.appendChild(content)
+      
+    }
+  }
+    )
+  </script>
+<script src="./Scripts/TineOfDayGreeting.js"></script>
 </html>

@@ -3,7 +3,8 @@ appointment = document.getElementById('appointmentTemplate')
 AppointmentsArray = []
 let content = appointment.content.cloneNode(true)
 function fetchAppointments(Doctor){
-fetch(`http://127.0.0.1:5000/${Doctor}/Appointments`)
+// fetch(`http://127.0.0.1:5000/${Doctor}/Appointments`)
+fetch(`http://127.0.0.1:5500/APITest/Appointments2.json`)
   .then((response) => response.json())
   .then((data) => {
     AppointmentsArray = data

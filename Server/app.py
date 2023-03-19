@@ -210,6 +210,10 @@ def Appointments(Doctor):
 def News():
  
     return json.dumps(NewsDB)
+@app.route('/News3')
+def News2():
+ 
+    return json.dumps(AppointmentDB)
 
 
 

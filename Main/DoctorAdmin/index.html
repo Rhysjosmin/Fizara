@@ -34,10 +34,10 @@
     <template id="Page1">
     <section id="grid">
       <section id="Greeting">
-        <h1><span id="TimeOfDay">Good Morning</span> <span id="DoctorName">Dr James</span> </h1>
+        <h1><span id="TimeOfDay"></span> <span id="DoctorName"></span> </h1>
       </section>
       <section id="Live">
-        <h3>Patient 3654</h3>
+        <h3></h3>
         <canvas id="myChart"></canvas>
       </section>
       <section id="UpcomingAppointmentsCont">
@@ -55,29 +55,7 @@
     </section>
   </template>
 
-  <template id="Page2">
-    <section id="grid">
-      <section id="Greeting">
-        <h1><span id="TimeOfDay">Good Morning</span> <span id="DoctorName">Dr James</span> </h1>
-      </section>
-      <section id="Live">
-        <h3>Patient 43234234</h3>
-        <canvas id="myChart"></canvas>
-      </section>
-      <section id="UpcomingAppointmentsCont">
-        <h1 style="position: fixed;color: rgb(0, 0, 0);background: #ffffff;width: inherit;padding: 3px;">Appointments</h1>
-        <section id="UpcomingAppointments" style="padding-top: 2.1em;">
-
-        </section>
-      </section>
-      <section id="NewsfeedCont">
-        <h1 style="position: fixed;color: rgb(0, 0, 0);background: #ffffff;width: inherit;padding: 3px;">Newsfeed</h1>
-        <div id="Newsfeed" style="padding-top: 2.1em;">
-
-        </div>
-      </section>
-    </section>
-  </template>
+ 
   <template id="appointmentTemplate">
     <a id="Appointment" href="">
       <div class="P-D1">
@@ -107,9 +85,12 @@
 <style>
 
 </style>
+<script src="../../Config.js"></script>
 <script>
-  const DOCTOR='James'
-    const page1=document.getElementById('Page1').content.cloneNode(true)
+  let DOCTOR=''
+  
+  
+  const page1=document.getElementById('Page1').content.cloneNode(true)
   const destination=document.getElementById('rside')
   destination.appendChild(page1)
 
@@ -120,24 +101,21 @@
 <script src="./Scripts/fetchNews.js"></script>
 <script src="./Scripts/TineOfDayGreeting.js"></script>
 <script>
-  function main(){
-  ToD()
-  fetchAppointments(DOCTOR)
-  fetchNews()
-  StartChart()
+  async function main(){
+    fetch(`${SERVER_URL}/CurrentUser`)
+  .then((response) => response.json())
+    .then((data) => {
+      DOCTOR=data
+    document.getElementById('DoctorName').innerText='Dr. '+data;
+    ToD()
+    fetchAppointments(DOCTOR)
+    fetchNews()
+    StartChart()
+    console.log(DOCTOR)
+    })
+
 }
 main()
 </script>
-<script>
-//   destination.appendChild(page1)
 
-// function PastPatients(){
-// // destination.innerHTML=''
-//   const page2=document.getElementById('Page2').content.cloneNode(true)
-//   destination.replaceChildren(page2)
-//   main()
-
-// }
-
-</script>
 </html>

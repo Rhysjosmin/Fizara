@@ -1,5 +1,7 @@
 from flask import Flask, request
 import json
+import random
+from requests import get
 from flask_cors import CORS
 Doctor = ''
 USER=''
@@ -134,7 +136,12 @@ NewsDB = {
     },
 }
 UserDatabase = 'UserDB.json'
-
+Reason=[
+    'Checkup',
+    'X-Ray',
+    'Blood Test',
+    'Ultrasound'
+]
 
 def ReadDB():
 
@@ -159,6 +166,8 @@ CORS(app)
 @app.route('/Signup/<name>/<email>/<password>', methods=['GET'])
 @app.route('/Signup/<name>/<email>/<password>/<DocID>', methods=['GET'])
 def Signup(name, email, password, DocID=None):
+    global AppointmentDB
+    
     d = ReadDB()
     name = name.replace(' ', '').lower()
     email = email.replace(' ', '').lower()
@@ -172,6 +181,7 @@ def Signup(name, email, password, DocID=None):
                 'DocID':DocID
 
             }
+          
         else:
             d[name] = {
                 'email': email,
@@ -199,7 +209,7 @@ def login(name, email, password):
     # print(f'Email:{email}')
     # print('Called')
     try:
- 
+
         if d[name]['password'] == password and d[name]['email'] == email:
             print('Present')
             try:
@@ -217,25 +227,31 @@ def login(name, email, password):
 
         return json.dumps('Not')
 
-@app.route('/test/userbase')
-def testUB():
-    d = ReadDB()
-    return json.dumps(d)
+# @app.route('/test/userbase')
+# def testUB():
+#     d = ReadDB()
+#     return json.dumps(d)
     
 
 
 @app.route('/CurrentUser/<User>')
-def CurrentUser(User):
+def SetCurrentUser(User):
     global USER
     USER=User
-    
+    return User
+
+@app.route('/CurrentUser')
+def CurrentUser():
+    global USER
+    return json.dumps(USER)
+
 @app.route('/<Doctor>/Appointments')
 def Appointments(Doctor):
     if Doctor in AppointmentDB:
         return json.dumps(AppointmentDB[Doctor])
     else:
-        NotPresent = {'Present': 'False'}
-        return json.dumps(NotPresent)
+        # NotPresent = {'Present': 'False'}
+        return json.dumps(AppointmentDB['John'])
 
 
 @app.route('/News')
@@ -251,4 +267,4 @@ def News2():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0')

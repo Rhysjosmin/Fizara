@@ -1,106 +1,107 @@
-from flask import Flask,request
+from flask import Flask, request
 import json
 from flask_cors import CORS
-Doctor=''
-d={}
-AppointmentDB={
-    'James':{
-        'Mary':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Anya':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Penelope':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Adriana':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Emily':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Jane':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Ava':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Megan':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Irene':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-       
+Doctor = ''
+USER=''
+d = {}
+AppointmentDB = {
+    'James': {
+        'Mary': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Anya': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Penelope': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Adriana': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Emily': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Jane': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Ava': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Megan': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Irene': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+
     },
-    'John':{
-        'Mary':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Anya':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Penelope':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Adriana':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Emily':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Jane':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Ava':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Megan':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-        'Irene':{
-            'Reason':'Checkup',
-            'Date':'12/3/23',
-            'Time':'15:00'
-            },
-       
+    'John': {
+        'Mary': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Anya': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Penelope': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Adriana': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Emily': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Jane': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Ava': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Megan': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Irene': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+
     },
- 
+
 }
 NewsDB = {
     'In Conversation: Is the ketogenic diet right for autoimmune conditions?': {
@@ -132,91 +133,122 @@ NewsDB = {
         'link': 'https://www.bbc.com/news/science-environment-61654780'
     },
 }
-UserDatabase='UserDB.json'
+UserDatabase = 'UserDB.json'
+
+
 def ReadDB():
 
     try:
-        f = open (UserDatabase, "r")
-        d= json.loads(f.read())
+        f = open(UserDatabase, "r")
+        d = json.loads(f.read())
         f.close()
     except:
-        f = open (UserDatabase, "w")
+        f = open(UserDatabase, "w")
         f.write('{}')
         f.close()
-        f = open (UserDatabase, "r")
-        d= json.loads(f.read())
+        f = open(UserDatabase, "r")
+        d = json.loads(f.read())
         f.close()
     return d
-        
 
 
-app=Flask(__name__)
+app = Flask(__name__)
 CORS(app)
-    # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+# fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
 
-@app.route('/Signup/<name>/<email>/<password>' ,methods=['GET'])
-def Signup(name,email,password):
-    d=ReadDB()
-    name=name.replace(' ', '').lower()
-    email=email.replace(' ', '').lower()
+@app.route('/Signup/<name>/<email>/<password>', methods=['GET'])
+@app.route('/Signup/<name>/<email>/<password>/<DocID>', methods=['GET'])
+def Signup(name, email, password, DocID=None):
+    d = ReadDB()
+    name = name.replace(' ', '').lower()
+    email = email.replace(' ', '').lower()
     if name not in d:
         print('Saved')
-        d[name]={
+        if(DocID):
+            d[name] = {
+
+                'email': email,
+                'password': password,
+                'DocID':DocID
+
+            }
+        else:
+            d[name] = {
+                'email': email,
+                'password': password,
+            }
             
-            'email':email,
-            'password':password,
-            
-        }
         with open(UserDatabase, 'w') as f:
             json.dump(d, f)
-        return json.dumps("Signed Up")
+            if(DocID):
+                return json.dumps("Signed Up Doctor")
+            else:
+                return json.dumps("Signed Up User")
     else:
         print('Already Present')
-        
+
         return json.dumps("User Already Present")
 
+
 @app.route('/Login/<name>/<email>/<password>')
-def login(name,email,password):
-    d=ReadDB()
-    print(f'Email:{email}')
-    name=name.replace(' ', '').lower()
-    email=email.replace(' ', '').lower()
-    print(f'Email:{email}')
-    print('Called')
+def login(name, email, password):
+    d = ReadDB()
+    # print(f'Email:{email}')
+    name = name.replace(' ', '').lower()
+    email = email.replace(' ', '').lower()
+    # print(f'Email:{email}')
+    # print('Called')
     try:
-        if d[name]['password']==password and d[name]['email']==email:
+ 
+        if d[name]['password'] == password and d[name]['email'] == email:
             print('Present')
-            return json.dumps('Present')
-        
+            try:
+                if(d[name]['DocID']):
+                    return json.dumps('Doctor')
+            except:
+                return json.dumps('User')
+
         else:
             print('Wrong Password')
-            
+
             return json.dumps('Not')
     except:
-            print('not Present')
-        
-            return json.dumps('Not')
-        
-        
-        
+        print('not Present')
+
+        return json.dumps('Not')
+
+@app.route('/test/userbase')
+def testUB():
+    d = ReadDB()
+    return json.dumps(d)
+    
+
+
+@app.route('/CurrentUser/<User>')
+def CurrentUser(User):
+    global USER
+    USER=User
+    
 @app.route('/<Doctor>/Appointments')
 def Appointments(Doctor):
     if Doctor in AppointmentDB:
         return json.dumps(AppointmentDB[Doctor])
     else:
-        NotPresent={'Present':'False'}
+        NotPresent = {'Present': 'False'}
         return json.dumps(NotPresent)
-    
+
+
 @app.route('/News')
 def News():
- 
+
     return json.dumps(NewsDB)
+
+
 @app.route('/News3')
 def News2():
- 
+
     return json.dumps(AppointmentDB)
 
 
-
-if __name__=='__main__':
-    app.run(host='0.0.0.0')
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',debug=True)

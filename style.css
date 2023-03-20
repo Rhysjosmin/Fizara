@@ -88,7 +88,8 @@ p {
   outline: 2px solid black;
   border-radius: 50px;
   margin-top: 3em;
-  height: 30rem;
+  margin-bottom: 5em;
+  height: 35rem;
   width: 28rem;
   background: rgb(255, 255, 255);
   box-shadow: 10px 10px black;

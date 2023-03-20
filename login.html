@@ -23,7 +23,7 @@
             <menu id="menu">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./signup.html">Signup</a></li>
-            <li><a href="">Login</a></li>
+            <li><a href="" style="color: white;">Login</a></li>
         </menu>
     </nav>
 <center>
@@ -38,6 +38,8 @@
          <input type="email" name="email" id="email" placeholder="Email ID">
         <input type="password" name="password" id="password" placeholder="Password">   
         </div>
+        <span id="UserState" style="color: red;"></span>
+
         <button id="Submit" onclick="login()">Login</button>
 
     </div>
@@ -45,18 +47,25 @@
     </div>
 </center>
 </body>
+<script src="./Config.js"></script>
 <script src="./navBarOpen.js"></script>
 <script>
 
     function login(){
         let resp=''
-    fetch(`http://127.0.0.1:5000/Login/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+    fetch(`${SERVER_URL}/Login/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
     .then((response) => response.json())
     .then((data) => {
         resp=data
         console.log(data)
-        if(resp=='Present'){
+        if(resp=='Doctor'){
         window.location.href='/Main/DoctorAdmin/index.html'
+    }else if(resp=='User'){
+        window.location.href='/Main/User/index.html'
+    }
+    
+    else{
+        document.getElementById('UserState').innerText='Username or Password Incorrect'
     }
     });
    

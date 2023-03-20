@@ -1,1 +1,8 @@
-{"rhys": {"email": "rod.r@gmial.com", "password": "yh9d@NRcUJWeuE"}, "rhys23": {"email": "rhys123@gmail.com", "password": "yh9d@NRcUJWeuE"}, "rhys434": {"email": "rhys123@gmail.com", "password": "yh9d@NRcUJWeuE"}}
+{
+  "admin": { "email": "admin@email.com", "password": "1234" },
+  "john": {
+    "email": "johndoc@doc.com",
+    "password": "1234",
+    "DocID": "12466"
+  }
+}

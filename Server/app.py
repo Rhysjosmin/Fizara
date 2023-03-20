@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json
 import random
-from requests import get
+
 from flask_cors import CORS
 Doctor = ''
 USER=''

@@ -176,7 +176,7 @@ def Signup(name,email,password):
         return json.dumps("User Already Present")
 
 @app.route('/Login/<name>/<email>/<password>')
-def login(name,email,password,DocID):
+def login(name,email,password):
     d=ReadDB()
     print(f'Email:{email}')
     name=name.replace(' ', '').lower()

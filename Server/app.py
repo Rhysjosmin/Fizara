@@ -1,6 +1,7 @@
 from flask import Flask,request
 import json
 from flask_cors import CORS
+Doctor=''
 d={}
 AppointmentDB={
     'James':{
@@ -175,7 +176,7 @@ def Signup(name,email,password):
         return json.dumps("User Already Present")
 
 @app.route('/Login/<name>/<email>/<password>')
-def login(name,email,password):
+def login(name,email,password,DocID):
     d=ReadDB()
     print(f'Email:{email}')
     name=name.replace(' ', '').lower()

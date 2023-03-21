@@ -105,6 +105,41 @@ AppointmentDB = {
     },
 
 }
+
+TodoDB = {
+
+        'Mary': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin','Eat Food','Drink Water','Take Medicine'
+        ],
+        'Anya': [
+            'Dont Eat 5 Calories','Sleep 8 hours','2 Sets of 20 Pullups','Take Insulin'
+        ],
+        'Penelope': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
+        ],
+        'Adriana': [
+            'Eat 3 Calories','Sleep 5 hours','2 Sets of 10 pushups','Take Paracetamol At  AM','Take Insulin'
+        ],
+        'Emily': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
+        ],
+        'Jane': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
+        ],
+        'Ava': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
+        ],
+        'Megan': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
+        ],
+        'Irene': [
+            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
+        ],
+
+    
+
+}
+
 NewsDB = {
     'In Conversation: Is the ketogenic diet right for autoimmune conditions?': {
         'Body': 'The ketogenic diet is often labelled controversial due to its low carb, high fat nature. However, it is also touted as one of the best diets for weight loss, improving insulin sensitivity, and controlling seizures. But could this diet also have the potential to help inflammatory autoimmune conditions and reduce chronic pain?',
@@ -254,6 +289,12 @@ def Appointments(Doctor):
         # NotPresent = {'Present': 'False'}
         return json.dumps(AppointmentDB['John'])
 
+@app.route('/<User>/Todo')
+def Todo(User):
+    if User in TodoDB:
+        return json.dumps(TodoDB[User])
+    else:
+        return json.dumps(TodoDB['Mary'])
 
 @app.route('/News')
 def News():

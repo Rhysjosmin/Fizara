@@ -82,7 +82,7 @@ padding: 8px;
 
   overflow-y: scroll;
   overflow-x: hidden;
-  border: 5px solid #0e0e0e;
+  border: 2px solid #0e0e0e;
   &::-webkit-scrollbar{
     width: 2px;
     background: rgb(255, 255, 255);
@@ -100,7 +100,7 @@ padding: 8px;
     min-width: 20vh;
     // border-radius: 5px;
     
-    background: #0e0e0e;
+    // background: #0e0e0e;
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -112,7 +112,7 @@ padding: 8px;
   
     grid-area: Newsfeed;
     // border-radius: 5px;
-    border: 5px solid #0e0e0e;
+    border: 2px solid #0e0e0e;
     &::-webkit-scrollbar{
       width: 2px;
       background: rgb(255, 255, 255);
@@ -125,7 +125,7 @@ padding: 8px;
   #Newsfeed {
     
 
-    background: #0e0e0e;
+    // background: #0e0e0e;
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -138,6 +138,7 @@ padding: 8px;
     justify-content: space-between;
     text-decoration: none;
     color: #0e0e0e;
+    border-bottom: 1px solid black;
     background: rgb(255, 255, 255);
     padding: 5px;
     h1{
@@ -155,6 +156,7 @@ padding: 8px;
     }
   }
   #News{
+    border-bottom: 1px solid black;
     display: block;
     // height: 50vw;
     text-decoration: none;

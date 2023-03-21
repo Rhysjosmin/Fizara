@@ -4,74 +4,85 @@
 <head>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="stylesheet" href="../Styles/style.css" />
-
+  <link rel="stylesheet" href="../Styles/UserStyle.css" />
 </head>
 
 <body>
   <aside>
     <ul>
-      <li><a href="../../index.html">
+      <li>
+        <a href="../../index.html">
           <h1>Home</h1>
-        </a></li>
+        </a>
+      </li>
       <li><a href="">Dashboard</a></li>
       <li><a href="">Make an Appointment</a></li>
       <!-- <li><a onclick="PastPatients()">Past Patients</a></li> -->
     </ul>
   </aside>
-  <section id="rside">
-
-  </section>
-    <template id="Page1">
+  <section id="rside"></section>
+  <template id="Page1">
     <section id="grid">
       <section id="Greeting">
-        <h1><span id="TimeOfDay"></span> <span id="Username"></span> </h1>
+        <h1><span id="TimeOfDay"></span> <span id="Username"></span></h1>
       </section>
-      <section id="Live">
-        <h3></h3>
-        <canvas id="myChart"></canvas>
+      <section id="Feedback">
+        <span>How Are You Feeling Today?</span>
+        <br>
+        <span style="user-select: none;">
+          <span class="material-symbols-outlined" data-value="0">star</span>
+          <span class="material-symbols-outlined" data-value="1">star</span>
+          <span class="material-symbols-outlined" data-value="2">star</span>
+          <span class="material-symbols-outlined" data-value="3">star</span>
+          <span class="material-symbols-outlined" data-value="4">star</span>
+        </span>
       </section>
+      <section id="TodoArea">
+        <ul id="TodoList"></ul>
+      </section>
+
+      <section id="News"></section>
     </section>
   </template>
 
 </body>
 
-<script src="../../Config.js"></script>
+<script src="../../Scripts/Config.js"></script>
+<script src="../../Scripts/Alert.js"></script>
 <script>
-  let USER=''
-  
-  
-  const page1=document.getElementById('Page1').content.cloneNode(true)
-  const destination=document.getElementById('rside')
-  destination.appendChild(page1)
+  setTimeout(() => {
+    alert2('Close Todo', 'Double Click Todo to close')
+  }, 10)
+  let USER = "";
+  const page1 = document.getElementById("Page1").content.cloneNode(true);
+  const destination = document.getElementById("rside")
+
+  destination.appendChild(page1);
+
 
 </script>
 <script src="../Scripts/geturlparam.js"></script>
+<script src="../Scripts/fetchTodo.js"></script>
 <script src="../Scripts/TineOfDayGreeting.js"></script>
 <script>
-  function main(){
-   
-      USER=GetUrlParam('User')
-      document.getElementById('Username').innerText=USER +' !'
-      ToD()
-      fetchAppointments(USER)
-      fetchNews()
-      StartChart()
-  
-
-}
-main()
+  function main() {
+    USER = GetUrlParam("User");
+    document.getElementById("Username").innerText = USER + " !";
+    FetchTodo(USER)
+    ToD();
+  }
+  main();
 </script>
 
 </html>

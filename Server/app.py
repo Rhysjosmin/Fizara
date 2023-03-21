@@ -4,7 +4,7 @@ import random
 
 from flask_cors import CORS
 Doctor = ''
-USER=''
+USER = ''
 d = {}
 AppointmentDB = {
     'James': {
@@ -56,37 +56,37 @@ AppointmentDB = {
 
     },
     'John': {
-        'Mary': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Anya': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Penelope': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
         'Adriana': {
             'Reason': 'Checkup',
             'Date': '12/3/23',
             'Time': '15:00'
         },
-        'Emily': {
+        'Molly': {
             'Reason': 'Checkup',
             'Date': '12/3/23',
             'Time': '15:00'
         },
-        'Jane': {
+        'Polly': {
             'Reason': 'Checkup',
             'Date': '12/3/23',
             'Time': '15:00'
         },
-        'Ava': {
+        'Elly': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Blunt': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Eyre': {
+            'Reason': 'Checkup',
+            'Date': '12/3/23',
+            'Time': '15:00'
+        },
+        'Johnson': {
             'Reason': 'Checkup',
             'Date': '12/3/23',
             'Time': '15:00'
@@ -96,7 +96,7 @@ AppointmentDB = {
             'Date': '12/3/23',
             'Time': '15:00'
         },
-        'Irene': {
+        'Blake': {
             'Reason': 'Checkup',
             'Date': '12/3/23',
             'Time': '15:00'
@@ -136,12 +136,13 @@ NewsDB = {
     },
 }
 UserDatabase = 'UserDB.json'
-Reason=[
+Reason = [
     'Checkup',
     'X-Ray',
     'Blood Test',
     'Ultrasound'
 ]
+
 
 def ReadDB():
 
@@ -163,34 +164,35 @@ app = Flask(__name__)
 CORS(app)
 # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
 
+
 @app.route('/Signup/<name>/<email>/<password>', methods=['GET'])
 @app.route('/Signup/<name>/<email>/<password>/<DocID>', methods=['GET'])
 def Signup(name, email, password, DocID=None):
     global AppointmentDB
-    
+
     d = ReadDB()
     name = name.replace(' ', '').lower()
     email = email.replace(' ', '').lower()
     if name not in d:
         print('Saved')
-        if(DocID):
+        if (DocID):
             d[name] = {
 
                 'email': email,
                 'password': password,
-                'DocID':DocID
+                'DocID': DocID
 
             }
-          
+
         else:
             d[name] = {
                 'email': email,
                 'password': password,
             }
-            
+
         with open(UserDatabase, 'w') as f:
             json.dump(d, f)
-            if(DocID):
+            if (DocID):
                 return json.dumps("Signed Up Doctor")
             else:
                 return json.dumps("Signed Up User")
@@ -213,7 +215,7 @@ def login(name, email, password):
         if d[name]['password'] == password and d[name]['email'] == email:
             print('Present')
             try:
-                if(d[name]['DocID']):
+                if (d[name]['DocID']):
                     return json.dumps('Doctor')
             except:
                 return json.dumps('User')
@@ -231,19 +233,18 @@ def login(name, email, password):
 # def testUB():
 #     d = ReadDB()
 #     return json.dumps(d)
-    
 
 
-@app.route('/CurrentUser/<User>')
-def SetCurrentUser(User):
-    global USER
-    USER=User
-    return User
+# @app.route('/CurrentUser/<User>')
+# def SetCurrentUser(User):
+#     global USER
+#     USER=User
+#     return User
 
-@app.route('/CurrentUser')
-def CurrentUser():
-    global USER
-    return json.dumps(USER)
+# @app.route('/CurrentUser')
+# def CurrentUser():
+#     global USER
+#     return json.dumps(USER)
 
 @app.route('/<Doctor>/Appointments')
 def Appointments(Doctor):
@@ -267,4 +268,4 @@ def News2():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)

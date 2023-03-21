@@ -15,7 +15,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../Styles/style.css" />
 </head>
 
 <body>
@@ -85,7 +85,7 @@
 <style>
 
 </style>
-<script src="../../Config.js"></script>
+<script src="../../Scripts/Config.js"></script>
 <script>
   let DOCTOR=''
   
@@ -95,24 +95,24 @@
   destination.appendChild(page1)
 
 </script>
-<script src="./Scripts/Chart.js"></script>
-<script src="./Scripts/LiveChart.js"></script>
-<script src="./Scripts/fetchAppointments.js"></script>
-<script src="./Scripts/fetchNews.js"></script>
-<script src="./Scripts/TineOfDayGreeting.js"></script>
+<script src="../Scripts/Chart.js"></script>
+<script src="../Scripts/LiveChart.js"></script>
+<script src="../Scripts/fetchAppointments.js"></script>
+<script src="../Scripts/fetchNews.js"></script>
+<script src="../Scripts/TineOfDayGreeting.js"></script>
+<script src="../Scripts/geturlparam.js"></script>
 <script>
   async function main(){
-    fetch(`${SERVER_URL}/CurrentUser`)
-  .then((response) => response.json())
-    .then((data) => {
-      DOCTOR=data
-    document.getElementById('DoctorName').innerText='Dr. '+data;
-    ToD()
-    fetchAppointments(DOCTOR)
-    fetchNews()
-    StartChart()
-    console.log(DOCTOR)
-    })
+    // fetch(`${SERVER_URL}/CurrentUser`)
+
+
+      DOCTOR=GetUrlParam('User')
+      document.getElementById('DoctorName').innerText='Dr. '+DOCTOR+' !';
+      ToD()
+      fetchAppointments(DOCTOR)
+      fetchNews()
+      StartChart()
+
 
 }
 main()

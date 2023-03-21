@@ -2,7 +2,7 @@ const Newsfeed = document.getElementById("Newsfeed");
 NewsfeedTemplate = document.getElementById("NewsTemplate");
 let Newscontent = NewsfeedTemplate.content.cloneNode(true);
 function fetchNews(){
-fetch("http://127.0.0.1:5000/News")
+fetch(`${SERVER_URL}/News`)
 // fetch("http://127.0.0.1:5500/APITest/News.json")
   .then((response) => response.json())
   .then((data) => {

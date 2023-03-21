@@ -47,8 +47,8 @@
     </div>
 </center>
 </body>
-<script src="./Config.js"></script>
-<script src="./navBarOpen.js"></script>
+<script src="./Scripts/Config.js"></script>
+<script src="./Scripts/navBarOpen.js"></script>
 <script>
 
     function login(){
@@ -59,10 +59,11 @@
         resp=data
         console.log(data)
         if(resp=='Doctor'){
-            fetch(`${SERVER_URL}/CurrentUser/${document.getElementById('name').value}`)
-        window.location.href='/Main/DoctorAdmin/index.html'
+            
+            // fetch(`${SERVER_URL}/CurrentUser/${document.getElementById('name').value}`)
+        window.location.href=`/Main/DoctorAdmin/index.html?User=${document.getElementById('name').value}`
     }else if(resp=='User'){
-        window.location.href='/Main/User/index.html'
+        window.location.href=`/Main/User/index.html?User=${document.getElementById('name').value}`
     }
     
     else{

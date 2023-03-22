@@ -4,7 +4,7 @@ function FetchTodo(USER){
     .then((data) => {
         // console.log(data.length)
         for (let index = 0; index < data.length; index++) {
-
+            
             let todo =document.getElementById('TodoList')
             let listItem=document.createElement('li')
             listItem.textContent=data[index]

@@ -102,13 +102,21 @@ aside li a:hover {
 }
 
 .material-symbols-outlined {
+  font-size: 2em;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  transition: 0.1s;
 }
 .material-symbols-outlined:hover {
+  scale: 1.4;
+}
+
+.activeStar {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
-  color: rgb(148, 148, 0);
+  background: linear-gradient(to left bottom, #000000, rgb(209, 209, 0), #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }/*# sourceMappingURL=UserStyle.css.map */

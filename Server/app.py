@@ -199,7 +199,6 @@ def Todo(User):
 
 @app.route('/News')
 def News():
-
     return json.dumps(NewsDB)
 
 @app.route('/Doctors')
@@ -227,6 +226,10 @@ def MakeAppointment():
 
     return 'Message sent successfully!'
 
+@app.route('/ClearAllAppointments/<Doc>')
+def ClearAppointments(Doc):
+    AppointmentDB[Doc]={}
+    return '0'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

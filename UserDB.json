@@ -1,1 +1,4 @@
-{"admin": {"email": "admin@email.com", "password": "1234"}, "john": {"email": "johndoc@doc.com", "password": "1234", "DocID": "12345"}, "uriah": {"email": "rod.rhys20031@gmail.com", "password": "123", "DocID": "1234"}, "e": {"email": "e", "password": "e", "DocID": "e"}, "rhys": {"email": "rod.rhys20031@gmail.com", "password": "ds", "DocID": "sds"}, "rhysw": {"email": "ewe", "password": "wew", "DocID": "wew"}, "4334": {"email": "545", "password": "453245", "DocID": "356364"}, "key": {"email": "keyabba@urmad.com", "password": "1234", "DocID": "5305"}, "key1": {"email": "admin@email.com", "password": "1234"}, "rhys12": {"email": "rod.rhys20031@gmail.com", "password": "1234"}}
+{
+  "user": { "email": "user@email.com", "password": "1234" },
+  "john": { "email": "johndoc@doc.com", "password": "1234", "DocID": "12345" }
+}

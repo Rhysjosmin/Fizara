@@ -31,7 +31,7 @@
           </a>
         </li>
         <li><a href="">Dashboard</a></li>
-        <li><a href="./Appointment.html">Make an Appointment</a></li>
+        <li><a  id="MakeAppointmentLink">Make an Appointment</a></li>
         <!-- <li><a onclick="PastPatients()">Past Patients</a></li> -->
       </ul>
     </aside>
@@ -133,5 +133,10 @@
       ToD();
     }
     main();
+  </script>
+  <script>
+    const MakeAppointmentLink =document.getElementById('MakeAppointmentLink')
+    MakeAppointmentLink.href="./Appointment.html?User="+USER
+    // href=
   </script>
 </html>

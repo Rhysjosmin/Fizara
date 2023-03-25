@@ -8,8 +8,13 @@ function FetchTodo(USER){
             let todo =document.getElementById('TodoList')
             let listItem=document.createElement('li')
             listItem.textContent=data[index]
+            listItem.addEventListener('click',()=>closeTodo(this))
             todo.appendChild(listItem)
         }
     })
 
+}
+function closeTodo(e){
+// alert(e)
+console.log(e)
 }

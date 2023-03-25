@@ -1,12 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Styles/Appointments.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
+    <aside>
+      <ul>
+        <li>
+          <a href="../../index.html">
+            <h1>Home</h1>
+          </a>
+        </li>
+        <li><a id="DashboardLink">Dashboard</a></li>
+        <li><a href="">Make an Appointment</a></li>
+      </ul>
+    </aside>
+    <section id="rside"></section>
+    <template id="Page1">
+      <h1>Make An Appointment</h1>
+      <h4>Describe Your Issue</h4>
+
+      <textarea
+        name="DescribedIssue"
+        id="DescribedIssue"
+        cols="40"
+        rows="10"
+      ></textarea>
+      <h4>Choose The Doctor</h4>
+      <div id="DoctorTags" style="user-select: none;">
+        <!-- <span class="DoctorTag" onclick="setDocTag(this)">John</span>
+        <span class="DoctorTag" onclick="setDocTag(this)">James</span> -->
+      </div>
+      <button onclick="MakeAppointment_Outer()">Place Appointment</button>
+    </template>
+  </body>
+
+  <script src="../../Scripts/Config.js"></script>
+  <script src="../../Scripts/Alert.js"></script>
+  <script>
+    let USER = "";
+    const page1 = document.getElementById("Page1").content.cloneNode(true);
+    const destination = document.getElementById("rside");
+
+    destination.appendChild(page1);
+  </script>
+  <script>
+    const DoctorTagsDiv =document.getElementById('DoctorTags')
     
-</body>
+    fetch(`${SERVER_URL}/Doctors`)
+    .then((Response)=>Response.json())
+    .then((Data)=>{
+      Data.forEach(element => {
+        console.log(element)
+        let Tag=document.createElement('span')
+        // Tag.onclick=setDocTag(this)
+        Tag.addEventListener('click',setDocTag,false)
+        Tag.classList.add('DoctorTag')
+        Tag.innerText=element
+        DoctorTagsDiv.appendChild(Tag)
+      });
+    })
+  </script>
+  <script src="../Scripts/geturlparam.js"></script>
+  <script>
+    let SelectedDoctor = "";
+    const DoctorTags = document.getElementById("DoctorTags").children;
+    function setDocTag() {
+
+      for (let index = 0; index < DoctorTags.length; index++) {
+        DoctorTags[index].classList.remove("activeDoctor");
+      }
+      console.log(this)
+      this.classList.add("activeDoctor");
+      SelectedDoctor = this.innerText;
+    }
+  </script>
+  <script src="../Scripts/MakeAppointment.js"></script>
+
+  <script>
+    function main() {
+      USER = GetUrlParam("User");
+    }
+    main();
+  </script>
+    <script>
+      const DashboardLink =document.getElementById('DashboardLink')
+      DashboardLink.href="./index.html?User="+USER
+      // href=
+    </script>
+    <script>
+      async function MakeAppointment_Outer(){
+        if(document.getElementById('DescribedIssue').innerText.replace(' ','')!='' && SelectedDoctor.replace(' ','')!=''){
+          MakeAppointment()
+        window.location.replace("./index.html?User="+USER) 
+        }
+      else{
+        alert2('Incomplete Form','Please Check If You Have Filled the form Completely' )
+      }
+       
+      }
+    </script>
 </html>

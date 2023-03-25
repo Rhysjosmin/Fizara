@@ -13,6 +13,14 @@ body {
   --accent2: rgb(22, 37, 252);
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0e0e0e;
+}
+
 aside {
   background: #0e0e0e;
   padding-top: 1em;

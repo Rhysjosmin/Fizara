@@ -10,6 +10,12 @@ body {
   --accent: rgb(50, 115, 255);
   --accent2: rgb(22, 37, 252);
 }
+::-webkit-scrollbar{
+  width: 3px;
+}
+::-webkit-scrollbar-thumb{
+  background: #0e0e0e;
+}
 aside {
   background: #0e0e0e;
   padding-top: 1em;
@@ -65,69 +71,59 @@ aside {
   grid-area: Greeting;
 }
 
+#TodoArea {
+  outline: 2px solid black;
+  grid-area: Todo;
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  max-height: 30rem;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 2px;
+    background: rgb(255, 255, 255);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0e0e0e;
+  }
 
-  #TodoArea {
-    outline: 2px solid black;
-    grid-area: Todo;
-    min-width: 20rem;
+  ul {
+    // background: #0e0e0e;
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    max-height: 30rem;
-    overflow-y: scroll;
-    &::-webkit-scrollbar{
-      width: 2px;
-      background: rgb(255, 255, 255);
+    gap: 4px;
+    padding: 2px;
   }
-  &::-webkit-scrollbar-thumb{
-      background: #0e0e0e;
-    
-  }
-  
-    ul{
-      // background: #0e0e0e;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 2px;
-    }
-    li{
-      cursor: pointer;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.637);
-      min-height: 2.3em;
-      list-style: none;
-      padding: 5px;
-      background: rgb(255, 255, 255);
-      color: #000000;
-      transition: .2s;
-      &:hover{
-        background: var(--accent);
-      }
-    }
-
-  }
-
-  .material-symbols-outlined {
-    font-size: 2em;
+  li {
     cursor: pointer;
-    user-select: none;
-    font-variation-settings:
-      'FILL' 0,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 48;
-      transition: .1s;
-    &:hover{
-      scale: 1.4;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.637);
+    min-height: 2.3em;
+    list-style: none;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+    color: #000000;
+    transition: 0.2s;
+    &:hover {
+      background: var(--accent);
     }
   }
-  .activeStar{
-    font-variation-settings:
-      'FILL' 1,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 48;
-      background: linear-gradient(to left bottom,#000000,rgb(209, 209, 0), #333);
+}
+
+.material-symbols-outlined {
+  font-size: 2em;
+  cursor: pointer;
+  user-select: none;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  transition: 0.1s;
+  &:hover {
+    scale: 1.4;
+  }
+}
+.activeStar {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  background: linear-gradient(to left bottom, #000000, rgb(209, 209, 0), #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  }
+}
+

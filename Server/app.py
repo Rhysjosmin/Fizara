@@ -8,99 +8,11 @@ USER = ''
 d = {}
 AppointmentDB = {
     'James': {
-        'Mary': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Anya': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Penelope': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Adriana': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Emily': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Jane': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Ava': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Megan': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Irene': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
+
 
     },
     'John': {
-        'Adriana': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Molly': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Polly': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Elly': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Blunt': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Eyre': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Johnson': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Megan': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
-        'Blake': {
-            'Reason': 'Checkup',
-            'Date': '12/3/23',
-            'Time': '15:00'
-        },
+
 
     },
 
@@ -108,37 +20,39 @@ AppointmentDB = {
 
 TodoDB = {
 
-        'Mary': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin','Eat Food','Drink Water','Take Medicine'
-        ],
-        'Anya': [
-            'Dont Eat 5 Calories','Sleep 8 hours','2 Sets of 20 Pullups','Take Insulin'
-        ],
-        'Penelope': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
-        ],
-        'Adriana': [
-            'Eat 3 Calories','Sleep 5 hours','2 Sets of 10 pushups','Take Paracetamol At  AM','Take Insulin'
-        ],
-        'Emily': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
-        ],
-        'Jane': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
-        ],
-        'Ava': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
-        ],
-        'Megan': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
-        ],
-        'Irene': [
-            'Eat 5 Calories','Sleep 8 hours','2 Sets of 10 pushups','Take Paracetamol At 8 AM','Take Insulin'
-        ],
+    'Mary': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin', 'Eat Food', 'Drink Water', 'Take Medicine'
+    ],
+    'Anya': [
+        'Dont Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 20 Pullups', 'Take Insulin'
+    ],
+    'Penelope': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+    ],
+    'Adriana': [
+        'Eat 3 Calories', 'Sleep 5 hours', '2 Sets of 10 pushups', 'Take Paracetamol At  AM', 'Take Insulin'
+    ],
+    'Emily': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+    ],
+    'Jane': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+    ],
+    'Ava': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+    ],
+    'Megan': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+    ],
+    'Irene': [
+        'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+    ],
 
-    
+
 
 }
+
+Ratings = {}
 
 NewsDB = {
     'In Conversation: Is the ketogenic diet right for autoimmune conditions?': {
@@ -264,22 +178,7 @@ def login(name, email, password):
 
         return json.dumps('Not')
 
-# @app.route('/test/userbase')
-# def testUB():
-#     d = ReadDB()
-#     return json.dumps(d)
 
-
-# @app.route('/CurrentUser/<User>')
-# def SetCurrentUser(User):
-#     global USER
-#     USER=User
-#     return User
-
-# @app.route('/CurrentUser')
-# def CurrentUser():
-#     global USER
-#     return json.dumps(USER)
 
 @app.route('/<Doctor>/Appointments')
 def Appointments(Doctor):
@@ -289,6 +188,7 @@ def Appointments(Doctor):
         # NotPresent = {'Present': 'False'}
         return json.dumps(AppointmentDB['John'])
 
+
 @app.route('/<User>/Todo')
 def Todo(User):
     if User in TodoDB:
@@ -296,17 +196,37 @@ def Todo(User):
     else:
         return json.dumps(TodoDB['Mary'])
 
+
 @app.route('/News')
 def News():
 
     return json.dumps(NewsDB)
 
+@app.route('/Doctors')
+def Doctors():
+    return json.dumps(list(AppointmentDB.keys()))
 
-@app.route('/News3')
-def News2():
+@app.route('/SetRating/<User>/<value>')
+def SetRate(User, value):
+    # print(AppointmentDB[User])
+    Ratings[User] = value
+    print(Ratings)
+    return '0'
 
-    return json.dumps(AppointmentDB)
+
+@app.route('/MakeAppointment', methods=['GET', 'POST'])
+def MakeAppointment():
+    message = request.json.get('message')
+    doctor_name = request.json.get('doctor_name')
+    user_name = request.json.get('user_name')
+    AppointmentDB[doctor_name][user_name] = {'Reason': message,
+                                             'Date': '12/3/23',
+                                             'Time': '15:00'}
+    print(AppointmentDB[doctor_name])
+    # do something with message and doctor_name, e.g. send an email or store in a database
+
+    return 'Message sent successfully!'
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)

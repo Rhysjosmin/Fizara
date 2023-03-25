@@ -127,7 +127,10 @@ aside li a:hover {
   font-size: 1em;
 }
 #Appointment h3 {
+  padding-right: 10px;
+  width: 300px;
   font-size: 0.7em;
+  word-break: break-all;
 }
 #Appointment:hover {
   background: var(--accent);

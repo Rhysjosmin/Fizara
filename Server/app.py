@@ -8,12 +8,46 @@ USER = ''
 d = {}
 AppointmentDB = {
     'James': {
-
-
     },
     'John': {
-
-
+    },
+    'Jennifer': {
+    },
+    'Richard': {
+    },
+    'William': {
+    },
+    'Robert': {
+    },
+    'Michael': {
+    },
+    'David': {
+    },
+    'Stephen': {
+    },
+    'Jeffrey': {
+    },
+    'Charles': {
+    },
+    'Daniel': {
+    },
+    'Steven': {
+    },
+    'Paul': {
+    },
+    'Elizabeth': {
+    },
+    'Susan': {
+    },
+    'Mary': {
+    },
+    'Elizabeth': {
+    },
+    'Joseph': {
+    },
+    'Mark': {
+    },
+    'Thomas': {
     },
 
 }
@@ -179,7 +213,6 @@ def login(name, email, password):
         return json.dumps('Not')
 
 
-
 @app.route('/<Doctor>/Appointments')
 def Appointments(Doctor):
     if Doctor in AppointmentDB:
@@ -201,9 +234,11 @@ def Todo(User):
 def News():
     return json.dumps(NewsDB)
 
+
 @app.route('/Doctors')
 def Doctors():
     return json.dumps(list(AppointmentDB.keys()))
+
 
 @app.route('/SetRating/<User>/<value>')
 def SetRate(User, value):
@@ -226,10 +261,12 @@ def MakeAppointment():
 
     return 'Message sent successfully!'
 
+
 @app.route('/ClearAllAppointments/<Doc>')
 def ClearAppointments(Doc):
-    AppointmentDB[Doc]={}
+    AppointmentDB[Doc] = {}
     return '0'
 
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)

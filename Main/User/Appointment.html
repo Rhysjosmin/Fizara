@@ -18,7 +18,10 @@
         </a>
       </li>
       <li><a id="DashboardLink">Dashboard</a></li>
-      <li><a href="">Make an Appointment</a></li>
+      <li><a  id="">Book an Appointment</a></li>
+      <li><a  id="">Diseases</a></li>
+      <li><a  id="">Maternal Health Issues</a></li>
+      <li><a  id="">Mental Health Counselling</a></li>
     </ul>
   </aside>
   <section id="rside"></section>
@@ -32,7 +35,8 @@
       <!-- <span class="DoctorTag" onclick="setDocTag(this)">John</span>
         <span class="DoctorTag" onclick="setDocTag(this)">James</span> -->
     </div>
-    <button onclick="MakeAppointment_Outer()">Place Appointment</button>
+    <button onclick="MakeAppointment_Outer()">Book Appointment</button>
+    
   </template>
 </body>
 
@@ -52,11 +56,15 @@
     .then((Response) => Response.json())
     .then((Data) => {
       Data.forEach((element) => {
-        console.log(element);
+        // console.log(element);
         let Tag = document.createElement("span");
         // Tag.onclick=setDocTag(this)
+       
         Tag.addEventListener("click", setDocTag, false);
         Tag.classList.add("DoctorTag");
+        if(Math.random()*100>=90){
+          Tag.classList.add("Special");
+        }
         Tag.innerText = element;
         DoctorTagsDiv.appendChild(Tag);
       });

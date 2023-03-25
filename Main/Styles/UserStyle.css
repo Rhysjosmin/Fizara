@@ -35,6 +35,7 @@ aside li {
   list-style: none;
 }
 aside li a {
+  cursor: pointer;
   color: inherit;
   text-decoration: none;
   transition: color 0.4s;

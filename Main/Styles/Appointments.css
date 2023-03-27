@@ -151,6 +151,50 @@ textarea {
   background-size: 300% 300%;
 }
 
+#loading {
+  width: 300px;
+  height: 150px;
+  display: grid;
+  place-items: center;
+}
+#loading div {
+  width: 30px;
+  height: 30px;
+  --borderWidth: 5px;
+  background: linear-gradient(to);
+  background: #ffffff;
+  position: relative;
+  border-radius: 1em;
+}
+#loading div:hover {
+  color: #ffffff;
+  background: #060825;
+  outline: 1px solid rgba(0, 26, 255, 0);
+}
+#loading div:after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: conic-gradient(#ffffff, #0357ff, rgb(111, 0, 255));
+  border-radius: 2em;
+  z-index: -1;
+  animation: animatedgradientRotate 0.6s linear infinite;
+}
+
+@keyframes animatedgradientRotate {
+  0% {
+    rotate: 0;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
 @keyframes animatedgradient {
   0% {
     background-position: 0% 50%;

@@ -29,6 +29,7 @@ aside {
   top: 0;
   bottom: 0;
   width: 15rem;
+  transition: 0.3s;
 }
 aside li {
   color: rgb(255, 255, 255);
@@ -46,6 +47,7 @@ aside li a:hover {
 }
 
 #rside {
+  z-index: -5;
   min-height: 120vh;
   position: absolute;
   top: 0;
@@ -86,31 +88,29 @@ textarea {
 }
 
 .DoctorTag {
+  opacity: 1;
   cursor: pointer;
   color: aliceblue;
-  background: #333738;
+  background: hsl(192, 5%, 10%);
   padding: 0.1em;
   padding-inline: 0.6em;
   border-radius: 1em;
-  transition: background-color 0.2s;
+  transition: 0.2s;
 }
 .DoctorTag:hover {
   color: #ffffff;
   background: #060825;
-  outline: 2px solid rgb(0, 0, 0);
 }
 
 .Special {
-  --borderWidth: 2px;
+  --borderWidth: 1.5px;
   background: linear-gradient(to);
-  background: #333738;
   position: relative;
   border-radius: 1em;
 }
 .Special:hover {
   color: #ffffff;
   background: #060825;
-  outline: 1px solid rgba(0, 26, 255, 0);
 }
 .Special:after {
   content: "";
@@ -126,7 +126,15 @@ textarea {
   background-size: 300% 300%;
 }
 
+.transparentDoctor {
+  opacity: 0.5;
+}
+.transparentDoctor::after {
+  opacity: 0.1;
+}
+
 .activeDoctor {
+  opacity: 1;
   color: #ffffff;
   background: #060825;
   outline: 1px solid rgba(0, 26, 255, 0.74);
@@ -137,7 +145,7 @@ textarea {
   outline: 1px solid rgba(0, 26, 255, 0.74);
 }
 .activeDoctor:after {
-  --borderWidth:1px;
+  --borderWidth: 1px;
   content: "";
   position: absolute;
   top: calc(-1 * var(--borderWidth));
@@ -165,11 +173,6 @@ textarea {
   background: #ffffff;
   position: relative;
   border-radius: 1em;
-}
-#loading div:hover {
-  color: #ffffff;
-  background: #060825;
-  outline: 1px solid rgba(0, 26, 255, 0);
 }
 #loading div:after {
   content: "";

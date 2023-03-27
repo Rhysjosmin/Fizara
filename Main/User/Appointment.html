@@ -91,9 +91,9 @@
 
     fetch(`${SERVER_URL}/Doctors`)
       .then((Response) => Response.json())
-      .then((Data) => {
+      .then( (Data) =>  {
         DoctorTagsDiv.innerHTML = "";
-        Data.forEach((element) => {
+        Data.forEach(async (element) => {
           let Tag = document.createElement("span");
           Tag.addEventListener("click", setDocTag, false);
           Tag.classList.add("DoctorTag");
@@ -101,21 +101,41 @@
             Tag.classList.add("Special");
           }
           Tag.innerText = "Dr. " + element;
-          DoctorTagsDiv.appendChild(Tag);
+          
+            DoctorTagsDiv.appendChild(Tag);
+           
+     
         });
       });
   </script>
   <script src="../Scripts/geturlparam.js"></script>
   <script>
+
     let SelectedDoctor = "";
     const DoctorTags = document.getElementById("DoctorTags").children;
+  
     function setDocTag() {
+      isSelectedDoc=this.dataset.isSelected
+      if(isSelectedDoc){
+        for (let index = 0; index < DoctorTags.length; index++) {
+        DoctorTags[index].classList.remove("activeDoctor");
+        DoctorTags[index].classList.remove("transparentDoctor");
+        DoctorTags[index].removeAttribute('data-is-selected')
+      }
+
+      }
+      else{
       for (let index = 0; index < DoctorTags.length; index++) {
         DoctorTags[index].classList.remove("activeDoctor");
+        DoctorTags[index].classList.add("transparentDoctor");
       }
-      console.log(this);
+
       this.classList.add("activeDoctor");
+      this.classList.remove("transparentDoctor");
+
       SelectedDoctor = this.innerText;
+      this.dataset.isSelected=true
+    }
     }
   </script>
   <script src="../Scripts/MakeAppointment.js"></script>

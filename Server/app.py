@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, url_for
 import json
 import random
 
@@ -51,7 +51,6 @@ AppointmentDB = {
     },
 
 }
-
 TodoDB = {
 
     'Mary': [
@@ -85,9 +84,7 @@ TodoDB = {
 
 
 }
-
 Ratings = {}
-
 NewsDB = {
     'In Conversation: Is the ketogenic diet right for autoimmune conditions?': {
         'Body': 'The ketogenic diet is often labelled controversial due to its low carb, high fat nature. However, it is also touted as one of the best diets for weight loss, improving insulin sensitivity, and controlling seizures. But could this diet also have the potential to help inflammatory autoimmune conditions and reduce chronic pain?',
@@ -125,8 +122,6 @@ Reason = [
     'Blood Test',
     'Ultrasound'
 ]
-
-
 def ReadDB():
 
     try:
@@ -146,6 +141,25 @@ def ReadDB():
 app = Flask(__name__)
 CORS(app)
 # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+
+def has_no_empty_params(rule):
+    defaults = rule.defaults if rule.defaults is not None else ()
+    arguments = rule.arguments if rule.arguments is not None else ()
+    return len(defaults) >= len(arguments)
+
+@app.route('/')
+def index():
+    links=[]
+    for rule in app.url_map.iter_rules():
+        # Filter out rules we can't navigate to in a browser
+        # and rules that require parameters
+        if "GET" in rule.methods and has_no_empty_params(rule):
+            url = url_for(rule.endpoint, **(rule.defaults or {}))
+            links.append(f'<a href="{url}">{rule.endpoint}</a>')
+    string=''
+    for link in links:
+        string=string+link+'</br>'
+    return string
 
 
 @app.route('/Signup/<name>/<email>/<password>', methods=['GET'])
@@ -267,11 +281,17 @@ def MakeAppointment():
     return 'Message sent successfully!'
 
 
-@app.route('/ClearAllAppointments/<Doc>')
+@app.route('/ClearAppointments/<Doc>')
 def ClearAppointments(Doc):
     AppointmentDB[Doc] = {}
     return '0'
 
+@app.route('/ClearAppointments')
+def _ClearAppointments():
+    for i in AppointmentDB:
+        AppointmentDB[i] ={}
+    return '0'
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',debug=True)

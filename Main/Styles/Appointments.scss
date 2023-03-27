@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 body {
+  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
 :root {
@@ -17,6 +18,7 @@ body {
   background: #0e0e0e;
 }
 aside {
+  
   position: fixed;
   background: #0e0e0e;
   padding-top: 1em;
@@ -63,7 +65,7 @@ aside {
     padding-inline: 0.6em;
     &:hover{
       color: aliceblue;
-      background: #06250f;
+      background: #060825;
     }
   }
 
@@ -88,17 +90,47 @@ textarea{
   // margin-right: 5px;
     cursor: pointer;
     color: aliceblue;
-    background: #2c2c2c;
+    background: #333738;
     padding: 0.1em;
     padding-inline: 0.6em;
     border-radius: 1em;
     transition: background-color 0.2s;
     &:hover {
       color: #ffffff;
-      background: #606274;
+      background: #060825;
       outline: 2px solid rgb(0, 0, 0);
     }
   }
+
+
+  .Special{
+    --borderWidth: 2px;
+    background:linear-gradient(to );
+    // border: 2px solid rgb(206, 0, 171);
+
+  background: #333738;
+  position: relative;
+  border-radius: 1em;
+    &:hover {
+      color: #ffffff;
+      background: #060825;
+      outline: 1px solid rgba(0, 26, 255, 0);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: calc(-1 * var(--borderWidth));
+      left: calc(-1 * var(--borderWidth));
+      height: calc(100% + var(--borderWidth) * 2);
+      width: calc(100% + var(--borderWidth) * 2);
+      background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+      border-radius: 2em;
+      z-index: -1;
+      animation: animatedgradient 3s ease alternate infinite;
+      background-size: 300% 300%;
+    }
+  }
+
   .activeDoctor{
     color: #ffffff;
     background: #060825;
@@ -108,14 +140,35 @@ textarea{
       background: #060825;
       outline: 1px solid rgba(0, 26, 255, 0.74);
     }
+    &:after {
+      --borderWidth:1px;
+      content: '';
+      position: absolute;
+      top: calc(-1 * var(--borderWidth));
+      left: calc(-1 * var(--borderWidth));
+      height: calc(100% + var(--borderWidth) * 2);
+      width: calc(100% + var(--borderWidth) * 2);
+      background: linear-gradient(60deg,);
+      border-radius: 2em;
+      z-index: -1;
+      animation: animatedgradient 3s ease alternate infinite;
+      background-size: 300% 300%;
+    }
   }
 
-  .Special{
-    background:linear-gradient(to );
-    border: 2px solid rgb(206, 0, 171);
-    &:hover {
-      color: #ffffff;
-      background: #060825;
-      outline: 1px solid rgba(0, 26, 255, 0);
+
+  @keyframes animatedgradient {
+    0% {
+      background-position: 0% 50%;
     }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .Higlighted{
+    color: rgb(0, 255, 191);
   }

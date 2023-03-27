@@ -1,3 +1,14 @@
+function MakeAppointment_Outer() {
+  if (
+    document.getElementById("DescribedIssue").value.replace(" ", "") !=
+    "" &&
+    SelectedDoctor.replace(" ", "") != ""
+  ) {
+    MakeAppointment();
+  } else {
+    alert2("Incomplete Form", "Please Fill All the Fields");
+  }
+}
 function MakeAppointment() {
   const issue = document.getElementById('DescribedIssue')
   
@@ -18,6 +29,8 @@ function MakeAppointment() {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
+      // window.location.replace("./index.html?User=" + USER);
+
       console.log('Message sent successfully!');
     })
     .catch(error => {

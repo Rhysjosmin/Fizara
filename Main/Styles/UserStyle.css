@@ -128,4 +128,8 @@ aside li a:hover {
   background: linear-gradient(to left bottom, #000000, rgb(209, 209, 0), #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.Higlighted {
+  color: rgb(0, 255, 191);
 }/*# sourceMappingURL=UserStyle.css.map */

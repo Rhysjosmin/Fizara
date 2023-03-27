@@ -159,4 +159,8 @@ aside li a:hover {
 }
 #News .P-D2 {
   color: var(--accent2);
+}
+
+.Higlighted {
+  color: rgb(0, 255, 191);
 }/*# sourceMappingURL=DoctorStyle.css.map */

@@ -248,6 +248,11 @@ def SetRate(User, value):
     return '0'
 
 
+@app.route('/AppointmentDB')
+def _AppointmentDB():
+    return json.dumps(AppointmentDB)
+
+
 @app.route('/MakeAppointment', methods=['GET', 'POST'])
 def MakeAppointment():
     message = request.json.get('message')

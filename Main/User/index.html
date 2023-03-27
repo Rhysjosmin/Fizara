@@ -30,12 +30,12 @@
             <h1>Home</h1>
           </a>
         </li>
-        <li><a href="">Dashboard</a></li>
-        <li><a  id="MakeAppointmentLink">Book an Appointment</a></li>
-        <li><a  id="">Diseases</a></li>
-        <li><a  id="">Maternal Health Issues</a></li>
-        <li><a  id="">Mental Health Counselling</a></li>
-        <!-- <li><a onclick="PastPatients()">Past Patients</a></li> -->
+        <li><a href="" class="Higlighted">Dashboard</a></li>
+        <li><a onclick="window.location='Appointment.html'+window.location.search;" >Book an Appointment</a></li>
+        <li><a onclick="window.location='Diseases.html'+window.location.search;" id="">Diseases</a></li>
+        <li><a onclick="window.location='Maternal_Health_Issues.html'+window.location.search;" id="">Maternal Health Issues</a></li>
+        <li><a onclick="window.location='Mental_Health_Counselling.html'+window.location.search;" id="">Mental Health Counselling</a></li>
+
       </ul>
     </aside>
     <section id="rside"></section>
@@ -137,9 +137,5 @@
     }
     main();
   </script>
-  <script>
-    const MakeAppointmentLink =document.getElementById('MakeAppointmentLink')
-    MakeAppointmentLink.href="./Appointment.html?User="+USER
-    // href=
-  </script>
+
 </html>

@@ -13,7 +13,7 @@ function MakeAppointment() {
   const issue = document.getElementById('DescribedIssue')
   
   let message=issue.value
-  let doctorName=SelectedDoctor
+  let doctorName=SelectedDoctor.replace('Dr. ','')
   fetch(`${SERVER_URL}/MakeAppointment`, {
       method: 'POST',
       headers: {

@@ -1,141 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="../Styles/UserStyle.css" />
-  </head>
 
-  <body>
-    <aside>
-      <ul>
-        <li>
-          <a href="../../index.html">
-            <h1>Home</h1>
-          </a>
-        </li>
-        <li><a href="" class="Higlighted">Dashboard</a></li>
-        <li><a onclick="window.location='Appointment.html'+window.location.search;" >Book an Appointment</a></li>
-        <li><a onclick="window.location='Diseases.html'+window.location.search;" id="">Diseases</a></li>
-        <li><a onclick="window.location='Maternal_Health_Issues.html'+window.location.search;" id="">Maternal Health Issues</a></li>
-        <li><a onclick="window.location='Mental_Health_Counselling.html'+window.location.search;" id="">Mental Health Counselling</a></li>
+<head>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="../Styles/UserStyle.css" />
+</head>
 
-      </ul>
-    </aside>
-    <section id="rside"></section>
-    <template id="Page1">
-      <section id="grid">
-        <section id="Greeting">
-          <h1><span id="TimeOfDay"></span> <span id="Username"></span></h1>
-        </section>
-        <section id="Feedback">
-          <span>How Are You Feeling Today?</span>
-          <br />
-          <span style="user-select: none;word-break: keep-all;display: flex;">
-            <span
-              class="material-symbols-outlined"
-              id="star0"
-              onmouseleave="derate(0)"
-              onmouseover="hoverRate(0)"
-              onclick="setRate(0)"
-              data-rating="Unset"
-              =""
-              >star</span
-            >
-            <span
-              class="material-symbols-outlined"
-              id="star1"
-              onmouseleave="derate(1)"
-              onmouseover="hoverRate(1)"
-              onclick="setRate(1)"
-              data-rating="Unset"
-              =""
-              >star</span
-            >
-            <span
-              class="material-symbols-outlined"
-              id="star2"
-              onmouseleave="derate(2)"
-              onmouseover="hoverRate(2)"
-              onclick="setRate(2)"
-              data-rating="Unset"
-              =""
-              >star</span
-            >
-            <span
-              class="material-symbols-outlined"
-              id="star3"
-              onmouseleave="derate(3)"
-              onmouseover="hoverRate(3)"
-              onclick="setRate(3)"
-              data-rating="Unset"
-              =""
-              >star</span
-            >
-            <span
-              class="material-symbols-outlined"
-              id="star4"
-              onmouseleave="derate(4)"
-              onmouseover="hoverRate(4)"
-              onclick="setRate(4)"
-              data-rating="Unset"
-              =""
-              >star</span
-            >
-          </span>
-        </section>
-        <section id="TodoArea">
-          <ul id="TodoList"></ul>
-        </section>
-
-        <section id="News"></section>
+<body>
+  <aside>
+    <ul>
+      <li>
+        <a href="../../index.html">
+          <h1>Home</h1>
+        </a>
+      </li>
+      <li><a href="" class="Higlighted">Dashboard</a></li>
+      <li>
+        <a onclick="window.location='Appointment.html'+window.location.search;">Book an Appointment</a>
+      </li>
+      <li>
+        <a onclick="window.location='Diseases.html'+window.location.search;" id="">Diseases</a>
+      </li>
+      <li>
+        <a onclick="window.location='Maternal_Health_Issues.html'+window.location.search;
+            " id="">Maternal Health Issues</a>
+      </li>
+      <li>
+        <a onclick="window.location='Mental_Health_Counselling.html'+window.location.search;" id="">Mental Health
+          Counselling</a>
+      </li>
+    </ul>
+  </aside>
+  <section id="rside"></section>
+  <template id="Page1">
+    <section id="grid">
+      <section id="Greeting">
+        <h1><span id="TimeOfDay"></span> <span id="Username"></span></h1>
       </section>
-    </template>
-  </body>
+      <section id="Feedback">
+        <span>How Are You Feeling Today?</span>
+        <br />
+        <span style="user-select: none; word-break: keep-all; display: flex">
+          <span class="material-symbols-outlined" id="star0" onmouseleave="derate(0)" onmouseover="hoverRate(0)"
+            onclick="setRate(0)" data-rating="Unset"="">star</span>
+          <span class="material-symbols-outlined" id="star1" onmouseleave="derate(1)" onmouseover="hoverRate(1)"
+            onclick="setRate(1)" data-rating="Unset"="">star</span>
+          <span class="material-symbols-outlined" id="star2" onmouseleave="derate(2)" onmouseover="hoverRate(2)"
+            onclick="setRate(2)" data-rating="Unset"="">star</span>
+          <span class="material-symbols-outlined" id="star3" onmouseleave="derate(3)" onmouseover="hoverRate(3)"
+            onclick="setRate(3)" data-rating="Unset"="">star</span>
+          <span class="material-symbols-outlined" id="star4" onmouseleave="derate(4)" onmouseover="hoverRate(4)"
+            onclick="setRate(4)" data-rating="Unset"="">star</span>
+        </span>
+      </section>
+      <section id="TodoArea">
+        <ul id="TodoList"></ul>
+      </section>
 
-  <script src="../../Scripts/Config.js"></script>
-  <script src="../../Scripts/Alert.js"></script>
-  <script>
-    setTimeout(() => {
-      alert2("Close Todo", "Double Click Todo to close");
-    }, 10);
-    let USER = "";
-    const page1 = document.getElementById("Page1").content.cloneNode(true);
-    const destination = document.getElementById("rside");
+      <section id="News"></section>
+    </section>
+  </template>
+</body>
 
-    destination.appendChild(page1);
-  </script>
-  <script src="../Scripts/geturlparam.js"></script>
-  <script src="../Scripts/fetchTodo.js"></script>
-  <script src="../Scripts/TineOfDayGreeting.js"></script>
-  <script src="../Scripts/Rating.js"></script>
- 
-  
-  <script>
-  
-    function main() {
-      USER = GetUrlParam("User");
-      document.getElementById("Username").innerText = USER + " !";
-      FetchTodo(USER);
-      ToD();
-    }
-    main();
-  </script>
+<script src="../../Scripts/Config.js"></script>
+<script src="../../Scripts/Alert.js"></script>
+<script>
+  setTimeout(() => {
+    alert2("Close Todo", "Double Click Todo to close");
+  }, 10);
+  let USER = "";
+  const page1 = document.getElementById("Page1").content.cloneNode(true);
+  const destination = document.getElementById("rside");
+
+  destination.appendChild(page1);
+</script>
+<script src="../Scripts/geturlparam.js"></script>
+<script src="../Scripts/fetchTodo.js"></script>
+<script src="../Scripts/TineOfDayGreeting.js"></script>
+<script src="../Scripts/Rating.js"></script>
+
+<script>
+  function main() {
+    USER = GetUrlParam("User");
+    document.getElementById("Username").innerText = USER + " !";
+    FetchTodo(USER);
+    ToD();
+  }
+  main();
+</script>
 
 </html>

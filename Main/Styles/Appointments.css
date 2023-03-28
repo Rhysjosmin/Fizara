@@ -103,7 +103,7 @@ textarea {
 }
 
 .Special {
-  --borderWidth: 1.5px;
+  --borderWidth: 1.8px;
   background: linear-gradient(to);
   position: relative;
   border-radius: 1em;

@@ -180,7 +180,7 @@ def Signup(name, email, password, DocID=None):
                 'DocID': DocID
 
             }
-            AppointmentDB[name]={}
+            AppointmentDB[name.capitalize()]={}
            
         else:
             d[name] = {

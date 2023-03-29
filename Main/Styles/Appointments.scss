@@ -180,7 +180,7 @@ textarea {
     background: linear-gradient(to);
     // border: 2px solid rgb(206, 0, 171);
 
-    background: #ffffff;
+    background: #00a2ff;
     position: relative;
     border-radius: 1em;
 
@@ -226,4 +226,13 @@ textarea {
 
 .Higlighted {
   color: rgb(0, 255, 191);
+}
+
+#bg{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  background-image: url('../../media/images/bgGirl.png');
+  background-size: cover;
 }

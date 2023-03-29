@@ -3,7 +3,17 @@
   padding: 0%;
   box-sizing: border-box;
 }
+#bg{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  background-image: url('../../media/images/bgGirl.png');
+  background-size: cover;
+}
 body {
+ 
+  
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
@@ -74,11 +84,18 @@ table{
   tr{
 
     td{
+      background: #ffffff3b;
+      backdrop-filter: blur(30px);
       transition: .2s;
       border: 1px solid gray;
 &:hover{
-  background: #293ef860;
+  z-index: 10;
+
+  background: #aab2ff60;
 }
     }
   }
+}
+ul{
+  
 }

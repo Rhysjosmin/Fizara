@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Styles/MaternalHealth.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <aside>
+      <ul>
+        <li>
+          <a href="../../index.html">
+            <h1>Home</h1>
+          </a>
+        </li>
+        <li>
+          <a onclick="window.location='../index.html'+window.location.search;"
+            >Dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='../Appointment.html'+window.location.search;"
+            >Book an Appointment</a
+          >
+        </li>
+        <li>
+          <a onclick="window.location='../Diseases.html'+window.location.search;"
+            >Diseases</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='../Maternal_Health_Issues.html'+window.location.search;"
+       
+            >Maternal Health Issues</a
+          >
+          <ul>
+            <li>
+              <a
+                onclick="window.location='PreNatal.html'+window.location.search;"
+                >Prenatal</a
+              >
+            </li>
+            <li>
+              <a
+             
+                class="Higlighted"
+                >Postnatal</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            onclick="window.location='../Mental_Health_Counselling.html'+window.location.search;"
+            >Mental Health Counselling</a
+          >
+        </li>
+      </ul>
+    </aside>
+    <section id="rside"></section>
+    <template id="Page1">
+        <h1>PostNatal</h1>
+      <p>
+        Maternal health remains a staggering challenge, particularly in the
+        developing world. Globally, a woman dies from complications in
+        childbirth every minute.
+      </p>
+    </template>
+  </body>
+
+  <script src="../../Scripts/Config.js"></script>
+  <script src="../../Scripts/Alert.js"></script>
+  <script>
+    let USER = "";
+    const page1 = document.getElementById("Page1").content.cloneNode(true);
+    const destination = document.getElementById("rside");
+
+    destination.appendChild(page1);
+  </script>
+
+  <script src="../Scripts/geturlparam.js"></script>
+
+  <script>
+    function main() {
+      USER = GetUrlParam("User");
+    }
+    main();
+  </script>
+</html>

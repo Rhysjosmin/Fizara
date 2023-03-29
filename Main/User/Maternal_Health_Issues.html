@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Styles/Appointments.css" />
+    <link rel="stylesheet" href="../Styles/MaternalHealth.css" />
     <title>Document</title>
   </head>
 
@@ -39,8 +39,18 @@
             >Maternal Health Issues</a
           >
           <ul>
-            <li><a href="http://">Prenatal</a></li>
-            <li><a href="http://">Postnatal</a></li>
+            <li>
+              <a
+                onclick="window.location='MaternalHealth/PreNatal.html'+window.location.search;"
+                >Prenatal</a
+              >
+            </li>
+            <li>
+              <a
+                onclick="window.location='MaternalHealth/PostNatal.html'+window.location.search;"
+                >Postnatal</a
+              >
+            </li>
           </ul>
         </li>
         <li>
@@ -52,7 +62,13 @@
       </ul>
     </aside>
     <section id="rside"></section>
-    <template id="Page1"> </template>
+    <template id="Page1">
+      <p>
+        Maternal health remains a staggering challenge, particularly in the
+        developing world. Globally, a woman dies from complications in
+        childbirth every minute.
+      </p>
+    </template>
   </body>
 
   <script src="../../Scripts/Config.js"></script>
@@ -64,41 +80,8 @@
 
     destination.appendChild(page1);
   </script>
-  <script>
-    const DoctorTagsDiv = document.getElementById("DoctorTags");
 
-    fetch(`${SERVER_URL}/Doctors`)
-      .then((Response) => Response.json())
-      .then((Data) => {
-        Data.forEach((element) => {
-          // console.log(element);
-          let Tag = document.createElement("span");
-          // Tag.onclick=setDocTag(this)
-
-          Tag.addEventListener("click", setDocTag, false);
-          Tag.classList.add("DoctorTag");
-          if (Math.random() * 100 >= 70) {
-            Tag.classList.add("Special");
-          }
-          Tag.innerText = "Dr. " + element;
-          DoctorTagsDiv.appendChild(Tag);
-        });
-      });
-  </script>
   <script src="../Scripts/geturlparam.js"></script>
-  <script>
-    let SelectedDoctor = "";
-    const DoctorTags = document.getElementById("DoctorTags").children;
-    function setDocTag() {
-      for (let index = 0; index < DoctorTags.length; index++) {
-        DoctorTags[index].classList.remove("activeDoctor");
-      }
-      console.log(this);
-      this.classList.add("activeDoctor");
-      SelectedDoctor = this.innerText;
-    }
-  </script>
-  <script src="../Scripts/MakeAppointment.js"></script>
 
   <script>
     function main() {

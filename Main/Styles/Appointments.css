@@ -73,9 +73,13 @@ button:hover {
 }
 
 textarea {
+  background: rgba(0, 162, 255, 0);
   padding: 5px;
   font-size: 1em;
   resize: none;
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  border: 1px dotted;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }

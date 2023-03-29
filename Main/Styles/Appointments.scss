@@ -71,9 +71,12 @@ button {
 }
 
 textarea {
+  background: #00a2ff00;
   padding: 5px;
   font-size: 1em;
   resize: none;
+  backdrop-filter: blur(100px);
+  border: 1px dotted ;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }

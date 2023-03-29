@@ -4,15 +4,6 @@
   box-sizing: border-box;
 }
 
-#bg {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -10;
-  background-image: url("../../media/images/bgGirl.png");
-  background-size: cover;
-}
-
 body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;

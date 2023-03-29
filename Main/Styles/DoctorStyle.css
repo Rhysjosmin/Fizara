@@ -163,13 +163,4 @@ aside li a:hover {
 
 .Higlighted {
   color: rgb(0, 255, 191);
-}
-
-#bg {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -10;
-  background-image: url("../../media/images/bgGirl.png");
-  background-size: cover;
 }/*# sourceMappingURL=DoctorStyle.css.map */

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/Appointments.css" />
   <link rel="stylesheet" href="../Styles/GeneralCss.css" />
-    
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <title>Appointment</title>
   </head>
 
@@ -80,7 +80,15 @@
       <button onclick="MakeAppointment_Outer()">Book Appointment</button>
     </template>
   </body>
+  <script>
+    // import JSConfetti from 'js-confetti'
 
+const jsConfetti = new JSConfetti()
+jsConfetti.addConfetti({
+  confettiRadius: .01,
+})
+
+  </script>
   <script src="../../Scripts/Config.js"></script>
   <script src="../../Scripts/Alert.js"></script>
   <script>
@@ -150,4 +158,5 @@
     }
     main();
   </script>
+
 </html>

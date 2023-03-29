@@ -29,7 +29,10 @@ function MakeAppointment() {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      window.location.replace("./index.html?User=" + USER);
+      jsConfetti.addConfetti()
+      setTimeout(()=>{
+        window.location.replace("./index.html?User=" + USER);
+      },1000) 
 
       console.log('Message sent successfully!');
     })

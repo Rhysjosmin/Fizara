@@ -131,11 +131,27 @@
         <section id="TodoArea">
           <ul id="TodoList"></ul>
         </section>
+        <section id="Live">
+          <div style="display: flex; gap: 5px">
+            <h3>Calorie Tracker</h3>
+            <input
+              type="number"
+              id="CalorieInput"
+              placeholder="Calories Today"
+              style="border-radius: 10px; border: none; padding-inline: 5px"
+            />
+            <button onclick="sendCalorie(event)">Submit</button>
+          </div>
 
+          <canvas id="CalorieChartID" onmousedown="this.dataset.mouse='down'"></canvas>
+          <h2>Avg : <span id="CalorieAverage">32</span> Cal</h2>
+        </section>
         <section id="News"></section>
       </section>
     </template>
   </body>
+  <script src="../Scripts/Chart.js"></script>
+  <script src="../Scripts/CalorieChart.js"></script>
 
   <script src="../../Scripts/Config.js"></script>
   <script src="../../Scripts/Alert.js"></script>
@@ -149,17 +165,27 @@
 
     destination.appendChild(page1);
   </script>
+
   <script src="../Scripts/geturlparam.js"></script>
+  <script>
+
+  </script>
   <script src="../Scripts/fetchTodo.js"></script>
   <script src="../Scripts/TineOfDayGreeting.js"></script>
   <script src="../Scripts/Rating.js"></script>
 
   <script>
     function main() {
+      SIZE=20
+      OFFSET=0
       USER = GetUrlParam("User");
       document.getElementById("Username").innerText = USER + " !";
       FetchTodo(USER);
       ToD();
+      // StartCalorieChart(USER,0,S)
+      fetch(`${SERVER_URL}/UserDB`)
+      .then((response)=>response.json)
+      .then((data)=>StartCalorieChart(USER,data[USER]['Calorie'].length-SIZE,data[USER]['Calorie'].length))
     }
     main();
   </script>

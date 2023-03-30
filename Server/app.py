@@ -115,85 +115,87 @@ NewsDB = {
         'link': 'https://www.bbc.com/news/science-environment-61654780'
     },
 }
-UserDatabase = 'UserDB.json'
+UserDatabase = {
+
+    "john": {"email": "johndoc@doc.com", "password": "1234", "DocID": "12345"},
+    "user": {
+        'email': 'user@email.com',
+        'password': '1234',
+        'Calorie': [1,2,3,4,5,6,7,8,9,10,11,102,13,14,15,16,17,18,19,20],
+        'Todo': [
+            'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+        ]}
+}
+
 Reason = [
     'Checkup',
     'X-Ray',
     'Blood Test',
     'Ultrasound'
 ]
-def ReadDB():
 
-    try:
-        f = open(UserDatabase, "r")
-        d = json.loads(f.read())
-        f.close()
-    except:
-        f = open(UserDatabase, "w")
-        f.write('{}')
-        f.close()
-        f = open(UserDatabase, "r")
-        d = json.loads(f.read())
-        f.close()
-    return d
 
+UseDB = {}
 
 app = Flask(__name__)
 CORS(app)
 # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+
 
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
     arguments = rule.arguments if rule.arguments is not None else ()
     return len(defaults) >= len(arguments)
 
+
 @app.route('/')
 def index():
-    links=[]
+    links = []
     for rule in app.url_map.iter_rules():
         # Filter out rules we can't navigate to in a browser
         # and rules that require parameters
         if "GET" in rule.methods and has_no_empty_params(rule):
             url = url_for(rule.endpoint, **(rule.defaults or {}))
             links.append(f'<a href="{url}">{rule.endpoint}</a>')
-    string=''
+    string = ''
     for link in links:
-        string=string+link+'</br>'
+        string = string+link+'</br>'
     return string
 
 
 @app.route('/Signup/<name>/<email>/<password>', methods=['GET'])
 @app.route('/Signup/<name>/<email>/<password>/<DocID>', methods=['GET'])
 def Signup(name, email, password, DocID=None):
-    global AppointmentDB
+    global AppointmentDB, UserDatabase
 
-    d = ReadDB()
     name = name.replace(' ', '').lower()
     email = email.replace(' ', '').lower()
-    if name not in d:
+    if name not in UserDatabase:
         print('Saved')
         if (DocID):
-            d[name] = {
+            UserDatabase[name] = {
 
                 'email': email,
                 'password': password,
                 'DocID': DocID
 
             }
-            AppointmentDB[name.capitalize()]={}
-           
+            AppointmentDB[name.capitalize()] = {}
+
         else:
-            d[name] = {
+            UserDatabase[name] = {
                 'email': email,
                 'password': password,
+                'Calorie': [],
+                'Todo': [
+                    'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+                ]
             }
 
-        with open(UserDatabase, 'w') as f:
-            json.dump(d, f)
-            if (DocID):
-                return json.dumps("Signed Up Doctor")
-            else:
-                return json.dumps("Signed Up User")
+        if (DocID):
+            return json.dumps("Signed Up Doctor")
+        else:
+            return json.dumps("Signed Up User")
     else:
         print('Already Present')
 
@@ -202,7 +204,7 @@ def Signup(name, email, password, DocID=None):
 
 @app.route('/Login/<name>/<email>/<password>')
 def login(name, email, password):
-    d = ReadDB()
+
     # print(f'Email:{email}')
     name = name.replace(' ', '').lower()
     email = email.replace(' ', '').lower()
@@ -210,10 +212,10 @@ def login(name, email, password):
     # print('Called')
     try:
 
-        if d[name]['password'] == password and d[name]['email'] == email:
+        if UserDatabase[name]['password'] == password and UserDatabase[name]['email'] == email:
             print('Present')
             try:
-                if (d[name]['DocID']):
+                if (UserDatabase[name]['DocID']):
                     return json.dumps('Doctor')
             except:
                 return json.dumps('User')
@@ -239,10 +241,11 @@ def Appointments(Doctor):
 
 @app.route('/<User>/Todo')
 def Todo(User):
-    if User in TodoDB:
-        return json.dumps(TodoDB[User])
+    if User in UserDatabase:
+        return json.dumps(UserDatabase[User]['Todo'])
+        # return json.dumps(TodoDB[User])
     else:
-        return json.dumps(TodoDB['Mary'])
+        return 'Not Found'
 
 
 @app.route('/News')
@@ -268,6 +271,11 @@ def _AppointmentDB():
     return json.dumps(AppointmentDB)
 
 
+@app.route('/UserDB')
+def _UserDB():
+    return json.dumps(UserDatabase)
+
+
 @app.route('/MakeAppointment', methods=['GET', 'POST'])
 def MakeAppointment():
     message = request.json.get('message')
@@ -287,12 +295,28 @@ def ClearAppointments(Doc):
     AppointmentDB[Doc] = {}
     return '0'
 
+
 @app.route('/ClearAppointments')
 def _ClearAppointments():
     for i in AppointmentDB:
-        AppointmentDB[i] ={}
+        AppointmentDB[i] = {}
     return '0'
+
+# ${SERVER_URL}/AppendCalorie/${USER}/${
+#           document.getElementById("CalorieInput").value
+#         }
+
+
+@app.route('/AppendCalorie/<User>/<int:Value>')
+def AppendCalorie(User,Value):
+    UserDatabase[User]['Calorie'].append(Value)
+    return '0'
+
+@app.route('/<User>/AverageCalorie')
+def AverageCalories(User):
+    Calories=UserDatabase[User]['Calorie']
+    return json.dumps(round(sum(Calories)/len(Calories),3))
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0')

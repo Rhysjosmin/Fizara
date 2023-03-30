@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Styles/Diseases.css" />
+    <link rel="stylesheet" href="../../Styles/GeneralCss.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Osteoporosis</title>
+</head>
+
+<body>
+    <div id="bg"><img src="../../../media/images/bgGirl.png" alt="" /></div>
+
+    <aside>
+        <ul>
+            <li>
+                <a href="../../index.html">
+                    <h1>Home</h1>
+                </a>
+            </li>
+            <li>
+                <a onclick="window.location='../index.html'+window.location.search;">Dashboard</a>
+            </li>
+            <li>
+                <a onclick="window.location='../Appointment.html'+window.location.search;">Book an Appointment</a>
+            </li>
+            <li>
+                <a onclick="window.location='../Diseases.html'+window.location.search;">Diseases</a>
+                <ul>
+                    <li>
+                        <a onclick="window.location='BreastCancer.html'+window.location.search;"
+                            >Breast Cancer</a>
+                    </li>
+                    <li>
+                        <a onclick="window.location='Thyroid.html'+window.location.search;">Thyroid</a>
+                    </li>
+                    <li>
+                        <a onclick="window.location='UterineFibroids.html'+window.location.search;">Uterine
+                            Fibroids</a>
+                    </li>
+                    <li>
+                        <a onclick="window.location='PCOD-PCOS.html'+window.location.search;">PCOD/PCOS</a>
+                    </li>
+                    <li>
+                        <a onclick="window.location='Osteoporosis.html'+window.location.search;" class="Higlighted">Osteoporosis</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a onclick="window.location='../Maternal_Health_Issues.html'+window.location.search;">Maternal Health
+                    Issues</a>
+            </li>
+            <li>
+                <a onclick="window.location='../Mental_Health_Counselling.html'+window.location.search;">Mental Health
+                    Counselling</a>
+            </li>
+        </ul>
+    </aside>
+    <section id="rside"></section>
+    <template id="Page1">
+        <h1 style="text-indent: 0.5em; font-size: 3em">Yogasanas</h1>
+        <section id="Yogasanas">
+            <div class="Yoga" data-aos="fade-right">
+                <img src="../../../media/images/Diseases/Osteoporosis/Plank.png" alt="" />
+                <div>
+                    <h1>High Plank Pose</h1>
+                    <p>
+                        <ul>
+                            <li>How to do high plank pose</li>
+                            
+                            <li>Start in tabletop position.</li>
+                            
+                            <li>Press heels back behind you as you lift hips and straighten knees.</li>
+                            
+                            <li>Elongate spine and activate arm, core, and leg muscles.</li>
+                            
+                            <li>Draw shoulders back as you broaden across your chest.</li>
+                            
+                            <li>Hold for up to 1 minute.</li>
+                            
+                            <li>Repeat 1 to 3 times</li>
+                            </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="Yoga" data-aos="fade-right">
+                <img src="../../../media/images/Diseases/Osteoporosis/DownwardFacingDog.jpg" alt="" />
+                <div>
+                    <h1>Downward Facing Dog</h1>
+                    <p>
+                        <ul>
+                            <li>How to do downward-facing dog pose</li>
+                            
+                            <li>Begin in tabletop position with toes tucked under feet, heels raised.</li>
+                            
+                            <li>Press into hands as you lengthen your spine and raise sitting bones toward the</li>
+                            <li>ceiling.</li>
+                            
+                            <li>Elongate spine and maintain a slight bend in knees.</li>
+                            
+                            <li>Position ears to be in line with upper arms, or move chin towards chest.</li>
+                            
+                            <li>Hold for up to 1 minute.</li>
+                            
+                            <li>Repeat 1 to 3 times.</li>
+                            </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="Yoga" data-aos="fade-right">
+                <img src="../../../media/images/Diseases/Osteoporosis/TreePose.png" alt="" />
+                <div>
+                    <h1>Tree Pose</h1>
+                    <p>
+                        <ul>
+                            <li>How to do tree pose</li>
+                            
+                            <li>Start standing on both feet.</li>
+                            
+                            <li>Now slowly raise right foot from the floor, placing the sole of your right foot on the inside of</li>
+                            <li>ankle, lower leg, or thigh. (Don’t press foot into knee.)</li>
+                            
+                            <li>Extend arms overhead or press palms together in front of chest.</li>
+                            
+                            <li>Focus your gaze on the floor or a fixed point straight ahead.</li>
+                            
+                            <li>Hold pose for up to 1 minute.</li>
+                            
+                            <li>Repeat on the opposite side.</li>
+                            </ul>
+                    </p>
+                </div>
+            </div>
+            
+        </section>
+    </template>
+</body>
+
+<script src="../../Scripts/Config.js"></script>
+<script src="../../Scripts/Alert.js"></script>
+<script>
+    let USER = "";
+    const page1 = document.getElementById("Page1").content.cloneNode(true);
+    const destination = document.getElementById("rside");
+    destination.appendChild(page1);
+</script>
+
+<script src="../Scripts/geturlparam.js"></script>
+
+<script>
+    function main() {
+        USER = GetUrlParam("User");
+    }
+    main();
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>

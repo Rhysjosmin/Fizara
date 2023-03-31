@@ -52,7 +52,9 @@ function StartCalorieChart(USER,Start,End) {
   fetch(`${SERVER_URL}/UserDB`)
   .then((response)=>response.json())
   .then((data)=>{
-    Calories=data[USER]['Calorie']
+    console.log(data)
+    
+    Calories=data[USER.toLowerCase()]['Calorie']
     // console.log(CalorieChart.data.datasets[0].data) 
     // console.log(Calories) 
     console.log(Calories.slice(Start,End)) 

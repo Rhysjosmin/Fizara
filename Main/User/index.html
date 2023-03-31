@@ -139,11 +139,16 @@
               id="CalorieInput"
               placeholder="Calories Today"
               style="border-radius: 10px; border: none; padding-inline: 5px"
+              min="0"
             />
             <button onclick="sendCalorie(event)">Submit</button>
           
-            <button onclick="moveLeft(event)"><</button>
-            <button onclick="moveRight(event)">></button>
+            <button onclick="moveLeft(event)"><span class="material-symbols-outlined">
+              arrow_back
+              </span></button>
+            <button onclick="moveRight(event)"><span class="material-symbols-outlined">
+              arrow_forward
+              </span></button>
           </div>
 
           <canvas id="CalorieChartID" onmousedown="this.dataset.mouse='down'"></canvas>
@@ -153,26 +158,27 @@
       </section>
     </template>
   </body>
+  <script src="../Scripts/geturlparam.js"></script>
+  <script>
+       USER = GetUrlParam("User").toLowerCase();
+  </script>
+  <script src="../../Scripts/Config.js"></script>
   <script src="../Scripts/Chart.js"></script>
   <script src="../Scripts/CalorieChart.js"></script>
 
-  <script src="../../Scripts/Config.js"></script>
   <script src="../../Scripts/Alert.js"></script>
   <script>
     setTimeout(() => {
       alert2("Close Todo", "Double Click Todo to close");
     }, 10);
-    let USER = "";
+    // let USER = "";
     const page1 = document.getElementById("Page1").content.cloneNode(true);
     const destination = document.getElementById("rside");
 
     destination.appendChild(page1);
   </script>
 
-  <script src="../Scripts/geturlparam.js"></script>
-  <script>
-
-  </script>
+  
   <script src="../Scripts/fetchTodo.js"></script>
   <script src="../Scripts/TineOfDayGreeting.js"></script>
   <script src="../Scripts/Rating.js"></script>
@@ -181,14 +187,14 @@
     function main() {
       SIZE=20
       OFFSET=0
-      USER = GetUrlParam("User");
-      document.getElementById("Username").innerText = USER + " !";
+   
+      document.getElementById("Username").innerText = USER.charAt(0).toUpperCase()+USER.slice(1)+ " !";
       FetchTodo(USER);
       ToD();
       // StartCalorieChart(USER,0,S)
       fetch(`${SERVER_URL}/UserDB`)
       .then((response)=>response.json)
-      .then((data)=>StartCalorieChart(USER,data[USER]['Calorie'].length-SIZE,data[USER]['Calorie'].length))
+      .then((data)=>StartCalorieChart(USER.toLowerCase(),data[USER.toLowerCase()]['Calorie'].length-SIZE,data[USER.toLowerCase()]['Calorie'].length))
     }
     main();
   </script>

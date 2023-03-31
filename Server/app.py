@@ -186,7 +186,7 @@ def Signup(name, email, password, DocID=None):
             UserDatabase[name] = {
                 'email': email,
                 'password': password,
-                'Calorie': [],
+                'Calorie': [0],
                 'Todo': [
                     'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
                 ]
@@ -309,12 +309,12 @@ def _ClearAppointments():
 
 @app.route('/AppendCalorie/<User>/<int:Value>')
 def AppendCalorie(User,Value):
-    UserDatabase[User]['Calorie'].append(Value)
+    UserDatabase[User.lower()]['Calorie'].append(Value)
     return '0'
 
 @app.route('/<User>/AverageCalorie')
 def AverageCalories(User):
-    Calories=UserDatabase[User]['Calorie']
+    Calories=UserDatabase[User.lower()]['Calorie']
     return json.dumps(round(sum(Calories)/len(Calories),3))
 
 

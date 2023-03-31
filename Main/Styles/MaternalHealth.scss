@@ -86,26 +86,3 @@ table {
   }
 }
 
-#Tips{
-  h1{
-    font-size: 2em;
-  }
-  ul{
-display: flex;
-list-style: none;
-flex-wrap: wrap;
-gap: 7px;
-  }
-  li{
-  
-    text-transform:capitalize;
-    cursor: pointer;
-    border-radius: 50px;
-    padding: 5px;
-    background: #ffffff;
-    transition: .2s;
-    &:hover{
-      background: var(--accent);
-    }
-  }
-}

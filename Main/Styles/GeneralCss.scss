@@ -1,84 +1,140 @@
-#bg{
-    width: 100vw;
-    height: 100vh;
+#bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  img {
+    width: 100%;
     position: fixed;
-    z-index: -10;
-    img{
-      width: 100%;
-      position: fixed;
-    }
   }
+}
 
-  aside {
-    position: fixed;
-    background: #0e0e0e;
-    padding-top: 1em;
-    // position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 15rem;
-    transition: 0.3s;
-  
-    li {
-      color: rgb(255, 255, 255);
-      margin-left: 1em;
-      list-style: none;
-      a {
-        cursor: pointer;
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.4s;
-        &:hover {
-          color: var(--accent);
-        }
+aside {
+  position: fixed;
+  background: #0e0e0e;
+  padding-top: 1em;
+  // position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15rem;
+  transition: 0.3s;
+
+  li {
+    color: rgb(255, 255, 255);
+    margin-left: 1em;
+    list-style: none;
+    a {
+      cursor: pointer;
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.4s;
+      &:hover {
+        color: var(--accent);
       }
     }
   }
+}
 
-  #Yogasanas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+#Yogasanas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  .Yoga {
+    width: 100%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.637);
+    background: #a8a8a870;
+    backdrop-filter: blur(10px);
     padding: 10px;
-    .Yoga {
-      width: 100%;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.637);
-      background: #a8a8a870;
-      backdrop-filter: blur(10px);
-      padding: 10px;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      border-radius: 20px;
-      ul{
-  list-style: none;
-      }
-      li{
-        cursor: pointer;
-        transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        padding: 5px;
-        border-radius: 10px;
-        margin: 3px;
-        // background: #689de296;
-        &:hover{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-radius: 20px;
+    ul {
+      list-style: none;
+    }
+    li {
+      cursor: pointer;
+      transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      padding: 5px;
+      border-radius: 10px;
+      margin: 3px;
+      // background: #689de296;
+      &:hover {
         background: #9fc9ff;
 
-          // translate: 0 -6px;
-        }
-      }
-      img {
-        border-radius: inherit;
-        aspect-ratio: 1/1;
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-      }
-    
-      h1 {
-        text-indent: 0.4em;
-        font-size: 1.5em;
-      }
-      p {
-        font-size: 0.9em;
+        // translate: 0 -6px;
       }
     }
+    img {
+      border-radius: inherit;
+      aspect-ratio: 1/1;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    h1 {
+      text-indent: 0.4em;
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 0.9em;
+    }
   }
+}
+
+#Tips {
+  h1 {
+    font-size: 2em;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  li {
+    text-transform: capitalize;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 5px;
+    background: #ffffff;
+    transition: 0.2s;
+    &:hover {
+      background: var(--accent);
+    }
+  }
+}
+
+.card {
+  z-index: 1;
+  scale: 0.7;
+  position: absolute;
+  border-radius: 2px;
+  display: grid;
+  grid-auto-flow: column;
+  background-color: palevioletred;
+  // display: flex;
+  height: 120px;
+  width: 400px;
+  p {
+    font-size: 0.8em;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  span {
+    display: flex;
+    width: 120;
+    height: 120;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+  }
+
+
+
+
+}

@@ -84,25 +84,4 @@ table tr td {
 table tr td:hover {
   z-index: 10;
   background: rgba(170, 178, 255, 0.3764705882);
-}
-
-#Tips h1 {
-  font-size: 2em;
-}
-#Tips ul {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-#Tips li {
-  text-transform: capitalize;
-  cursor: pointer;
-  border-radius: 50px;
-  padding: 5px;
-  background: #ffffff;
-  transition: 0.2s;
-}
-#Tips li:hover {
-  background: var(--accent);
 }/*# sourceMappingURL=MaternalHealth.css.map */

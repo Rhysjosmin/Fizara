@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Styles/Appointments.css" />
+    <link rel="stylesheet" href="../Styles/GeneralCss.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../Styles/Appointments.css" />
-  <link rel="stylesheet" href="../Styles/GeneralCss.css" />
- 
-  <title>Mental Health Counseling</title>
-</head>
+    <title>Mental Health Counseling</title>
+  </head>
 
-<body>
-  <div id="bg"><img src="../../media/images/bgGirl.png" alt=""></div>
+  <body style="max-height: 100vh;overflow: hidden;">
+    <!-- <div id="bg"><img src="../../media/images/bg.png" alt=""></div> -->
+    <div id="bg"><img src="../../media/images/Mental.png" alt="" /></div>
 
-  <aside>
+    <!-- <aside>
     <ul>
       <li>
         <a href="../../index.html">
@@ -26,73 +27,173 @@
       <li><a onclick="window.location='Diseases.html'+window.location.search;" >Diseases</a></li>
       <li><a onclick="window.location='Maternal_Health_Issues.html'+window.location.search;" >Maternal Health Issues</a></li>
       <li><a onclick="window.location='Mental_Health_Counselling.html'+window.location.search;"  class="Higlighted" >Mental Health Counselling</a>
-        <!-- <ul>
-          <li><a href="http://">Prenatal</a></li>
-          <li><a href="http://">Postnatal</a></li>
-        </ul> -->
+  
       </li>
 
     
     </ul>
-  </aside>
-  <section id="rside"></section>
-  <template id="Page1">
-  
-  </template>
-</body>
+  </aside> -->
 
-<script src="../../Scripts/Config.js"></script>
-<script src="../../Scripts/Alert.js"></script>
-<script>
-  let USER = "";
-  const page1 = document.getElementById("Page1").content.cloneNode(true);
-  const destination = document.getElementById("rside");
-
-  destination.appendChild(page1);
-</script>
-<script>
-  const DoctorTagsDiv = document.getElementById("DoctorTags");
-
-  fetch(`${SERVER_URL}/Doctors`)
-    .then((Response) => Response.json())
-    .then((Data) => {
-      Data.forEach((element) => {
-        // console.log(element);
-        let Tag = document.createElement("span");
-        // Tag.onclick=setDocTag(this)
+    <section id="rside">
+      <div class="card" style="right: 50px;top: 20px;">
+        <span class="material-symbols-outlined">
+          pulmonology
+          </span>
+        <div> <h1>Get Outside</h1>
+          <p>Getting outside and enjoying nature can help to reduce stress and improve your mood.</p>
+        </div>
        
-        Tag.addEventListener("click", setDocTag, false);
-        Tag.classList.add("DoctorTag");
-        if(Math.random()*100>=70){
-          Tag.classList.add("Special");
+      </div>
+   
+      <div class="card" style="right: 200px;top: 160px;">
+        <span class="material-symbols-outlined">
+          grass
+          </span>
+        <div> <h1>Take Deep Breaths</h1>
+          <p>Taking deep breaths can help you to feel more relaxed and centered in moments of anxiety or tension.</p>
+        </div>
+       
+      </div>
+      <div class="card" style="right: 50px;top: 310px;">
+        <span class="material-symbols-outlined">
+          nature
+          </span>
+        <div> <h1>Do Meditation</h1>
+          <p>Meditation is a powerful tool for managing stress and anxiety, and can help to promote mental clarity and well-being</p>
+        </div>
+       
+      </div>
+      <div class="card" style="right: 130px;top:465px;">
+        <span class="material-symbols-outlined">
+          fitness_center
+          </span>
+        <div> <h1>Do Exercise</h1>
+          <p>Regular exercise is essential for maintaining good mental health, as it helps to release endorphins and reduce symptoms of depression and anxiety</p>
+        </div>
+       
+      </div>
+      <style>
+#BAckButton{
+  background: palevioletred;
+  position: absolute ;
+  left: -220px;
+  transition: .2s;
+  z-index: 10;
+}
+#BAckButton:hover{
+  filter: brightness(1.1);
+}
+#BackButtonTransition{
+  background: palevioletred;
+  position: absolute ;
+  left: -220px;
+  height: 2px;
+  width:  2px;
+  transition: .4s;
+  z-index: 20000000;
+  border-radius: 100000px;
+}
+      </style>
+      <script>
+        function GoBack(){
+          // window.location.search
+          // history.back()
+         
+          document.getElementById('BackButtonTransition').style.width='100vw'
+          document.getElementById('BackButtonTransition').style.height='100vw'
+          document.getElementById('BackButtonTransition').style.scale=2
+          setTimeout(()=>{
+            document.getElementById('BackButtonTransition').style.background='#ffffff'
+          },100)
+          setTimeout(()=>{
+            history.back()
+          },400)
         }
-        Tag.innerText = 'Dr. '+element;
-        DoctorTagsDiv.appendChild(Tag);
+      </script>
+      <div id="BackButtonTransition"></div>
+      <button id="BAckButton" onclick="GoBack()" style="">
+        Back
+      </button>
+    </section>
+    <style>
+      #Fake_bottom{
+        position: absolute;
+        bottom: -90px;
+        width: 100vw;
+        height:100px;
+        /* background: rgb(29, 29, 29); */
+        display: flex;
+        justify-content: space-around;
+      }
+      #Fake_bottom div{
+        width: 400px;
+        height: 200px;
+background: palevioletred;
+border-radius: 3px 3px 0 0;
+transition: .2s;
+      }
+      #Fake_bottom div:hover{
+        transform: translateY(-20px);
+      }
+    </style>
+  <!-- <section style="height: 98vh;pointer-events: none;position: relative;z-index: -10;"></section> -->
+    <template id="Page1"> </template>
+    <section id="Fake_bottom">
+      <div></div>
+      <div style="background: rgb(173, 45, 88);"></div>
+      <div></div>
+          </section>
+  </body>
+
+  <script src="../../Scripts/Config.js"></script>
+  <script src="../../Scripts/Alert.js"></script>
+  <script>
+    let USER = "";
+    const page1 = document.getElementById("Page1").content.cloneNode(true);
+    const destination = document.getElementById("rside");
+
+    destination.appendChild(page1);
+  </script>
+  <script>
+    const DoctorTagsDiv = document.getElementById("DoctorTags");
+
+    fetch(`${SERVER_URL}/Doctors`)
+      .then((Response) => Response.json())
+      .then((Data) => {
+        Data.forEach((element) => {
+          // console.log(element);
+          let Tag = document.createElement("span");
+          // Tag.onclick=setDocTag(this)
+
+          Tag.addEventListener("click", setDocTag, false);
+          Tag.classList.add("DoctorTag");
+          if (Math.random() * 100 >= 70) {
+            Tag.classList.add("Special");
+          }
+          Tag.innerText = "Dr. " + element;
+          DoctorTagsDiv.appendChild(Tag);
+        });
       });
-    });
-</script>
-<script src="../Scripts/geturlparam.js"></script>
-<script>
-  let SelectedDoctor = "";
-  const DoctorTags = document.getElementById("DoctorTags").children;
-  function setDocTag() {
-    for (let index = 0; index < DoctorTags.length; index++) {
-      DoctorTags[index].classList.remove("activeDoctor");
+  </script>
+  <script src="../Scripts/geturlparam.js"></script>
+  <script>
+    let SelectedDoctor = "";
+    const DoctorTags = document.getElementById("DoctorTags").children;
+    function setDocTag() {
+      for (let index = 0; index < DoctorTags.length; index++) {
+        DoctorTags[index].classList.remove("activeDoctor");
+      }
+      console.log(this);
+      this.classList.add("activeDoctor");
+      SelectedDoctor = this.innerText;
     }
-    console.log(this);
-    this.classList.add("activeDoctor");
-    SelectedDoctor = this.innerText;
-  }
-</script>
-<script src="../Scripts/MakeAppointment.js"></script>
+  </script>
+  <script src="../Scripts/MakeAppointment.js"></script>
 
-<script>
-  function main() {
-    USER = GetUrlParam("User");
-  }
-  main();
-</script>
-
-
-
+  <script>
+    function main() {
+      USER = GetUrlParam("User");
+    }
+    main();
+  </script>
 </html>

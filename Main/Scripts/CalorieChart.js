@@ -87,3 +87,12 @@ fetch(`${SERVER_URL}/${USER}/AverageCalorie`)
 .then((data)=>{
   document.getElementById('CalorieAverage').innerText=data
 })
+
+function moveLeft(e){
+  OFFSET=OFFSET-1
+  StartCalorieChart(USER,0+OFFSET,SIZE+OFFSET)
+}
+function moveRight(e){
+  OFFSET=OFFSET+1
+  StartCalorieChart(USER,0+OFFSET,SIZE+OFFSET)
+}

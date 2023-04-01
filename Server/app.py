@@ -126,7 +126,6 @@ UserDatabase = {
             'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
         ]}
 }
-
 Reason = [
     'Checkup',
     'X-Ray',

@@ -126,4 +126,7 @@ aside li a:hover {
   justify-content: center;
   align-items: center;
   font-size: 90px;
+}
+.card h1 {
+  font-family: "Playfair Display", serif;
 }/*# sourceMappingURL=GeneralCss.css.map */

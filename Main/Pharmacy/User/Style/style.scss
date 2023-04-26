@@ -1,0 +1,149 @@
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Noto Sans', sans-serif;
+}
+::-webkit-scrollbar{
+    width: 4px;
+}
+::-webkit-scrollbar-thumb{
+    background: black;
+}
+.card{
+    cursor: pointer;
+    outline: 1px solid rgba(0, 0, 0, 0.15);
+    height: max(450px,460px); 
+    padding-block: 10px;
+    background: hsl(0, 0%, 98%);
+    border-radius: 4px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    div{
+        h2{
+            font-weight: 400;
+            font-size: 1.1em;
+        }
+        h1{
+            margin-top: 5px;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: rgb(31, 31, 31);
+
+        }
+        width: 100%;
+        height: 80%;
+        padding: 5px;
+    
+        background: inherit;
+    
+    }
+    img{
+        width: 100%;
+        height: 110%;
+        object-fit: cover;
+    }
+}
+
+.CardHolder{
+gap: 10px;
+padding: 10px;
+margin-left: 300px;
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit,250px);
+
+}
+#Nav{
+position: relative;
+height: 20vh;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+outline: 1px solid rgba(0, 0, 0, 0.1);
+display: grid;
+grid-template-rows: 2fr 1fr;
+
+div:nth-child(1){
+    display: flex;
+    align-items:  center;
+    justify-content: left;
+    background: #0e0e0e;
+}
+div:nth-child(2){
+    background: hsl(0, 0%, 10%);
+}
+div:nth-child(3){
+    background: hsl(0, 0%, 100%);
+}
+#logo{
+    color: rgb(255, 255, 255);
+    padding-left: 10px;
+    font-size: 1.2em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 1000;
+}
+#search{
+    display: flex;
+    position: absolute;
+    left: 300px;
+    height: 40px;
+    button{
+        width: 40px;
+        border: none;
+        background: rgb(255, 208, 0);
+        border-radius: 0px 10px 10px 0;
+        transition: background-color .2s;
+        &:hover{
+            background: rgb(255, 153, 0);
+        }
+    }
+    span{
+        text-align: center;
+        font-weight: 400;
+        font-size: 2em;
+        display: grid;
+        place-content: center;
+    }
+    input{
+        font-family: poppins;
+        text-indent: 7px;
+        font-size: 1em;
+        border: none;
+        border-radius: 10px 0px 0px 10px;
+        width: min(calc(95vw - 300px - 40px),500px);
+        height: 100%;
+    }    
+}
+}
+
+aside{
+    padding: 1em;
+    width: 300px;
+    height: 200vh;
+    position: absolute;
+    h3{
+        font-family: 'Merriweather', serif;
+        font-weight: 800;
+        font-size: 1em;
+    }
+    li{
+        list-style: none;
+        padding: 2px;
+        font-size: .9em;
+        a{  
+            font-weight: 500;
+            text-decoration: none;
+            color:black;
+            &:hover{
+            color:#2a70d8;
+            }
+        }
+    }
+.material-symbols-outlined{
+    font-size: 1.6em;
+}
+}

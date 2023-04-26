@@ -8,6 +8,7 @@ USER = ''
 d = {}
 AppointmentDB = {
     'James': {
+        
     },
     'John': {
     },
@@ -199,7 +200,7 @@ def index():
         string = string+link+'</br>'
     return string
 
-
+# http://127.0.0.1:5000/Signup/Rhys/rhys123@gail.com/1324
 @app.route('/Signup/<name>/<email>/<password>', methods=['GET'])
 @app.route('/Signup/<name>/<email>/<password>/<DocID>', methods=['GET'])
 def Signup(name, email, password, DocID=None):

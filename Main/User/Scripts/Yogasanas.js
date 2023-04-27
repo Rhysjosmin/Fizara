@@ -33,8 +33,8 @@ fetch(`${SERVER_URL}/Yogasanas/${Page}`)
 
 const counter=document.createElement('h1')
   counter.innerText=Yogas.length
-  counter.style.display='flex'
-  counter.style.alignItems='center'
+
+  
   counter.style.fontWeight=400
 
 

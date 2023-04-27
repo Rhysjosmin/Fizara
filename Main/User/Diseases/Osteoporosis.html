@@ -117,127 +117,33 @@
 
       <h1 style="font-size: 2em">Yogasanas</h1>
       <section id="Yogasanas">
-        <div class="Yoga" data-aos="fade-right">
-          <img
-            src="../../../media/images/Diseases/Osteoporosis/Plank.png"
-            alt=""
-          />
-          <div>
-            <h1>High Plank Pose</h1>
-
-            <ul>
-              <li>How to do high plank pose</li>
-
-              <li>Start in tabletop position.</li>
-
-              <li>
-                Press heels back behind you as you lift hips and straighten
-                knees.
-              </li>
-
-              <li>Elongate spine and activate arm, core, and leg muscles.</li>
-
-              <li>Draw shoulders back as you broaden across your chest.</li>
-
-              <li>Hold for up to 1 minute.</li>
-
-              <li>Repeat 1 to 3 times</li>
-            </ul>
-          </div>
-        </div>
-        <div class="Yoga" data-aos="fade-right">
-          <img
-            src="../../../media/images/Diseases/Osteoporosis/DownwardFacingDog.jpg"
-            alt=""
-          />
-          <div>
-            <h1>Downward Facing Dog</h1>
-
-            <ul>
-              <li>How to do downward-facing dog pose</li>
-
-              <li>
-                Begin in tabletop position with toes tucked under feet, heels
-                raised.
-              </li>
-
-              <li>
-                Press into hands as you lengthen your spine and raise sitting
-                bones toward the
-              </li>
-              <li>ceiling.</li>
-
-              <li>Elongate spine and maintain a slight bend in knees.</li>
-
-              <li>
-                Position ears to be in line with upper arms, or move chin
-                towards chest.
-              </li>
-
-              <li>Hold for up to 1 minute.</li>
-
-              <li>Repeat 1 to 3 times.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="Yoga" data-aos="fade-right">
-          <img
-            src="../../../media/images/Diseases/Osteoporosis/TreePose.png"
-            alt=""
-          />
-          <div>
-            <h1>Tree Pose</h1>
-
-            <ul>
-              <li>How to do tree pose</li>
-
-              <li>Start standing on both feet.</li>
-
-              <li>
-                Now slowly raise right foot from the floor, placing the sole of
-                your right foot on the inside of
-              </li>
-              <li>ankle, lower leg, or thigh. (Don’t press foot into knee.)</li>
-
-              <li>
-                Extend arms overhead or press palms together in front of chest.
-              </li>
-
-              <li>
-                Focus your gaze on the floor or a fixed point straight ahead.
-              </li>
-
-              <li>Hold pose for up to 1 minute.</li>
-
-              <li>Repeat on the opposite side.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-    </template>
-
-  </body>
-
-  <script src="../../Scripts/Config.js"></script>
-  <script src="../../Scripts/Alert.js"></script>
-  <script>
-    let USER = "";
-    const page1 = document.getElementById("Page1").content.cloneNode(true);
-    const destination = document.getElementById("rside");
-    destination.appendChild(page1);
-  </script>
-
-  <script src="../Scripts/geturlparam.js"></script>
-
-  <script>
-    function main() {
-      USER = GetUrlParam("User");
-    }
-    main();
-  </script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-</html>
+        <input type="text" name="" id="search">
+              </section>
+            </template>
+          </body>
+        
+          <script src="../../../Scripts/Config.js"></script>
+          <script src="../../Scripts/Alert.js"></script>
+          <script>
+            let USER = "";
+            const page1 = document.getElementById("Page1").content.cloneNode(true);
+            const destination = document.getElementById("rside");
+            destination.appendChild(page1);
+          </script>
+        
+          <script src="../../Scripts/geturlparam.js"></script>
+        
+          <script>
+            function main() {
+              USER = GetUrlParam("User");
+              Page ='Osteoporosis'
+            }
+            main();
+          </script>
+        
+          <script src="../Scripts/Yogasanas.js"></script>
+          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+          <script>
+              AOS.init();
+            </script>
+        </html>

@@ -3,6 +3,7 @@ import json
 import random
 from DB.DB import *
 from DB.Yogasanas import *
+from MySQL.app import Pharmacy
 from flask_cors import CORS
 Doctor = ''
 USER = ''
@@ -12,6 +13,10 @@ app = Flask(__name__)
 CORS(app)
 # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
 
+
+app.config['UPLOAD_FOLDER'] = './Server/DB/Images'
+
+app.register_blueprint(Pharmacy,url_prefix='/Pharmacy')
 
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
@@ -198,7 +203,7 @@ def AverageCalories(User):
 
 if __name__ == '__main__':
     import random
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0' ,debug=True)
     # for key in AppointmentDB:
     #     Domains=[
     #         '@gmail.com',

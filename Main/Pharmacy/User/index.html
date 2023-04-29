@@ -66,16 +66,46 @@
           </li>
         </ul>
       </aside>
-      <section class="CardHolder">
-        
-        <div class="card">
-          <img id="Image" src=""/>
-          <div>
-            <h2 id="Name"></h2>
-            <h1 id="Price"></h1>
-          </div>
-        </div>
+      <section class="CardHolder" id="CardHolder">
+ 
       </section>
     </section>
+
+    <template id="ItemTemplate">
+      <div class="card">
+        <img id="Image" src=""/>
+        <div>
+          <h2 id="Name"></h2>
+          <h1 id="Price"></h1>
+        </div>
+      </div>
+    </template>
   </body>
+  <script src="../../../Scripts/Config.js"></script>
+  <script>
+
+
+const CardHolder = document.getElementById('CardHolder')
+Template = document.getElementById('ItemTemplate')
+
+
+StudentArray = [];
+fetch(SERVER_URL + "/Pharmacy/Items")
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach((item) => {
+            content = Template.content.cloneNode(true)
+
+            content.getElementById('Image').src = 'data:image/png;base64,'+item['Image']
+            content.getElementById('Name').innerText =item['Name']
+            content.getElementById('Price').innerText = item['Price']
+  
+            CardHolder.appendChild(content)
+
+        });
+    });
+
+
+   
+  </script>
 </html>

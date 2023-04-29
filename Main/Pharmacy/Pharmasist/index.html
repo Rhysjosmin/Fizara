@@ -9,12 +9,12 @@
 </head>
 <body>
     <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-
+<h1>Add Item</h1>
     <!-- <form action="http://127.0.0.1:5000/Pharmacy/AddItem" method="post" target="dummyframe"> -->
     <form action="http://127.0.0.1:5000/Pharmacy/AddItem" method="post"  enctype="multipart/form-data">
-        <input type="text" name="Name">
-        <input type="file" name="Image">
-        <input type="text" name="Price">
+        <input type="text" name="Name" placeholder="Name" required>
+        <input type="file" name="Image" required>
+        <input type="text" name="Price" placeholder="Price" inputmode="numeric" pattern=" [e-9]+" required>
         <input type="submit" value="Submit">
     </form>
 </body>

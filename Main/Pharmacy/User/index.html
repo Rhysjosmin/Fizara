@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link
     href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
@@ -69,39 +70,114 @@
       <section class="CardHolder" id="CardHolder">
  
       </section>
+
+      <style>
+   
+        #Cart{
+          max-height: 300px;
+          overflow-y: scroll;
+          background: rgb(224, 224, 224);
+          width: 200px;
+          position: fixed;
+          z-index: 100;
+          right: 10px;
+          bottom: 50px;
+          display: flex;
+          flex-direction: column-reverse;
+          outline: 1px solid rgba(0, 0, 0, 0.288);
+          padding: 5px;
+          border-radius: 5px;
+          gap: 5px;
+        }
+        .CartItem{
+          cursor:pointer;
+          background: white;
+          outline: 1px solid rgba(0, 0, 0, 0.288);
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .CartItem:hover{
+          background: rgb(235, 130, 130);
+
+        }
+        #Checkout{
+          position: fixed;
+          bottom: 10px;
+          right: 10px;
+          width:200px;
+          height: 30px;
+        }
+      </style>
+
+      <div id="Cart">
+     
+      </div>
+      <button id="Checkout">Checkout</button>
     </section>
 
     <template id="ItemTemplate">
-      <div class="card">
+      <div class="card" >
         <img id="Image" src=""/>
         <div>
           <h2 id="Name"></h2>
           <h1 id="Price"></h1>
+          <span onclick="AddtoCart(this)" style="display: flex;align-items: center;gap: 7px;" >Add To Cart<span class="material-symbols-outlined">
+            shopping_cart
+            <h1 id="ID" hidden></h1>
+            </span></span>
+          
         </div>
       </div>
     </template>
   </body>
   <script src="../../../Scripts/Config.js"></script>
   <script>
+    Total=0
+    let PharmacyItems={}
+    const Cart =document.getElementById('Cart')
+    const Checkout =document.getElementById('Checkout')
+    function AddtoCart(item){
+      console.log(item.querySelector('#ID').innerText)
+      id=item.querySelector('#ID').innerText
+      listItem=document.createElement('div')
 
+      // listItem.innerHTML=PharmacyItems[id]['Name']+" ₹"+parseFloat( PharmacyItems[id]['Price'])
+      listItem.innerHTML="<span>"+PharmacyItems[id]['Name']+"</span> ₹"+"<span id='PriceInCart'>"+parseFloat( PharmacyItems[id]['Price'])+"</span>"
+      
+      listItem.className='CartItem'
+      listItem.addEventListener('click',RemoveFromCart)
+      Cart.appendChild(listItem)
+      Total+= parseFloat( PharmacyItems[id]['Price'])
+      Checkout.innerText='Checkout ₹'+Total
+    }
+
+    function RemoveFromCart(){
+    Cart.removeChild(this)
+    Total-=parseFloat(this.querySelector('#PriceInCart').innerText)
+    Checkout.innerText='Checkout ₹'+ Total
+    }
 
 const CardHolder = document.getElementById('CardHolder')
 Template = document.getElementById('ItemTemplate')
 
-
+i=0
 StudentArray = [];
 fetch(SERVER_URL + "/Pharmacy/Items")
     .then((response) => response.json())
     .then((data) => {
         data.forEach((item) => {
-            content = Template.content.cloneNode(true)
-
+            i++
+            const content = Template.content.cloneNode(true)
             content.getElementById('Image').src = 'data:image/png;base64,'+item['Image']
             content.getElementById('Name').innerText =item['Name']
             content.getElementById('Price').innerText = item['Price']
-  
+            content.getElementById('ID').innerText = i
             CardHolder.appendChild(content)
-
+            PharmacyItems[i]={
+              'Element':content,
+              'Name':item['Name'],
+              'Price':item['Price']
+            }
         });
     });
 

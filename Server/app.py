@@ -1,10 +1,11 @@
-from flask import Flask, request, url_for
+from flask import Flask, jsonify, request, url_for
 import json
 import random
 from DB.DB import *
 from DB.Yogasanas import *
 from MySQL.app import Pharmacy
 from flask_cors import CORS
+from PIL import Image
 Doctor = ''
 USER = ''
 
@@ -151,6 +152,14 @@ def SetRate(User, value):
 @app.route('/AppointmentDB')
 def _AppointmentDB():
     return json.dumps(AppointmentDB)
+
+
+TempStorageDB={}
+@app.route('/TempStorage/<ID>/<DATA>')
+def TempStorage(ID,DATA):
+    jsonify(DATA)
+    TempStorageDB[ID]= DATA
+    return 'OK'
 
 
 @app.route('/UserDB')

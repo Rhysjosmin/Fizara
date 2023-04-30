@@ -4,70 +4,33 @@ import os
 from flask import Blueprint, jsonify, redirect, request, current_app
 import mysql.connector
 from werkzeug.utils import secure_filename
-from PIL import Image as _Image
+from dotenv import load_dotenv
+load_dotenv()
+import os
+import MySQLdb
+
 
 UPLOAD_FOLDER = '/DB/Images'
 
 Pharmacy = Blueprint('Admin', __name__)
 
 
-ALLconfig = [
-    {
-        'host': "localhost",
-        'user': "root",
-        'password': "ROOT",
-        'database': "Pharmacy"
+DatabaseConnection = mysql.connector.connect(
+host=os.getenv("HOST"),
+database=os.getenv("DATABASE"),
+user=os.getenv("USERNAME"),
+password=os.getenv("PASSWORD"),
 
-    },
-    {
-        'host': "pharmacy-2889.7s5.cockroachlabs.cloud",
-        'user': "rhysjosmin",
-        'password': "ta_SLcvMvDt-YlCC-MSH2Q",
-        'database': "defaultdb",
-        'port': 26257
+)
 
-    },
-]
-config = ALLconfig[0]
 try:
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-
-
-        database=config['database']
-    )
-except:
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-    )
-
-    Database = DatabaseConnection.cursor()
-    Database.execute('CREATE DATABASE Pharmacy')
-    DatabaseConnection.commit()
-    DatabaseConnection.close()
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-        database=config['database']
-    )
     Database = DatabaseConnection.cursor()
     Database.execute(
-        'CREATE TABLE Items (Name VARCHAR(255), Image LONGBLOB, Price VARCHAR(255))')
+        'CREATE TABLE Items (Id, Name VARCHAR(255), Image LONGBLOB, Price VARCHAR(255))')
     DatabaseConnection.commit()
     DatabaseConnection.close()
-finally:
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-        database=config['database']
-    )
-
+except:
+    print('Connected')
     Database = DatabaseConnection.cursor()
 
 
@@ -80,12 +43,7 @@ def Additem():
     filename = secure_filename(Image.filename)
     filepath = current_app.config['UPLOAD_FOLDER']+'/'+filename
     Image.save(filepath)
-    
-    im=_Image.open(filepath)
-    resized=im.resize((500, 500))
-    resized.save(filepath)
-    
-    
+
     with open(filepath, 'rb') as f:
         Image = f.read()
     CreateItem = "INSERT INTO Items (Name,Image,Price) VALUES (%s,%s,%s)"
@@ -104,7 +62,7 @@ def Items():
     items = []
     for row in Results:
         item = {
-      
+            'id': row[3],
             'Name': row[0],
             'Image': base64.b64encode(row[1]).decode('utf-8'),
             'Price': row[2],

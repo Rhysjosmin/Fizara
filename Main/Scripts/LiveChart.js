@@ -1,5 +1,4 @@
 function StartChart(){
-
 let value=0
 let size=500
 let count=0

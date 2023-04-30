@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="./Style/style.css" />
+
+    <title>Pharmacy</title>
+  </head>
+  <body>
+   
+
+    <section style="">
+    
+      <aside>
+        <ul>
+          <li>
+            <a href="../../index.html">
+              <h1>Home</h1>
+            </a>
+          </li>
+          <li>
+            <a onclick="window.location='../index.html'+window.location.search;"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="window.location='../Appointment.html'+window.location.search;"
+              >Book an Appointment</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="window.location='../Diseases.html'+window.location.search;"
+              >Diseases</a
+            >
+           
+          </li>
+          <li>
+            <a
+              onclick="window.location='../Maternal_Health_Issues.html'+window.location.search;"
+              >Maternal Health Issues</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="window.location='../Mental_Health_Counselling.html'+window.location.search;"
+              >Mental Health Counselling</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="window.location='../../Pharmacy/User/index.html'+window.location.search;"
+              id=""
+              class="Higlighted"
+              >Pharmacy</a
+            >
+          </li>
+        </ul>
+      </aside>
+      <section style="
+      position: absolute;
+      width: calc(100vw - 15rem);
+      left: 15rem;
+
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ">
+
+          <div style="
+          
+          outline: 1px solid rgba(0, 0, 0, 0.29);padding: 10px;border-radius: 10px;          ">
+            <h1>Your Order Has Been Placed</h1>
+            <h5>Thanks For Shopping here</h5>
+            <br>
+            <hr>
+            <h5>Your Bill</h5>
+            <ul style="list-style: none;font-size: .8em;max-height: 200px;overflow-y: scroll;" id="BILLList">
+
+
+                <style>
+                    .billItem{
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 20px;
+                    }
+                    .billTotal{
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 1.5em;
+                        font-weight: 1000;
+                    }
+                    </style>
+            </ul>
+            <li class="billTotal"><span>Total : </span><span id="TOTAL"> </span></li>
+        </div>
+      </section>
+         
+      </section>
+
+
+      <script src="../../../Scripts/Config.js"></script>
+      <script src="../../Scripts/geturlparam.js"></script>
+      <script>
+        const BILLList=document.getElementById('BILLList')
+
+           let SessionID = GetUrlParam("SessionId");
+           let Total=0
+        fetch(SERVER_URL+'/TempList/Display/'+SessionID).then(response=>response.json())
+        .then(List=>{
+          for (const key in List) {
+            const li=document.createElement('li')
+            li.className='billItem'
+            console.log(List[key].Name)
+            console.log(List[key].Price)
+            Total+=parseFloat(List[key].Price)
+            li.innerHTML='<span>'+List[key].Name+'</span><span>₹'+List[key].Price+'</span>'
+            BILLList.appendChild(li)
+}
+
+        }).finally(()=>{
+          const TOTAL=document.getElementById('TOTAL')
+          TOTAL.innerText='₹'+Total
+        })
+      </script>
+
+  </body>
+ 
+</html>

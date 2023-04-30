@@ -31,18 +31,13 @@ fetch(`${SERVER_URL}/Yogasanas/${Page}`)
     });
 })
 
-const counter=document.createElement('h1')
-  counter.innerText=Yogas.length
-
-  
-  counter.style.fontWeight=400
 
 
-  Yogasanas.append(counter)
+
 const searchInput=document.getElementById('search')
 searchInput.placeholder='Search Yogasanas'
 searchInput.addEventListener('input',(e)=>{
-  counter.innerText=Yogas.length
+
   value=e.target.value.toLowerCase();
   Yogas.forEach(_yoga=>{
     const isVisible=_yoga.heading.toLowerCase().includes(value) || _yoga.paragraph.innerHTML.toLowerCase().includes(value)
@@ -50,6 +45,5 @@ searchInput.addEventListener('input',(e)=>{
     
   })
   let hiddenYogas=document.getElementsByClassName('hide')
-  counter.innerText=Yogas.length-hiddenYogas.length
 
 })

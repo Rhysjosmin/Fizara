@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, url_for
+from flask import Flask, jsonify, request, url_for,render_template
 import json
 import random
 from DB.DB import *
@@ -27,6 +27,10 @@ def has_no_empty_params(rule):
 @app.route('/Yogasanas/<page>')
 def YogasanasDBFlask(page):
     return Yogasanas[page]
+
+@app.route('/Home', methods=['GET'])
+def HomePage():  # pragma: no cover
+    return render_template('index.html')
 
 
 @app.route('/')
@@ -155,11 +159,23 @@ def _AppointmentDB():
 
 
 TempStorageDB={}
-@app.route('/TempStorage/<ID>/<DATA>')
-def TempStorage(ID,DATA):
-    jsonify(DATA)
-    TempStorageDB[ID]= DATA
+# SERVER_URL+'/TempList/'+Math.round(Math.random()*1000
+@app.route('/TempList/<ID>/<Data>')
+def TempList(ID,Data):
+    TempStorageDB[ID]=Data
+    print(TempStorageDB)
     return 'OK'
+
+@app.route('/TempList/Display/<ID>', methods=['GET'])
+def TempListDisp(ID):
+   
+    return TempStorageDB[ID]
+@app.route('/TempList/Display/', methods=['GET'])
+def TempListDispNOID():
+   
+    return json.dumps(TempStorageDB)
+
+
 
 
 @app.route('/UserDB')

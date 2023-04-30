@@ -40,6 +40,7 @@ searchInput.addEventListener('input',(e)=>{
 
   value=e.target.value.toLowerCase();
   Yogas.forEach(_yoga=>{
+    console.log(_yoga.element)
     const isVisible=_yoga.heading.toLowerCase().includes(value) || _yoga.paragraph.innerHTML.toLowerCase().includes(value)
     _yoga.element.classList.toggle('hide',!isVisible)
     

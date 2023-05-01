@@ -228,7 +228,7 @@ def AverageCalories(User):
 
 if __name__ == '__main__':
     import random
-    app.run(host='0.0.0.0' ,debug=True)
+    app.run(host='0.0.0.0' )
     # for key in AppointmentDB:
     #     Domains=[
     #         '@gmail.com',

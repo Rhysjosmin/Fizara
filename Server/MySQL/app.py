@@ -2,7 +2,7 @@ import base64
 import json
 import os
 from flask import Blueprint, jsonify, redirect, request, current_app
-import mysql.connector
+
 from werkzeug.utils import secure_filename
 from PIL import Image as _Image
 

@@ -11,65 +11,7 @@ UPLOAD_FOLDER = '/DB/Images'
 Pharmacy = Blueprint('Admin', __name__)
 
 
-ALLconfig = [
-    {
-        'host': "localhost",
-        'user': "root",
-        'password': "ROOT",
-        'database': "Pharmacy"
-
-    },
-    {
-        'host': "pharmacy-2889.7s5.cockroachlabs.cloud",
-        'user': "rhysjosmin",
-        'password': "ta_SLcvMvDt-YlCC-MSH2Q",
-        'database': "defaultdb",
-        'port': 26257
-
-    },
-]
-config = ALLconfig[0]
-try:
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-
-
-        database=config['database']
-    )
-except:
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-    )
-
-    Database = DatabaseConnection.cursor()
-    Database.execute('CREATE DATABASE Pharmacy')
-    DatabaseConnection.commit()
-    DatabaseConnection.close()
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-        database=config['database']
-    )
-    Database = DatabaseConnection.cursor()
-    Database.execute(
-        'CREATE TABLE Items (Name VARCHAR(255), Image LONGBLOB, Price VARCHAR(255))')
-    DatabaseConnection.commit()
-    DatabaseConnection.close()
-finally:
-    DatabaseConnection = mysql.connector.connect(
-        host=config['host'],
-        user=config['user'],
-        password=config['password'],
-        database=config['database']
-    )
-
-    Database = DatabaseConnection.cursor()
-
+PharmacyDB=[]
 
 @Pharmacy.route('/AddItem', methods=['POST', 'GET'])
 def Additem():
@@ -86,32 +28,39 @@ def Additem():
     resized.save(filepath)
     
     
-    with open(filepath, 'rb') as f:
-        Image = f.read()
-    CreateItem = "INSERT INTO Items (Name,Image,Price) VALUES (%s,%s,%s)"
-    Item = [Name, Image, Price]
-    Database.execute(CreateItem, Item)
-    DatabaseConnection.commit()
+    # with open(filepath, 'rb') as f:
+    #     Image = 'f.read()'
+    item={
+        
+    'Image':filepath,
+    'Name':Name,
+    'Price':Price
+    }
+    PharmacyDB.append(item)
+    # CreateItem = "INSERT INTO Items (Name,Image,Price) VALUES (%s,%s,%s)"
+    # Item = [Name, Image, Price]
+    # Database.execute(CreateItem, Item)
+    # DatabaseConnection.commit()
     return request.url
 
 
 @Pharmacy.route('/Items')
 def Items():
-    Database.execute("SELECT * FROM Items")
+    # Database.execute("SELECT * FROM Items")
 
-    Results = Database.fetchall()
+    # Results = Database.fetchall()
 
-    items = []
-    for row in Results:
-        item = {
+    # items = []
+    # for row in Results:
+    #     item = {
       
-            'Name': row[0],
-            'Image': base64.b64encode(row[1]).decode('utf-8'),
-            'Price': row[2],
-        }
-        items.append(item)
+    #         'Name': row[0],
+    #         'Image': base64.b64encode(row[1]).decode('utf-8'),
+    #         'Price': row[2],
+    #     }
+    #     items.append(item)
 
-    return jsonify(items)
+    return PharmacyDB
 
 
 # @app.route('/api/items')

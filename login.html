@@ -58,7 +58,7 @@
 
     function login() {
         let resp = ''
-
+       if(document.getElementById('email').value.includes('@')){
         fetch(`${SERVER_URL}/Login/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
             .then((response) => response.json())
             .then((data) => {
@@ -76,7 +76,10 @@
                     document.getElementById('UserState').innerText = 'Username or Password Incorrect'
                 }
             });
-
+        }else{
+            document.getElementById('email').style.outlineColor='red'
+            document.getElementById('UserState').innerText = 'Use The Correct Email Format'
+       }
     }
 </script>
 

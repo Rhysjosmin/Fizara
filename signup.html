@@ -71,6 +71,7 @@
   <script src="./Scripts/navBarOpen.js"></script>
   <script>
     function Signup() {
+      if(document.getElementById('email').value.includes('@')){
       if (document.getElementById("DoctorID").value.trim() == "") {
         URL = `${SERVER_URL}/Signup/${document.getElementById("name").value}/${
           document.getElementById("email").value
@@ -101,7 +102,11 @@
                 document.getElementById("name").value;
             }
           }
-        });
+        });}
+        else{
+          document.getElementById('email').style.outlineColor='red'
+            document.getElementById('UserState').innerText = 'Use The Correct Email Format'
+        }
     }
   </script>
   <script src="./Scripts/Alert.js"></script>

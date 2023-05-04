@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Styles/UserStyle.css" />
+  </head>
+  <body>
+    <aside>
+      <ul>
+        <li>
+          <a href="../../index.html">
+            <h1>Home</h1>
+          </a>
+        </li>
+        <li><a href="" class="Higlighted">Dashboard</a></li>
+        <li>
+          <a
+            onclick="window.location='Appointment.html'+window.location.search;"
+            >Book an Appointment</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='Diseases.html'+window.location.search;"
+            id=""
+            >Diseases</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='Maternal_Health_Issues.html'+window.location.search;
+              "
+            id=""
+            >Maternal Health Issues</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='Mental_Health_Counselling.html'+window.location.search;"
+            id=""
+            >Mental Health Counselling</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='../Pharmacy/User/index.html'+window.location.search;"
+            id=""
+            >Pharmacy</a
+          >
+        </li>
+        <li>
+          <a
+            onclick="window.location='../Pharmacy/Pharmasist/index.html'+window.location.search;"
+            id=""
+            >Admin</a
+          >
+        </li>
+      </ul>
+    </aside>
+    <chatApp>
+      <left>
+        <h1 id="HeadText">She Arogya Chat</h1>
+        <form action="">
+          <input type="text" placeholder="Search or start a new chat">
+        
+          <button>
+            <span class="material-symbols-outlined">
+              search
+              </span>
+          </button>
+        </form>
+        <section id="chatlist">
+     
+
+          <div class="chat">
+            <h1 class="Name">John</h1>
+            <h3 class="Email">John@gmail.com</h3>
+          </div>
+          <div class="chat active">
+            <h1 class="Name">Elsa</h1>
+            <h3 class="Email">Elsa@gmail.com</h3>
+          </div>
+          <div class="chat">
+            <h1 class="Name">Amy</h1>
+            <h3 class="Email">Amy@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Brian</h1>
+            <h3 class="Email">Brian@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Catherine</h1>
+            <h3 class="Email">Catherine@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">David</h1>
+            <h3 class="Email">David@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Emily</h1>
+            <h3 class="Email">Emily@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Frank</h1>
+            <h3 class="Email">Frank@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Grace</h1>
+            <h3 class="Email">Grace@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Henry</h1>
+            <h3 class="Email">Henry@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Isabelle</h1>
+            <h3 class="Email">Isabelle@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Jason</h1>
+            <h3 class="Email">Jason@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Katie</h1>
+            <h3 class="Email">Katie@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Luke</h1>
+            <h3 class="Email">Luke@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Maggie</h1>
+            <h3 class="Email">Maggie@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Nathan</h1>
+            <h3 class="Email">Nathan@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Olivia</h1>
+            <h3 class="Email">Olivia@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Paul</h1>
+            <h3 class="Email">Paul@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Quinn</h1>
+            <h3 class="Email">Quinn@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Ryan</h1>
+            <h3 class="Email">Ryan@gmail.com</h3>
+          </div>
+          
+          <div class="chat">
+            <h1 class="Name">Sarah</h1>
+            <h3 class="Email">Sarah@gmail.com</h3>
+          </div>
+          
+     
+
+        </section>
+      </left>
+      <right>
+        <div id="ActiveChatName">
+          <div>
+            <h1 class="Name">Elsa</h1>
+            <h3 class="Email">Elsa@gmail.com</h3>
+          </div>
+          
+        </div>
+        <div id="Chats">
+          <div class="textMessage there">Good morning, doctor. I've been experiencing some pain in my abdomen lately and I was wondering if you could help me figure out what's going on.</div>
+<div class="textMessage here">Of course 😆, I'll do my best. Can you describe the pain you're experiencing?</div>
+<div class="textMessage there">It's a dull ache that seems to come and go. It's mostly in my lower abdomen, but sometimes it spreads to my sides as well.</div>
+<div class="textMessage here">I see. Have you noticed any other symptoms?</div>
+<div class="textMessage there">Not really, just some bloating and occasional constipation.</div>
+<div class="textMessage here">Based on what you've described , it's possible that you have a gastrointestinal issue. I recommend making an appointment with a gastroenterologist to get a proper diagnosis.</div>
+<div class="textMessage there">Okay, thank you for your help, doctor.</div>
+<div class="textMessage here">You're welcome. Take care and let me know if you have any other concerns.</div>
+
+      
+        </div>
+        <form action="">
+      
+          <input type="text" name=""  autocomplete="off">
+          <button><span class="material-symbols-outlined">
+            send
+            </span></button>
+        </form>
+      </right>
+    </chatApp>
+  
+  </body>
+</html>

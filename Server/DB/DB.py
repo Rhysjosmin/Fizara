@@ -104,58 +104,162 @@ NewsDB = {
         "link": "https://www.theguardian.com/society/2022/mar/24/link-between-screen-time-and-depression-in-teenagers-study-suggests"
     }
 }
+
+
+
 UserDatabase = {
 
-    "john": {"email": "johndoc@doc.com", "password": "1234", "DocID": "12345"},
+    "Emanuel": {"email": "Emanuel@doc.com",
+                "password": "1234",
+                "DocID": "12345",
+                "ActiveChats": {
+                    "Emily": {
+                        'Email': "Emily@email.com",
+                        "Chat": [
+                         "##Good morning, doctor. I've been experiencing some pain in my abdomen lately and I was wondering if you could help me figure out what's going on.",
+                         "$$Of course 😆, I'll do my best. Can you describe the pain you're experiencing?",
+                         "##It's a dull ache that seems to come and go. It's mostly in my lower abdomen, but sometimes it spreads to my sides as well.",
+                         "$$I see. Have you noticed any other symptoms?",
+                         "$$Not really, just some bloating and occasional constipation.",
+                         "##Based on what you've told me, it's possible that you have Irritable Bowel Syndrome. However, we'll need to do some tests to confirm the diagnosis. I'll write you a referral for some tests and we can go from there.",
+                         "$$Okay, thank you doctor."
+                        ]
+                    },
+                    "Jasmine": {
+                        'Email': "Jasmine@email.com",
+                        "Chat": [
+                            "##Good morning, doctor. I'm having trouble sleeping lately and I was hoping you could help me.",
+                            "$$Of course, I'll do my best. Can you describe what's been keeping you awake?",
+                            "##I just can't seem to relax. My mind races with all sorts of thoughts and worries and I can't seem to turn it off.",
+                            "$$I understand. Have you tried any relaxation techniques or meditation?",
+                            "##I've tried a few things, but nothing seems to work.",
+                            "$$Okay. Well, there are some medications that can help with sleep, but I prefer to try non-medication approaches first. Let's try some relaxation techniques and see if that helps. I'll give you some resources to check out.",
+                            "##Okay, thanks doctor.",
+                            "$$You're welcome. Let me know if you need anything else."
+                        ]
+                    },
+                    "Rose": {
+                        'Email': "Rose@email.com",
+                        "Chat": [
+        
+                        ]
+                    },
+                    "Isacc": {
+                        'Email': "Isacc@email.com",
+                        "Chat": [
+                            "##Hey, how are you doing?",
+                            "$$I'm good, thanks. How about you?",
+                            "##I'm doing well, thanks for asking. Have you heard about the new restaurant that just opened up?",
+                            "$$😆😆😆",
+                            "$$No, I haven't. What's it called?",
+                            "##It's called The Bistro, and I heard their food is amazing. Do you want to check it out sometime?",
+                            "$$Sure, that sounds like a great idea.",
+                        ]
+                    },
+                }
+                },
 
-    "james": {'email': 'james@icloud.com', 'password': '425932', 'DocID': '428809'},
+    "James": {'email': 'james@icloud.com', 'password': '425932', 'DocID': '428809',
+    "ActiveChats": {}
+                },
 
-    "john": {'email': 'john@icloud.com', 'password': '591493', 'DocID': '415132'},
+    "John": {'email': 'john@icloud.com', 'password': '591493', 'DocID': '415132',
+    "ActiveChats": {}
+                },
 
-    "jennifer": {'email': 'jennifer@gmail.com', 'password': '972472', 'DocID': '975999'},
+    "Jennifer": {'email': 'jennifer@gmail.com', 'password': '972472', 'DocID': '975999',
+    "ActiveChats": {}
+                },
 
-    "richard": {'email': 'richard@icloud.com', 'password': '249470', 'DocID': '547443'},
+    "Richard": {'email': 'richard@icloud.com', 'password': '249470', 'DocID': '547443',
+    "ActiveChats": {}
+                },
 
-    "william": {'email': 'william@icloud.com', 'password': '653334', 'DocID': '636128'},
+    "William": {'email': 'william@icloud.com', 'password': '653334', 'DocID': '636128',
+    "ActiveChats": {}
+                },
 
-    "robert": {'email': 'robert@gmail.com', 'password': '307968', 'DocID': '283225'},
+    "Robert": {'email': 'robert@gmail.com', 'password': '307968', 'DocID': '283225',
+    "ActiveChats": {}
+                },
 
-    "michael": {'email': 'michael@gmail.com', 'password': '678136', 'DocID': '664056'},
+    "Michael": {'email': 'michael@gmail.com', 'password': '678136', 'DocID': '664056',
+    "ActiveChats": {}
+                },
 
-    "david": {'email': 'david@icloud.com', 'password': '230031', 'DocID': '265466'},
+    "David": {'email': 'david@icloud.com', 'password': '230031', 'DocID': '265466',
+    "ActiveChats": {}
+                },
 
-    "stephen": {'email': 'stephen@icloud.com', 'password': '660196', 'DocID': '917119'},
+    "Stephen": {'email': 'stephen@icloud.com', 'password': '660196', 'DocID': '917119',
+    "ActiveChats": {}
+                },
 
-    "jeffrey": {'email': 'jeffrey@icloud.com', 'password': '227062', 'DocID': '880658'},
+    "Jeffrey": {'email': 'jeffrey@icloud.com', 'password': '227062', 'DocID': '880658',
+    "ActiveChats": {}
+                },
 
-    "charles": {'email': 'charles@icloud.com', 'password': '256935', 'DocID': '136025'},
+    "Charles": {'email': 'charles@icloud.com', 'password': '256935', 'DocID': '136025',
+    "ActiveChats": {}
+                },
 
-    "daniel": {'email': 'daniel@icloud.com', 'password': '582863', 'DocID': '560825'},
+    "Daniel": {'email': 'daniel@icloud.com', 'password': '582863', 'DocID': '560825',
+    "ActiveChats": {}
+                },
 
-    "steven": {'email': 'steven@gmail.com', 'password': '720492', 'DocID': '774657'},
+    "Steven": {'email': 'steven@gmail.com', 'password': '720492', 'DocID': '774657',
+    "ActiveChats": {}
+                },
 
-    "paul": {'email': 'paul@icloud.com', 'password': '839491', 'DocID': '464418'},
+    "Paul": {'email': 'paul@icloud.com', 'password': '839491', 'DocID': '464418',
+    "ActiveChats": {}
+                },
 
-    "elizabeth": {'email': 'elizabeth@gmail.com', 'password': '459807', 'DocID': '509446'},
+    "Elizabeth": {'email': 'elizabeth@gmail.com', 'password': '459807', 'DocID': '509446',
+    "ActiveChats": {}
+                },
 
-    "susan": {'email': 'susan@gmail.com', 'password': '331193', 'DocID': '551320'},
+    "Susan": {'email': 'susan@gmail.com', 'password': '331193', 'DocID': '551320',
+    "ActiveChats": {}
+                },
 
-    "mary": {'email': 'mary@gmail.com', 'password': '323856', 'DocID': '972752'},
+    "Mary": {'email': 'mary@gmail.com', 'password': '323856', 'DocID': '972752',
+    "ActiveChats": {}
+                },
 
-    "joseph": {'email': 'joseph@icloud.com', 'password': '717302', 'DocID': '165582'},
+    "Joseph": {'email': 'joseph@icloud.com', 'password': '717302', 'DocID': '165582',
+    "ActiveChats": {}
+                },
 
-    "mark": {'email': 'mark@gmail.com', 'password': '938772', 'DocID': '195681'},
+    "Mark": {'email': 'mark@gmail.com', 'password': '938772', 'DocID': '195681',
+    "ActiveChats": {}
+                },
 
-    "thomas": {'email': 'thomas@icloud.com', 'password': '318568', 'DocID': '583772'},
+    "Thomas": {'email': 'thomas@icloud.com', 'password': '318568', 'DocID': '583772',
+    "ActiveChats": {}
+                },
 
 
-    "user": {
+    "User": {
         'email': 'user@email.com',
         'password': '1234',
         'Calorie': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 102, 13, 14, 15, 16, 17, 18, 19, 20],
         'Todo': [
             'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
-        ]}
+        ],
+            "ActiveChats": {}
+            },
+
+    "Emily": {
+        'email': 'Emily@email.com',
+        'password': '1234',
+        'Calorie': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 102, 13, 14, 15, 16, 17, 18, 19, 20],
+        'Todo': [
+            'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
+        ],
+            "ActiveChats": {}
+            },
+    
 }
 Reason = [
     'Checkup',

@@ -1,3 +1,5 @@
+from math import sin
+from time import sleep
 from flask import Flask, jsonify, request, url_for,render_template
 import json
 import random
@@ -8,10 +10,11 @@ from flask_cors import CORS
 from PIL import Image
 Doctor = ''
 USER = ''
-
+from flask_sock import Sock
 
 app = Flask(__name__)
 CORS(app)
+sock = Sock(app)
 # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
 
 
@@ -144,6 +147,17 @@ def News():
 def Doctors():
     return json.dumps(list(AppointmentDB.keys()))
 
+@app.route('/DoctorDetails')
+def DoctorDetails():
+    Details={}
+    for User in UserDatabase:
+        try:
+            if(UserDatabase[User]['DocID']):
+                Details[User]={'Email':UserDatabase[User]['email']}
+        except:
+            pass
+    return json.dumps(Details)
+
 
 @app.route('/SetRating/<User>/<value>')
 def SetRate(User, value):
@@ -183,6 +197,7 @@ def _UserDB():
     return json.dumps(UserDatabase)
 
 
+
 @app.route('/MakeAppointment', methods=['GET', 'POST'])
 def MakeAppointment():
     message = request.json.get('message')
@@ -214,6 +229,50 @@ def _ClearAppointments():
 #         }
 
 
+@app.route('/Chat/AddChat/<Sender>/<Receiver>',methods=['GET', 'POST'])
+def SendChat(Sender,Receiver):
+    # Message=request.json.get('message')
+    Message=request.json.get('Message')
+    
+    UserDatabase[Sender]['ActiveChats'][Receiver]['Chat'].append(Message)
+    try:
+        UserDatabase[Receiver]['ActiveChats'][Sender]['Chat'].append(Message)
+    except:
+        pass
+    global Tester
+    Tester+=1
+    return '0'
+
+#  ## Doctor
+#  $$ User
+
+@app.route('/Chat/NewChat/<sender>/<receiver>')
+def AddChat(sender,receiver):
+    UserDatabase[sender]['ActiveChats'][receiver]={
+        'Email':'email',
+        "Chat":[]
+    }
+    UserDatabase[receiver]['ActiveChats'][sender]={
+        'Email':'email',
+        "Chat":[]
+    }
+    return '0'
+    
+    
+    # {
+    #                     'Email': "Jasmine@email.com",
+    #                     "Chat": [
+    #                         "##Good morning, doctor. I'm having trouble sleeping lately and I was hoping you could help me.",
+    #                         "$$Of course, I'll do my best. Can you describe what's been keeping you awake?",
+    #                         "##I just can't seem to relax. My mind races with all sorts of thoughts and worries and I can't seem to turn it off.",
+    #                         "$$I understand. Have you tried any relaxation techniques or meditation?",
+    #                         "##I've tried a few things, but nothing seems to work.",
+    #                         "$$Okay. Well, there are some medications that can help with sleep, but I prefer to try non-medication approaches first. Let's try some relaxation techniques and see if that helps. I'll give you some resources to check out.",
+    #                         "##Okay, thanks doctor.",
+    #                         "$$You're welcome. Let me know if you need anything else."
+    #                     ]
+    #                 },
+
 @app.route('/AppendCalorie/<User>/<int:Value>')
 def AppendCalorie(User, Value):
     UserDatabase[User.lower()]['Calorie'].append(Value)
@@ -225,22 +284,34 @@ def AverageCalories(User):
     Calories = UserDatabase[User.lower()]['Calorie']
     return json.dumps(round(sum(Calories)/len(Calories), 3))
 
+Tester=0
+TesterTester=0
+@sock.route('/echo/<Patient>/<Doctor>')
+def echo(ws,Patient,Doctor):
+    global TesterTester,Tester
+    while True:
+        if(Tester!=TesterTester):
+            ws.send('refresh')
+            Tester=TesterTester
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     import random
     app.run(host='0.0.0.0',debug=True )
-    # for key in AppointmentDB:
-    #     Domains=[
-    #         '@gmail.com',
-    #         '@icloud.com',
 
-    #     ]
-    #     d={
-    #         f'{key.lower()}':{
-    #             "email":f'{key.lower()}{Domains[random.randint(0,len(Domains)-1)]}',
-    #             "password":str(random.randint(100000, 999999)),
-    #             "DocID":str(random.randint(100000, 999999))
-    #        }
-    #        }
-
-    #     print('"'+key.lower()+'" : '+str(d[key.lower()])+',\n')

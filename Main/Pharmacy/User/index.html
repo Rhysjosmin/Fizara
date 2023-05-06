@@ -230,33 +230,6 @@
       .then((data) => {
         _PharmacyItems=data.map((item) => {
           i++;
-          // const content = Template.content.cloneNode(true);
-          // content.getElementById("Image").src =
-          //   "data:image/png;base64," + item["Image"];
-          // content.getElementById("Name").innerText = item["Name"];
-          // content.getElementById("Price").innerText = item["Price"];
-          // content.getElementById("ID").innerText = i;
-          // CardHolder.appendChild(content);
-          // PharmacyItems[i] = {
-          //   Element: content,
-          //   Name: item["Name"],
-          //   Price: item["Price"],
-          // };
-
-      //     <div class="card">
-      //   <img id="Image" src="" />
-      //   <div>
-      //     <h2 id="Name"></h2>
-      //     <h1 id="Price"></h1>
-      //     <span
-      //       onclick="AddtoCart(this)"
-      //       style="display: flex; align-items: center; gap: 7px"
-      //       >Add To Cart<span class="material-symbols-outlined">
-      //         shopping_cart
-      //         <h1 id="ID" hidden></h1> </span
-      //     ></span>
-      //   </div>
-      // </div>
           const content=document.createElement('div')
           content.classList.add('card')
           content.innerHTML=`
@@ -290,17 +263,7 @@ searchInput.addEventListener('input',(e)=>{
 
   value=e.target.value.toLowerCase();
   console.log(value)
-  // for(item in PharmacyItems){
 
-
-  //   if(PharmacyItems[item].Name.toLowerCase().includes(value)){
-  //     PharmacyItems[item].Element.className=''
-  //     console.log(PharmacyItems[item].Element)
-  //   }else{
-  //     PharmacyItems[item].Element.className='hide'
-
-  //   }
-  // }
   _PharmacyItems.forEach(_PharmacyItem=>{
     const isVisible=_PharmacyItem.Name.toLowerCase().includes(value)
     console.log(_PharmacyItem)

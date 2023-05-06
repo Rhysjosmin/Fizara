@@ -1,0 +1,43 @@
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>Flask-Sock Demo</title>
+  </head>
+  <body>
+    <h1>Flask-Sock Demo</h1>
+    <div id="log"></div>
+    <br>
+    <form id="form">
+      <label for="text">Input: </label>
+      <input type="text" id="text" autofocus>
+    </form>
+    <script>
+      const log = (text, color) => {
+        document.getElementById('log').innerHTML += `<span style="color: ${color}">${text}</span><br>`;
+      };
+      Patient='John'
+      Doctor='Elgar'
+      const socket = new WebSocket('ws://' + '127.0.0.1:5000'+ '/echo/'+Patient+'/'+Doctor);
+      i=0
+      socket.addEventListener('message', ev => {
+        fetch('https://randomuser.me/api')
+        .then(resopnse=>resopnse.json())
+        .then(data=>{
+          i++
+            name=data.results[0].name.title+' '+data.results[0].name.first+' '+data.results[0].name.last
+            // log('Socket Says ' + data.results[0], 'blue');
+            log(i+' '+name,'green')
+        })
+      });
+      document.getElementById('form').onsubmit = ev => {
+        ev.preventDefault();
+        const textField = document.getElementById('text');
+        log('>>> ' + textField.value, 'red');
+        socket.send(textField.value);
+        textField.value = '';
+      };
+    </script>
+  </body>
+</html>

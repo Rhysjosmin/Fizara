@@ -10,3 +10,4 @@ Werkzeug==2.2.3
 Gunicorn
 mysql-connector-python
 Pillow
+flask-sock

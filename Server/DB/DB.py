@@ -109,7 +109,7 @@ NewsDB = {
 
 UserDatabase = {
 
-    "Emanuel": {"email": "Emanuel@doc.com",
+    "emanuel": {"email": "Emanuel@doc.com",
                 "password": "1234",
                 "DocID": "12345",
                 "ActiveChats": {
@@ -125,7 +125,7 @@ UserDatabase = {
                          "$$Okay, thank you doctor."
                         ]
                     },
-                    "Jasmine": {
+                    "jasmine": {
                         'Email': "Jasmine@email.com",
                         "Chat": [
                             "##Good morning, doctor. I'm having trouble sleeping lately and I was hoping you could help me.",
@@ -138,13 +138,13 @@ UserDatabase = {
                             "$$You're welcome. Let me know if you need anything else."
                         ]
                     },
-                    "Rose": {
+                    "rose": {
                         'Email': "Rose@email.com",
                         "Chat": [
         
                         ]
                     },
-                    "Isacc": {
+                    "isacc": {
                         'Email': "Isacc@email.com",
                         "Chat": [
                             "##Hey, how are you doing?",
@@ -159,88 +159,88 @@ UserDatabase = {
                 }
                 },
 
-    "James": {'email': 'james@icloud.com', 'password': '425932', 'DocID': '428809',
+    "james": {'email': 'james@icloud.com', 'password': '425932', 'DocID': '428809',
     "ActiveChats": {}
                 },
 
-    "John": {'email': 'john@icloud.com', 'password': '591493', 'DocID': '415132',
+    "john": {'email': 'john@icloud.com', 'password': '591493', 'DocID': '415132',
     "ActiveChats": {}
                 },
 
-    "Jennifer": {'email': 'jennifer@gmail.com', 'password': '972472', 'DocID': '975999',
+    "jennifer": {'email': 'jennifer@gmail.com', 'password': '972472', 'DocID': '975999',
     "ActiveChats": {}
                 },
 
-    "Richard": {'email': 'richard@icloud.com', 'password': '249470', 'DocID': '547443',
+    "richard": {'email': 'richard@icloud.com', 'password': '249470', 'DocID': '547443',
     "ActiveChats": {}
                 },
 
-    "William": {'email': 'william@icloud.com', 'password': '653334', 'DocID': '636128',
+    "william": {'email': 'william@icloud.com', 'password': '653334', 'DocID': '636128',
     "ActiveChats": {}
                 },
 
-    "Robert": {'email': 'robert@gmail.com', 'password': '307968', 'DocID': '283225',
+    "robert": {'email': 'robert@gmail.com', 'password': '307968', 'DocID': '283225',
     "ActiveChats": {}
                 },
 
-    "Michael": {'email': 'michael@gmail.com', 'password': '678136', 'DocID': '664056',
+    "michael": {'email': 'michael@gmail.com', 'password': '678136', 'DocID': '664056',
     "ActiveChats": {}
                 },
 
-    "David": {'email': 'david@icloud.com', 'password': '230031', 'DocID': '265466',
+    "david": {'email': 'david@icloud.com', 'password': '230031', 'DocID': '265466',
     "ActiveChats": {}
                 },
 
-    "Stephen": {'email': 'stephen@icloud.com', 'password': '660196', 'DocID': '917119',
+    "stephen": {'email': 'stephen@icloud.com', 'password': '660196', 'DocID': '917119',
     "ActiveChats": {}
                 },
 
-    "Jeffrey": {'email': 'jeffrey@icloud.com', 'password': '227062', 'DocID': '880658',
+    "jeffrey": {'email': 'jeffrey@icloud.com', 'password': '227062', 'DocID': '880658',
     "ActiveChats": {}
                 },
 
-    "Charles": {'email': 'charles@icloud.com', 'password': '256935', 'DocID': '136025',
+    "charles": {'email': 'charles@icloud.com', 'password': '256935', 'DocID': '136025',
     "ActiveChats": {}
                 },
 
-    "Daniel": {'email': 'daniel@icloud.com', 'password': '582863', 'DocID': '560825',
+    "daniel": {'email': 'daniel@icloud.com', 'password': '582863', 'DocID': '560825',
     "ActiveChats": {}
                 },
 
-    "Steven": {'email': 'steven@gmail.com', 'password': '720492', 'DocID': '774657',
+    "steven": {'email': 'steven@gmail.com', 'password': '720492', 'DocID': '774657',
     "ActiveChats": {}
                 },
 
-    "Paul": {'email': 'paul@icloud.com', 'password': '839491', 'DocID': '464418',
+    "paul": {'email': 'paul@icloud.com', 'password': '839491', 'DocID': '464418',
     "ActiveChats": {}
                 },
 
-    "Elizabeth": {'email': 'elizabeth@gmail.com', 'password': '459807', 'DocID': '509446',
+    "elizabeth": {'email': 'elizabeth@gmail.com', 'password': '459807', 'DocID': '509446',
     "ActiveChats": {}
                 },
 
-    "Susan": {'email': 'susan@gmail.com', 'password': '331193', 'DocID': '551320',
+    "susan": {'email': 'susan@gmail.com', 'password': '331193', 'DocID': '551320',
     "ActiveChats": {}
                 },
 
-    "Mary": {'email': 'mary@gmail.com', 'password': '323856', 'DocID': '972752',
+    "mary": {'email': 'mary@gmail.com', 'password': '323856', 'DocID': '972752',
     "ActiveChats": {}
                 },
 
-    "Joseph": {'email': 'joseph@icloud.com', 'password': '717302', 'DocID': '165582',
+    "joseph": {'email': 'joseph@icloud.com', 'password': '717302', 'DocID': '165582',
     "ActiveChats": {}
                 },
 
-    "Mark": {'email': 'mark@gmail.com', 'password': '938772', 'DocID': '195681',
+    "mark": {'email': 'mark@gmail.com', 'password': '938772', 'DocID': '195681',
     "ActiveChats": {}
                 },
 
-    "Thomas": {'email': 'thomas@icloud.com', 'password': '318568', 'DocID': '583772',
+    "thomas": {'email': 'thomas@icloud.com', 'password': '318568', 'DocID': '583772',
     "ActiveChats": {}
                 },
 
 
-    "User": {
+    "user": {
         'email': 'user@email.com',
         'password': '1234',
         'Calorie': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 102, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -250,7 +250,7 @@ UserDatabase = {
             "ActiveChats": {}
             },
 
-    "Emily": {
+    "emily": {
         'email': 'Emily@email.com',
         'password': '1234',
         'Calorie': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 102, 13, 14, 15, 16, 17, 18, 19, 20],

@@ -1,0 +1,1 @@
+start "Pip" cmd /c "venv\Scripts\activate.bat && pip install -r requirements.txt"

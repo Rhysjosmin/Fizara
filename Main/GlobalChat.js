@@ -1,8 +1,9 @@
 let sound=new Audio('../../media/Audio/MessagePopup.mp3')
 
-
+let wbskt="ws" + SERVER_URL.replace('https','').replace('http','') + "/echo/" + Sender + "/" + 'ActiveChat'
+console.log(wbskt)
 const socket = new WebSocket(
-    "wss" + SERVER_URL.replace('https','') + "/echo/" + Sender + "/" + "Isacc"
+    wbskt
 );
 
 socket.addEventListener("message", (ev) => {

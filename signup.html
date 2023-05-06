@@ -95,11 +95,11 @@
             if (document.getElementById("DoctorID").value.trim() != "") {
               window.location.href =
                 "/Main/DoctorAdmin/index.html?User=" +
-                document.getElementById("name").value;
+                document.getElementById("name").value.toLowerCase();
             } else {
               window.location.href =
                 "/Main/User/index.html?User=" +
-                document.getElementById("name").value;
+                document.getElementById("name").value.toLowerCase();
             }
           }
         });}

@@ -1,6 +1,7 @@
+from flask_sock import Sock
 from math import sin
 from time import sleep
-from flask import Flask, jsonify, request, url_for,render_template
+from flask import Flask, jsonify, request, url_for, render_template
 import json
 import random
 from DB.DB import *
@@ -10,7 +11,6 @@ from flask_cors import CORS
 from PIL import Image
 Doctor = ''
 USER = ''
-from flask_sock import Sock
 
 app = Flask(__name__)
 CORS(app)
@@ -20,16 +20,19 @@ sock = Sock(app)
 
 app.config['UPLOAD_FOLDER'] = './Server/DB/Images'
 
-app.register_blueprint(Pharmacy,url_prefix='/Pharmacy')
+app.register_blueprint(Pharmacy, url_prefix='/Pharmacy')
+
 
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
     arguments = rule.arguments if rule.arguments is not None else ()
     return len(defaults) >= len(arguments)
 
+
 @app.route('/Yogasanas/<page>')
 def YogasanasDBFlask(page):
     return Yogasanas[page]
+
 
 @app.route('/Home', methods=['GET'])
 def HomePage():  # pragma: no cover
@@ -67,7 +70,9 @@ def Signup(name, email, password, DocID=None):
 
                 'email': email,
                 'password': password,
-                'DocID': DocID
+                'DocID': DocID,
+                'ActiveChats': {}
+
 
             }
             AppointmentDB[name.capitalize()] = {}
@@ -77,6 +82,7 @@ def Signup(name, email, password, DocID=None):
                 'email': email,
                 'password': password,
                 'Calorie': [0],
+                'ActiveChats': {},
                 'Todo': [
                     'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
                 ]
@@ -147,13 +153,14 @@ def News():
 def Doctors():
     return json.dumps(list(AppointmentDB.keys()))
 
+
 @app.route('/DoctorDetails')
 def DoctorDetails():
-    Details={}
+    Details = {}
     for User in UserDatabase:
         try:
-            if(UserDatabase[User]['DocID']):
-                Details[User]={'Email':UserDatabase[User]['email']}
+            if (UserDatabase[User]['DocID']):
+                Details[User] = {'Email': UserDatabase[User]['email']}
         except:
             pass
     return json.dumps(Details)
@@ -172,30 +179,32 @@ def _AppointmentDB():
     return json.dumps(AppointmentDB)
 
 
-TempStorageDB={}
+TempStorageDB = {}
 # SERVER_URL+'/TempList/'+Math.round(Math.random()*1000
+
+
 @app.route('/TempList/<ID>/<Data>')
-def TempList(ID,Data):
-    TempStorageDB[ID]=Data
+def TempList(ID, Data):
+    TempStorageDB[ID] = Data
     print(TempStorageDB)
     return 'OK'
 
+
 @app.route('/TempList/Display/<ID>', methods=['GET'])
 def TempListDisp(ID):
-   
+
     return TempStorageDB[ID]
+
+
 @app.route('/TempList/Display/', methods=['GET'])
 def TempListDispNOID():
-   
+
     return json.dumps(TempStorageDB)
-
-
 
 
 @app.route('/UserDB')
 def _UserDB():
     return json.dumps(UserDatabase)
-
 
 
 @app.route('/MakeAppointment', methods=['GET', 'POST'])
@@ -229,36 +238,36 @@ def _ClearAppointments():
 #         }
 
 
-@app.route('/Chat/AddChat/<Sender>/<Receiver>',methods=['GET', 'POST'])
-def SendChat(Sender,Receiver):
+@app.route('/Chat/AddChat/<Sender>/<Receiver>', methods=['GET', 'POST'])
+def SendChat(Sender, Receiver):
     # Message=request.json.get('message')
-    Message=request.json.get('Message')
-    
+    Message = request.json.get('Message')
+
     UserDatabase[Sender]['ActiveChats'][Receiver]['Chat'].append(Message)
     try:
         UserDatabase[Receiver]['ActiveChats'][Sender]['Chat'].append(Message)
     except:
         pass
     global Tester
-    Tester+=1
+    Tester += 1
     return '0'
 
 #  ## Doctor
 #  $$ User
 
+
 @app.route('/Chat/NewChat/<sender>/<receiver>')
-def AddChat(sender,receiver):
-    UserDatabase[sender]['ActiveChats'][receiver]={
-        'Email':'email',
-        "Chat":[]
+def AddChat(sender, receiver):
+    UserDatabase[sender]['ActiveChats'][receiver] = {
+        'Email': 'email',
+        "Chat": []
     }
-    UserDatabase[receiver]['ActiveChats'][sender]={
-        'Email':'email',
-        "Chat":[]
+    UserDatabase[receiver]['ActiveChats'][sender] = {
+        'Email': 'email',
+        "Chat": []
     }
     return '0'
-    
-    
+
     # {
     #                     'Email': "Jasmine@email.com",
     #                     "Chat": [
@@ -273,6 +282,7 @@ def AddChat(sender,receiver):
     #                     ]
     #                 },
 
+
 @app.route('/AppendCalorie/<User>/<int:Value>')
 def AppendCalorie(User, Value):
     UserDatabase[User.lower()]['Calorie'].append(Value)
@@ -284,34 +294,20 @@ def AverageCalories(User):
     Calories = UserDatabase[User.lower()]['Calorie']
     return json.dumps(round(sum(Calories)/len(Calories), 3))
 
-Tester=0
-TesterTester=0
+
+Tester = 0
+TesterTester = 0
+
+
 @sock.route('/echo/<Patient>/<Doctor>')
-def echo(ws,Patient,Doctor):
-    global TesterTester,Tester
+def echo(ws, Patient, Doctor):
+    global TesterTester, Tester
     while True:
-        if(Tester!=TesterTester):
+        if (Tester != TesterTester):
             ws.send('refresh')
-            Tester=TesterTester
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            Tester = TesterTester
 
 
 if __name__ == '__main__':
     import random
-    app.run(host='0.0.0.0',debug=True )
-
+    app.run(host='0.0.0.0', debug=True)

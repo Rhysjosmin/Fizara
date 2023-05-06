@@ -67,9 +67,9 @@
                 if (resp == 'Doctor') {
 
                     // fetch(`${SERVER_URL}/CurrentUser/${document.getElementById('name').value}`)
-                    window.location.href = `/Main/DoctorAdmin/index.html?User=${document.getElementById('name').value}`
+                    window.location.href = `/Main/DoctorAdmin/index.html?User=${document.getElementById('name').value.toLowerCase()}`
                 } else if (resp == 'User') {
-                    window.location.href = `/Main/User/index.html?User=${document.getElementById('name').value}`
+                    window.location.href = `/Main/User/index.html?User=${document.getElementById('name').value.toLowerCase()}`
                 }
 
                 else {

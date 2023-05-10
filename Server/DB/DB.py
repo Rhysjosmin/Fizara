@@ -192,8 +192,8 @@ UserDatabase = {
                     },
                 },
                 "Specialization": [
-                    'General Physician',
-                    'Gynaecologist',
+                    'Breast Cancer',
+                    'Thyroid',
                     'Obstetrician',
                     'Dermatologist',
                     'Ophthalmologist',
@@ -208,8 +208,9 @@ UserDatabase = {
               "ActiveChats": {},
               "Specialization": [
                   'Cosmetologist',
+                  'Thyroid',
                   'Physical Therapist',
-                  'Occupational Therapist',
+                  'Occupational Therapist','PCOD/PCOS',
                 
               ]
               },
@@ -219,7 +220,7 @@ UserDatabase = {
              "Specialization": [
               'Cardiothoracic Surgeon',
     'Neurosurgeon',
-    'Orthopedic Surgeon',
+    'Orthopedic Surgeon','Uterine Fibroids',
     'Gastrointestinal Surgeon',
              ]
              },
@@ -228,7 +229,7 @@ UserDatabase = {
                  "ActiveChats": {},
                  "Specialization": [
                      'General Physician',
-                     'Gynaecologist',
+                     'Gynaecologist','Thyroid',
                        'Speech Therapist',
                   'Oncology Surgeon',
                   'Cardiothoracic Surgeon',
@@ -256,8 +257,8 @@ UserDatabase = {
                        'General Physician',
                     'Gynaecologist',
                     'Obstetrician',
-                       'Gastrointestinal Surgeon',
-                  'Vascular Surgeon',
+                       'Gastrointestinal Surgeon','Uterine Fibroids',
+                  'Vascular Surgeon','Thyroid',
                   'Reproductive Medicine Specialist',
                 ]
                 },
@@ -268,12 +269,12 @@ UserDatabase = {
                  'ENT Specialist',
     'Radiologist',
     'Pathologist',
-    'Anesthesiologist',
+    'Anesthesiologist','Thyroid',
     'Intensivist',
     'Emergency Medicine Specialist',
     'Geriatrician',
     'Plastic Surgeon',
-    'Cosmetologist',
+    'Cosmetologist','Uterine Fibroids',
                    'Dentist',
                    'Orthopedist',
                    'Breast Care Specialist',
@@ -292,7 +293,7 @@ UserDatabase = {
     'Intensivist',
     'Emergency Medicine Specialist',
     'Geriatrician',
-    'Plastic Surgeon',
+    'Plastic Surgeon','Thyroid',
     'Cosmetologist',
                 ]
                 },
@@ -302,7 +303,7 @@ UserDatabase = {
               "Specialization": [
                    'Gastroenterologist',
     'Endocrinologist',
-    'Pulmonologist',
+    'Pulmonologist','Uterine Fibroids',
     'Nephrologist',
     'Urologist',
     'Rheumatologist',
@@ -314,7 +315,7 @@ UserDatabase = {
                 "ActiveChats": {},
                 "Specialization": [
                'Pulmonologist',
-    'Nephrologist',
+    'Nephrologist','Thyroid',
     'Urologist',
                 ]
                 },
@@ -322,7 +323,7 @@ UserDatabase = {
     "jeffrey": {'email': 'jeffrey@icloud.com', 'password': '227062', 'DocID': '880658',
                 "ActiveChats": {},
                 "Specialization": [
-                 'Urologist',
+                 'Urologist','Uterine Fibroids',
     'Rheumatologist',
     'Hematologist',
                 ]
@@ -331,7 +332,7 @@ UserDatabase = {
     "charles": {'email': 'charles@icloud.com', 'password': '256935', 'DocID': '136025',
                 "ActiveChats": {},
                 "Specialization": [
-                     'Orthopedist',
+                     'Orthopedist','Thyroid',
     'Breast Care Specialist',
    
                 ]
@@ -341,7 +342,7 @@ UserDatabase = {
                "ActiveChats": {},
                "Specialization": [
                     'Cardiologist',
-    'Pediatrician',
+    'Pediatrician','Uterine Fibroids',
     'Neurologist',
     'Psychiatrist',
                ]
@@ -350,8 +351,8 @@ UserDatabase = {
     "steven": {'email': 'steven@gmail.com', 'password': '720492', 'DocID': '774657',
                "ActiveChats": {},
                "Specialization": [
-               'Dermatologist',
-    'Ophthalmologist',
+               'Dermatologist','Thyroid',
+    'Ophthalmologist','Osteoporosis',
     'Dentist',
    
                ]
@@ -371,7 +372,7 @@ UserDatabase = {
                   "ActiveChats": {},
                   "Specialization": [
                   'Pediatrician',
-    'Neurologist',
+    'Neurologist','Uterine Fibroids',
     'Psychiatrist',
     'Gastroenterologist',
     'Endocrinologist',
@@ -404,7 +405,7 @@ UserDatabase = {
     "joseph": {'email': 'joseph@icloud.com', 'password': '717302', 'DocID': '165582',
                "ActiveChats": {},
                "Specialization": [
-                   'General Physician',
+                   'General Physician','Thyroid','Uterine Fibroids',
              'ENT Specialist',
     'Radiologist',
     'Pathologist',
@@ -417,9 +418,9 @@ UserDatabase = {
              "Specialization": [
                  'General Physician',
                  'Gynaecologist',
-                'Anesthesiologist',
+                'Anesthesiologist','Uterine Fibroids',
     'Intensivist',
-    'Emergency Medicine Specialist',
+    'Emergency Medicine Specialist','Thyroid',
     'Geriatrician',
    
              ]
@@ -432,8 +433,8 @@ UserDatabase = {
     'Cosmetologist',
     'Physical Therapist',
     'Occupational Therapist',
-    'Speech Therapist',
-    'Oncology Surgeon',
+    'Speech Therapist','Uterine Fibroids',
+    'Oncology Surgeon','Thyroid',
     'Cardiothoracic Surgeon',
     'Neurosurgeon',
     'Orthopedic Surgeon',

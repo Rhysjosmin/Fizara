@@ -114,6 +114,7 @@ aside li a:hover {
 }
 
 #Appointment {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   text-decoration: none;
@@ -127,15 +128,17 @@ aside li a:hover {
   font-size: 1em;
 }
 #Appointment h3 {
-  padding-right: 10px;
-  width: 300px;
   font-size: 0.7em;
   word-break: break-all;
 }
 #Appointment:hover {
   background: var(--accent);
 }
+#Appointment:hover .P-D2 {
+  color: rgb(34, 0, 119);
+}
 #Appointment .P-D2 {
+  text-align: end;
   color: var(--accent2);
 }
 

@@ -212,9 +212,11 @@ def MakeAppointment():
     message = request.json.get('message')
     doctor_name = request.json.get('doctor_name')
     user_name = request.json.get('user_name')
+    date = request.json.get('date')
+
     AppointmentDB[doctor_name][user_name] = {'Reason': message,
-                                             'Date': '12/3/23',
-                                             'Time': '15:00'}
+                                             'Date': date.split('T')[0],
+                                             'Time': date.split('T')[1]}
     print(AppointmentDB[doctor_name])
     # do something with message and doctor_name, e.g. send an email or store in a database
 

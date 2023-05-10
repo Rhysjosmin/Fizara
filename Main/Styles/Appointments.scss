@@ -25,7 +25,7 @@ aside {
   top: 0;
   bottom: 0;
   width: 15rem;
-  transition: .3s;
+  transition: 0.3s;
 
   li {
     color: rgb(255, 255, 255);
@@ -41,6 +41,78 @@ aside {
       }
     }
   }
+}
+.Hidden{
+  opacity: 0;
+  translate: 0px 100vh;
+
+
+}
+#Profile {
+
+  z-index: 10;
+  box-shadow: -6px 6px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  top: 55px;
+  right: 10px;
+  position: fixed;
+  width: 290px;
+  min-height: 300px;
+  background: hsl(0, 0%, 5%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity .5s,translate .4s cubic-bezier(0.68, 0, 0.265, 1.01); 
+  .Details {
+
+    width: 270px;
+    
+    padding-top: 02px;
+   h1{
+    padding-top: 6px;
+    font-weight: 300;
+    font-size: 1.7em;
+   }
+   h3{
+    color: #ffffffc0;
+    font-weight: 300;
+    font-size: .9em;
+   }
+   #Specializations{
+  color: rgb(0, 0, 0);
+
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    padding-top: 10px;
+    .Speciality{
+      font-size: .8em;
+      border-radius: 30px;
+      padding: 3px 10px;
+      background: #07b39b;
+      transition:background-color .2s;
+      &:hover{
+        background-color: #65e6c5;
+      }
+    }
+   }
+ 
+  }
+  button{
+
+     background: #07b39b;
+     border-radius: 20px;
+     width: 270px;
+     margin-bottom: 10px;
+     transition: .2s;
+     color: #000000;
+     &:hover{
+       background-color: #94eed7;
+     }
+    }
 }
 
 #rside {
@@ -76,9 +148,22 @@ textarea {
   font-size: 1em;
   resize: none;
   backdrop-filter: blur(100px);
-  border: 1px dotted ;
+  border: 1px dotted;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+}
+#dateTime {
+  border: none;
+  height: 2em;
+  border-radius: 1em;
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: rgb(0, 0, 0);
+  font-size: 1.3em;
+}
+::-webkit-calendar-picker-indicator {
+  /* color: rgb(54, 145, 225); */
 }
 
 #DoctorTags {
@@ -230,4 +315,3 @@ textarea {
 .Higlighted {
   color: rgb(0, 255, 191);
 }
-

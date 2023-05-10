@@ -38,8 +38,13 @@
       <div id="Signup">
         <div id="Form">
           <h1>Signup</h1>
-          <!-- <input type="text" placeholder="John Smith"> -->
-          <div>
+         
+          <div id="Choice">
+            <div onclick="Choose('User')" id="USERCHOOSE">User</div>
+            <div onclick="Choose('Admin')" id="ADMINCHOOSE">Admin</div>
+            <div onclick="Choose('Doctor')" id="DOCTORCHOOSE">Doctor</div>
+          </div>
+          <div class="Cont">
             <input type="name" name="name" id="name" placeholder="Name" />
             <input
               type="email"
@@ -58,6 +63,7 @@
               name="DoctorID"
               id="DoctorID"
               placeholder="Doctor ID [Leave Blank If Not Applicable]"
+              style="display: none;"
             />
           </div>
           <span id="UserState" style="color: red"></span>
@@ -70,7 +76,37 @@
   <script src="./Scripts/Config.js"></script>
   <script src="./Scripts/navBarOpen.js"></script>
   <script>
+    let Choice=''
+    function Choose(E){
+      Choice=E
+      if (E=='User'){
+//         USERCHOOSE
+// DOCTORCHOOSE\
+document.getElementById('ADMINCHOOSE').classList.remove('active')
+document.getElementById('USERCHOOSE').classList.add('active')
+document.getElementById('DOCTORCHOOSE').classList.remove('active')
+document.getElementById('DoctorID').style.display='none'
+
+      }else if(E=='Doctor'){
+        document.getElementById('ADMINCHOOSE').classList.remove('active')
+        document.getElementById('USERCHOOSE').classList.remove('active')
+        document.getElementById('DOCTORCHOOSE').classList.add('active')
+        document.getElementById('DoctorID').style.display='initial'
+
+      }else if(E=='Admin'){
+        document.getElementById('ADMINCHOOSE').classList.add('active')
+        document.getElementById('USERCHOOSE').classList.remove('active')
+        document.getElementById('DOCTORCHOOSE').classList.remove('active')
+        document.getElementById('DoctorID').style.display='none'
+
+      }
+    }
     function Signup() {
+      if(Choice==''){
+        document.getElementById('Choice').style.borderColor='red'
+        document.getElementById('Choice').style.backgroundColor='red'
+            document.getElementById('UserState').innerText = 'Choose User type'
+      }else{
       if(document.getElementById('email').value.includes('@')){
       if (document.getElementById("DoctorID").value.trim() == "") {
         URL = `${SERVER_URL}/Signup/${document.getElementById("name").value}/${
@@ -87,7 +123,8 @@
       fetch(URL)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+
+          console.log(Choice);
           if (data == "User Already Present") {
             document.getElementById("UserState").innerText =
               "User Already Present";
@@ -96,9 +133,15 @@
               window.location.href =
                 "/Main/DoctorAdmin/index.html?User=" +
                 document.getElementById("name").value.toLowerCase();
-            } else {
+            } 
+             if(Choice=='User'){
               window.location.href =
                 "/Main/User/index.html?User=" +
+                document.getElementById("name").value.toLowerCase();
+            }
+             if(Choice=='Admin'){
+              window.location.href =
+              "/Main/Pharmacy/Pharmasist/index.html?User=" +
                 document.getElementById("name").value.toLowerCase();
             }
           }
@@ -106,7 +149,7 @@
         else{
           document.getElementById('email').style.outlineColor='red'
             document.getElementById('UserState').innerText = 'Use The Correct Email Format'
-        }
+        }}
     }
   </script>
   <script src="./Scripts/Alert.js"></script>

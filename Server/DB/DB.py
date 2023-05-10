@@ -1,49 +1,30 @@
 d = {}
 AppointmentDB = {
-    'James': {
-    },
-    'John': {
-    },
-    'Jennifer': {
-    },
-    'Richard': {
-    },
-    'William': {
-    },
-    'Robert': {
-    },
-    'Michael': {
-    },
-    'David': {
-    },
-    'Stephen': {
-    },
-    'Jeffrey': {
-    },
-    'Charles': {
-    },
-    'Daniel': {
-    },
-    'Steven': {
-    },
-    'Paul': {
-    },
-    'Elizabeth': {
-    },
-    'Susan': {
-    },
-    'Mary': {
-    },
-    'Elizabeth': {
-    },
-    'Joseph': {
-    },
-    'Mark': {
-    },
-    'Thomas': {
-    },
-
+ 
+    'james': {},
+    'john': {},
+    'jennifer': {},
+    'richard': {},
+    'william': {},
+    'robert': {},
+    'michael': {},
+    'david': {},
+    'stephen': {},
+    'jeffrey': {},
+    'charles': {},
+    'daniel': {},
+    'steven': {},
+    'paul': {},
+    'elizabeth': {},
+    'susan': {},
+    'mary': {},
+    'joseph': {},
+    'mark': {},
+    'thomas': {}
 }
+
+
+
 TodoDB = {
 
     'Mary': [
@@ -105,16 +86,69 @@ NewsDB = {
     }
 }
 
-
-
+Specializations = [
+    'General Physician',
+    'Gynaecologist',
+    'Obstetrician',
+    'Dermatologist',
+    'Ophthalmologist',
+    'Dentist',
+    'Orthopedist',
+    'Breast Care Specialist',
+    'Cardiologist',
+    'Pediatrician',
+    'Neurologist',
+    'Psychiatrist',
+    'Gastroenterologist',
+    'Endocrinologist',
+    'Pulmonologist',
+    'Nephrologist',
+    'Urologist',
+    'Rheumatologist',
+    'Hematologist',
+    'Oncologist',
+    'Allergist/Immunologist',
+    'Infectious Disease Specialist',
+    'ENT Specialist',
+    'Radiologist',
+    'Pathologist',
+    'Anesthesiologist',
+    'Intensivist',
+    'Emergency Medicine Specialist',
+    'Geriatrician',
+    'Plastic Surgeon',
+    'Cosmetologist',
+    'Physical Therapist',
+    'Occupational Therapist',
+    'Speech Therapist',
+    'Oncology Surgeon',
+    'Cardiothoracic Surgeon',
+    'Neurosurgeon',
+    'Orthopedic Surgeon',
+    'Gastrointestinal Surgeon',
+    'Vascular Surgeon',
+    'Reproductive Medicine Specialist',
+    'Pain Management Specialist',
+    'Podiatrist',
+    'Dietician/Nutritionist',
+    'Geneticist',
+    'HIV Specialist',
+    'Sleep Medicine Specialist',
+    'Sports Medicine Specialist',
+    'Clinical Psychologist',
+    'Dermatopathologist',
+    'Forensic Pathologist',
+    'Obesity Specialist',
+    'Pulmonary Function Technologist'
+]
 UserDatabase = {
 
-    "emanuel": {"email": "Emanuel@doc.com",
+    "emanuel": {"email": "emanuel@doc.com",
                 "password": "1234",
                 "DocID": "12345",
                 "ActiveChats": {
                     "Emily": {
-                        'Email': "Emily@email.com",
+                        'Email': "emily@email.com",
                         "Chat": [
                          "##Good morning, doctor. I've been experiencing some pain in my abdomen lately and I was wondering if you could help me figure out what's going on.",
                          "$$Of course 😆, I'll do my best. Can you describe the pain you're experiencing?",
@@ -126,7 +160,7 @@ UserDatabase = {
                         ]
                     },
                     "jasmine": {
-                        'Email': "Jasmine@email.com",
+                        'Email': "jasmine@email.com",
                         "Chat": [
                             "##Good morning, doctor. I'm having trouble sleeping lately and I was hoping you could help me.",
                             "$$Of course, I'll do my best. Can you describe what's been keeping you awake?",
@@ -139,13 +173,13 @@ UserDatabase = {
                         ]
                     },
                     "rose": {
-                        'Email': "Rose@email.com",
+                        'Email': "rose@email.com",
                         "Chat": [
-        
+
                         ]
                     },
                     "isacc": {
-                        'Email': "Isacc@email.com",
+                        'Email': "isacc@email.com",
                         "Chat": [
                             "##Hey, how are you doing?",
                             "$$I'm good, thanks. How about you?",
@@ -156,88 +190,256 @@ UserDatabase = {
                             "$$Sure, that sounds like a great idea.",
                         ]
                     },
-                }
+                },
+                "Specialization": [
+                    'General Physician',
+                    'Gynaecologist',
+                    'Obstetrician',
+                    'Dermatologist',
+                    'Ophthalmologist',
+                    'Dentist',
+                    'Orthopedist',
+                    'Breast Care Specialist',
+                ]
+
                 },
 
     "james": {'email': 'james@icloud.com', 'password': '425932', 'DocID': '428809',
-    "ActiveChats": {}
-                },
+              "ActiveChats": {},
+              "Specialization": [
+                  'Cosmetologist',
+                  'Physical Therapist',
+                  'Occupational Therapist',
+                
+              ]
+              },
 
     "john": {'email': 'john@icloud.com', 'password': '591493', 'DocID': '415132',
-    "ActiveChats": {}
-                },
+             "ActiveChats": {},
+             "Specialization": [
+              'Cardiothoracic Surgeon',
+    'Neurosurgeon',
+    'Orthopedic Surgeon',
+    'Gastrointestinal Surgeon',
+             ]
+             },
 
     "jennifer": {'email': 'jennifer@gmail.com', 'password': '972472', 'DocID': '975999',
-    "ActiveChats": {}
-                },
+                 "ActiveChats": {},
+                 "Specialization": [
+                     'General Physician',
+                     'Gynaecologist',
+                       'Speech Therapist',
+                  'Oncology Surgeon',
+                  'Cardiothoracic Surgeon',
+                  'Neurosurgeon',
+                  'Orthopedic Surgeon',
+              
+                 ]
+                 },
 
     "richard": {'email': 'richard@icloud.com', 'password': '249470', 'DocID': '547443',
-    "ActiveChats": {}
+                "ActiveChats": {},
+                "Specialization": [
+                 
+                  'Pain Management Specialist',
+                  'Podiatrist',
+                     'Dentist',
+                     'Orthopedist',
+                     'Breast Care Specialist',
+                ]
                 },
 
     "william": {'email': 'william@icloud.com', 'password': '653334', 'DocID': '636128',
-    "ActiveChats": {}
+                "ActiveChats": {},
+                "Specialization": [
+                       'General Physician',
+                    'Gynaecologist',
+                    'Obstetrician',
+                       'Gastrointestinal Surgeon',
+                  'Vascular Surgeon',
+                  'Reproductive Medicine Specialist',
+                ]
                 },
 
     "robert": {'email': 'robert@gmail.com', 'password': '307968', 'DocID': '283225',
-    "ActiveChats": {}
-                },
+               "ActiveChats": {},
+               "Specialization": [
+                 'ENT Specialist',
+    'Radiologist',
+    'Pathologist',
+    'Anesthesiologist',
+    'Intensivist',
+    'Emergency Medicine Specialist',
+    'Geriatrician',
+    'Plastic Surgeon',
+    'Cosmetologist',
+                   'Dentist',
+                   'Orthopedist',
+                   'Breast Care Specialist',
+               ]
+               },
 
     "michael": {'email': 'michael@gmail.com', 'password': '678136', 'DocID': '664056',
-    "ActiveChats": {}
+                "ActiveChats": {},
+                "Specialization": [ 'Dermatologist',
+                    'Ophthalmologist',
+                    'Dentist',
+                     'ENT Specialist',
+    'Radiologist',
+    'Pathologist',
+    'Anesthesiologist',
+    'Intensivist',
+    'Emergency Medicine Specialist',
+    'Geriatrician',
+    'Plastic Surgeon',
+    'Cosmetologist',
+                ]
                 },
 
     "david": {'email': 'david@icloud.com', 'password': '230031', 'DocID': '265466',
-    "ActiveChats": {}
-                },
+              "ActiveChats": {},
+              "Specialization": [
+                   'Gastroenterologist',
+    'Endocrinologist',
+    'Pulmonologist',
+    'Nephrologist',
+    'Urologist',
+    'Rheumatologist',
+    'Hematologist',
+              ]
+              },
 
     "stephen": {'email': 'stephen@icloud.com', 'password': '660196', 'DocID': '917119',
-    "ActiveChats": {}
+                "ActiveChats": {},
+                "Specialization": [
+               'Pulmonologist',
+    'Nephrologist',
+    'Urologist',
+                ]
                 },
 
     "jeffrey": {'email': 'jeffrey@icloud.com', 'password': '227062', 'DocID': '880658',
-    "ActiveChats": {}
+                "ActiveChats": {},
+                "Specialization": [
+                 'Urologist',
+    'Rheumatologist',
+    'Hematologist',
+                ]
                 },
 
     "charles": {'email': 'charles@icloud.com', 'password': '256935', 'DocID': '136025',
-    "ActiveChats": {}
+                "ActiveChats": {},
+                "Specialization": [
+                     'Orthopedist',
+    'Breast Care Specialist',
+   
+                ]
                 },
 
     "daniel": {'email': 'daniel@icloud.com', 'password': '582863', 'DocID': '560825',
-    "ActiveChats": {}
-                },
+               "ActiveChats": {},
+               "Specialization": [
+                    'Cardiologist',
+    'Pediatrician',
+    'Neurologist',
+    'Psychiatrist',
+               ]
+               },
 
     "steven": {'email': 'steven@gmail.com', 'password': '720492', 'DocID': '774657',
-    "ActiveChats": {}
-                },
+               "ActiveChats": {},
+               "Specialization": [
+               'Dermatologist',
+    'Ophthalmologist',
+    'Dentist',
+   
+               ]
+               },
 
     "paul": {'email': 'paul@icloud.com', 'password': '839491', 'DocID': '464418',
-    "ActiveChats": {}
-                },
+             "ActiveChats": {},
+             "Specialization": [
+               'Orthopedist',
+    'Breast Care Specialist',
+    'Cardiologist',
+    
+             ]
+             },
 
     "elizabeth": {'email': 'elizabeth@gmail.com', 'password': '459807', 'DocID': '509446',
-    "ActiveChats": {}
-                },
+                  "ActiveChats": {},
+                  "Specialization": [
+                  'Pediatrician',
+    'Neurologist',
+    'Psychiatrist',
+    'Gastroenterologist',
+    'Endocrinologist',
+   
+                  ]
+                  },
 
     "susan": {'email': 'susan@gmail.com', 'password': '331193', 'DocID': '551320',
-    "ActiveChats": {}
-                },
+              "ActiveChats": {},
+              "Specialization": [
+                 'Pulmonologist',
+    'Nephrologist',
+    'Urologist',
+    'Rheumatologist',
+    
+              ]
+              },
 
     "mary": {'email': 'mary@gmail.com', 'password': '323856', 'DocID': '972752',
-    "ActiveChats": {}
-                },
+             "ActiveChats": {},
+             "Specialization": [
+              'Hematologist',
+    'Oncologist',
+    'Allergist/Immunologist',
+    'Infectious Disease Specialist',
+    
+             ]
+             },
 
     "joseph": {'email': 'joseph@icloud.com', 'password': '717302', 'DocID': '165582',
-    "ActiveChats": {}
-                },
+               "ActiveChats": {},
+               "Specialization": [
+                   'General Physician',
+             'ENT Specialist',
+    'Radiologist',
+    'Pathologist',
+    
+               ]
+               },
 
     "mark": {'email': 'mark@gmail.com', 'password': '938772', 'DocID': '195681',
-    "ActiveChats": {}
-                },
+             "ActiveChats": {},
+             "Specialization": [
+                 'General Physician',
+                 'Gynaecologist',
+                'Anesthesiologist',
+    'Intensivist',
+    'Emergency Medicine Specialist',
+    'Geriatrician',
+   
+             ]
+             },
 
     "thomas": {'email': 'thomas@icloud.com', 'password': '318568', 'DocID': '583772',
-    "ActiveChats": {}
-                },
+               "ActiveChats": {},
+               "Specialization": [
+             'Plastic Surgeon',
+    'Cosmetologist',
+    'Physical Therapist',
+    'Occupational Therapist',
+    'Speech Therapist',
+    'Oncology Surgeon',
+    'Cardiothoracic Surgeon',
+    'Neurosurgeon',
+    'Orthopedic Surgeon',
+    'Gastrointestinal Surgeon',
+               ]
+               },
 
 
     "user": {
@@ -247,8 +449,9 @@ UserDatabase = {
         'Todo': [
             'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
         ],
-            "ActiveChats": {}
-            },
+        "ActiveChats": {},
+
+    },
 
     "emily": {
         'email': 'Emily@email.com',
@@ -257,9 +460,10 @@ UserDatabase = {
         'Todo': [
             'Eat 5 Calories', 'Sleep 8 hours', '2 Sets of 10 pushups', 'Take Paracetamol At 8 AM', 'Take Insulin'
         ],
-            "ActiveChats": {}
-            },
-    
+        "ActiveChats": {},
+
+    },
+
 }
 Reason = [
     'Checkup',

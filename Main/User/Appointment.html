@@ -1,170 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Styles/Appointments.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Styles/Appointments.css" />
   <link rel="stylesheet" href="../Styles/GeneralCss.css" />
   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <title>Appointment</title>
-  </head>
+  <title>Appointment</title>
+</head>
 
-  <body>
-    <div id="bg">
-      <img src="../../media/images/bgGirl3.png" alt="">
-    </div>
+<body>
+  <div id="bg">
+    <img src="../../media/images/bgGirl3.png" alt="" />
+  </div>
 
-    <aside>
-      <ul>
-        <li>
-          <a href="../../index.html">
-            <h1>Home</h1>
-          </a>
-        </li>
-        <li>
-          <a onclick="window.location='index.html'+window.location.search;"
-            >Dashboard</a
-          >
-        </li>
-        <li>
-          <a
-            onclick="window.location='Appointment.html'+window.location.search;"
-            class="Higlighted"
-            >Book an Appointment</a
-          >
-        </li>
-        <li>
-          <a
-            onclick="window.location='Diseases.html'+window.location.search;"
-            id=""
-            >Diseases</a
-          >
-        </li>
-        <li>
-          <a
-            onclick="window.location='Maternal_Health_Issues.html'+window.location.search;"
-            id=""
-            >Maternal Health Issues</a
-          >
-        </li>
-        <li>
-          <a
-            onclick="window.location='Mental_Health_Counselling.html'+window.location.search;"
-            id=""
-            >Mental Health Counselling</a
-          >
-        </li>
-        <li>
-          <a
-            onclick="window.location='../Pharmacy/User/index.html'+window.location.search;"
-            id=""
-            >Pharmacy</a
-          >
-        </li>
-      </ul>
-    </aside>
-    <section id="rside"></section>
-    <template id="Page1">
-      <h1>Make An Appointment</h1>
-      <h4>Describe Your Issue</h4>
+  <aside>
+    <ul>
+      <li>
+        <a href="../../index.html">
+          <h1>Home</h1>
+        </a>
+      </li>
+      <li>
+        <a onclick="window.location='index.html'+window.location.search;">Dashboard</a>
+      </li>
+      <li>
+        <a onclick="window.location='Appointment.html'+window.location.search;" class="Higlighted">Book an
+          Appointment</a>
+      </li>
+      <li>
+        <a onclick="window.location='Diseases.html'+window.location.search;" id="">Diseases</a>
+      </li>
+      <li>
+        <a onclick="window.location='Maternal_Health_Issues.html'+window.location.search;" id="">Maternal Health
+          Issues</a>
+      </li>
+      <li>
+        <a onclick="window.location='Mental_Health_Counselling.html'+window.location.search;" id="">Mental Health
+          Counselling</a>
+      </li>
+      <li>
+        <a onclick="window.location='../Pharmacy/User/index.html'+window.location.search;" id="">Pharmacy</a>
+      </li>
+    </ul>
+  </aside>
+  <section id="rside"></section>
+  <template id="Page1">
+    <div id="Profile" class="Hidden">
 
-      <textarea
-        name="DescribedIssue"
-        id="DescribedIssue"
-        cols="40"
-        rows="10"
-      ></textarea>
-      <h4>Choose The Doctor</h4>
-      <div id="DoctorTags" style="user-select: none; min-height: 50px">
 
-        <div id="loading">
-          <div></div>
-        </div>  
-      
-        
+      <div class="Details">
+        <h1 class="Name"></h1>
+        <h3>Specializations</h3>
+        <div id="Specializations">
+
+
+        </div>
       </div>
-      <button onclick="MakeAppointment_Outer()">Book Appointment</button>
-      <button onclick="window.location='../Chat/index.html'+window.location.search;">Chat</button>
-    </template>
-  </body>
-  <script>
-    // import JSConfetti from 'js-confetti'
+      <button onclick="CreateChat()"> Chat </button>
 
-const jsConfetti = new JSConfetti()
-jsConfetti.addConfetti({
-  confettiRadius: .01,
-})
+    </div>
+    <h1>Make An Appointment</h1>
+    <h4>Choose The Doctor</h4>
+    <div id="DoctorTags" style="user-select: none; min-height: 50px">
+      <div id="loading">
+        <div></div>
+      </div>
+    </div>
+    <h4>Choose A Date</h4>
 
-  </script>
-  <script src="../../Scripts/Config.js"></script>
-  <script src="../../Scripts/Alert.js"></script>
-  <script>
-    let USER = "";
-    const page1 = document.getElementById("Page1").content.cloneNode(true);
-    const destination = document.getElementById("rside");
+    <input type="datetime-local" name="" id="dateTime" />
 
-    destination.appendChild(page1);
-  </script>
-  <script>
-    const DoctorTagsDiv = document.getElementById("DoctorTags");
+    <h4>Describe Your Issue</h4>
 
-    fetch(`${SERVER_URL}/Doctors`)
-      .then((Response) => Response.json())
-      .then( (Data) =>  {
-        DoctorTagsDiv.innerHTML = "";
-        Data.forEach(async (element) => {
-          let Tag = document.createElement("span");
-          Tag.addEventListener("click", setDocTag, false);
-          Tag.classList.add("DoctorTag");
-          if (Math.random() * 100 >= 70) {
-            Tag.classList.add("Special");
-          }
-          Tag.innerText = "Dr. " + element;
-          
-            DoctorTagsDiv.appendChild(Tag);
-           
-     
-        });
+    <textarea name="DescribedIssue" id="DescribedIssue" cols="40" rows="10">
+      </textarea>
+    <br />
+    <button onclick="MakeAppointment_Outer()">Book Appointment</button>
+    <button onclick="window.location='../Chat/index.html'+window.location.search;">
+      Chat
+    </button>
+  </template>
+</body>
+<script>
+  // import JSConfetti from 'js-confetti'
+
+  const jsConfetti = new JSConfetti();
+  jsConfetti.addConfetti({
+    confettiRadius: 0.01,
+  });
+</script>
+<script src="../../Scripts/Config.js"></script>
+<script src="../../Scripts/Alert.js"></script>
+<script>
+  let USER = "";
+  const page1 = document.getElementById("Page1").content.cloneNode(true);
+  const destination = document.getElementById("rside");
+  var USERDB = {}
+  destination.appendChild(page1);
+</script>
+<script>
+  const DoctorTagsDiv = document.getElementById("DoctorTags");
+
+  fetch(`${SERVER_URL}/Doctors`)
+    .then((Response) => Response.json())
+    .then((Data) => {
+      DoctorTagsDiv.innerHTML = "";
+      Data.forEach(async (element) => {
+        let Tag = document.createElement("span");
+        Tag.addEventListener("click", setDocTag, false);
+        Tag.classList.add("DoctorTag");
+        if (Math.random() * 100 >= 70) {
+          Tag.classList.add("Special");
+        }
+        Tag.innerText = "Dr. " + element;
+
+        DoctorTagsDiv.appendChild(Tag);
       });
-  </script>
-  <script src="../Scripts/geturlparam.js"></script>
-  <script>
+    });
 
-    let SelectedDoctor = "";
-    const DoctorTags = document.getElementById("DoctorTags").children;
-  
-    function setDocTag() {
-      isSelectedDoc=this.dataset.isSelected
-      if(isSelectedDoc){
-        for (let index = 0; index < DoctorTags.length; index++) {
+
+</script>
+<script>
+  // Cache UserDB
+  fetch(`${SERVER_URL}/UserDB`)
+    .then(response => response.json())
+    .then(data => {
+      USERDB = data
+      console.log(USERDB)
+    })
+</script>
+<script src="../Scripts/geturlparam.js"></script>
+<script>
+  var SelectedDoctor = "";
+  const DoctorTags = document.getElementById("DoctorTags").children;
+  const Profile = document.getElementById('Profile')
+  function setDocTag() {
+    isSelectedDoc = this.dataset.isSelected;
+    if (isSelectedDoc) {
+      for (let index = 0; index < DoctorTags.length; index++) {
         DoctorTags[index].classList.remove("activeDoctor");
         DoctorTags[index].classList.remove("transparentDoctor");
-        DoctorTags[index].removeAttribute('data-is-selected')
+        DoctorTags[index].removeAttribute("data-is-selected");
       }
+      Profile.className = 'Hidden'
 
-      }
-      else{
+    } else {
       for (let index = 0; index < DoctorTags.length; index++) {
         DoctorTags[index].classList.remove("activeDoctor");
         DoctorTags[index].classList.add("transparentDoctor");
       }
-
+      Profile.className = ''
       this.classList.add("activeDoctor");
       this.classList.remove("transparentDoctor");
 
       SelectedDoctor = this.innerText;
-      this.dataset.isSelected=true
-    }
-    }
-  </script>
-  <script src="../Scripts/MakeAppointment.js"></script>
+      this.dataset.isSelected = true;
 
-  <script>
-    function main() {
-      USER = GetUrlParam("User");
+      const Specializations = document.getElementById('Specializations')
+      Profile.getElementsByClassName('Name')[0].innerText = SelectedDoctor
+      Specializations.innerHTML = ''
+      USERDB[SelectedDoctor.replace('Dr. ', '').toLowerCase()].Specialization.forEach(element => {
+        Specializations.innerHTML += ` <div class="Speciality">${element}</div>`
+      });
     }
-    main();
-  </script>
+  }
+</script>
+<script>
+  function CreateChat() {
+    fetch(SERVER_URL + '/Chat/NewChat/' + USER + '/' + SelectedDoctor.replace('Dr. ', '').toLowerCase())
+      .then(response => response.json())
+      .then(()=>{
+        window.location='../Chat/index.html'+window.location.search;
+      })
+  }
+</script>
+<script src="../Scripts/MakeAppointment.js"></script>
+
+<script>
+  function main() {
+    USER = GetUrlParam("User");
+  }
+  main();
+</script>
 
 </html>

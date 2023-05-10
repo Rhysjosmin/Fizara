@@ -2,7 +2,9 @@ function MakeAppointment_Outer() {
   if (
     document.getElementById("DescribedIssue").value.replace(" ", "") !=
     "" &&
-    SelectedDoctor.replace(" ", "") != ""
+    SelectedDoctor.replace(" ", "") != "" &&
+    document.getElementById("dateTime").value.replace(" ", "") !=
+    "" 
   ) {
     MakeAppointment();
   } else {
@@ -11,6 +13,8 @@ function MakeAppointment_Outer() {
 }
 function MakeAppointment() {
   const issue = document.getElementById('DescribedIssue')
+  const dateTime=document.getElementById('dateTime')
+
   
   let message=issue.value
   let doctorName=SelectedDoctor.replace('Dr. ','')
@@ -22,7 +26,8 @@ function MakeAppointment() {
       body: JSON.stringify({
         message: message,
         doctor_name: doctorName,
-        user_name: USER
+        user_name: USER,
+        date:dateTime.value
       })
     })
     .then(response => {

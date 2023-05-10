@@ -134,6 +134,7 @@ padding: 8px;
   }
 
   #Appointment{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     text-decoration: none;
@@ -145,16 +146,25 @@ padding: 8px;
         font-size: 1em;
     }
     h3{
-      padding-right: 10px;
-      width: 300px;
+ 
+  
         font-size: .7em;
         word-break: break-all;
     }
     transition: .2s;
     &:hover{
         background: var(--accent);
+        .P-D2{
+ 
+
+
+          color: rgb(34, 0, 119);
+        }
     }
     .P-D2{
+ 
+
+      text-align: end;
       color: var(--accent2);
     }
   }

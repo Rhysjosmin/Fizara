@@ -112,12 +112,51 @@ p {
 #Signup #Form h1 {
   font-size: 3em;
 }
-#login form div, #login #Form div,
-#Signup form div,
-#Signup #Form div {
-  margin-top: 1em;
+#login form #Choice, #login #Form #Choice,
+#Signup form #Choice,
+#Signup #Form #Choice {
+  cursor: pointer;
+  border: 1PX solid rgba(0, 0, 0, 0.772);
+  border-radius: 500px;
+  overflow: hidden;
+  height: 3em;
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
+  background: #000000;
+  width: 90%;
+}
+#login form #Choice div, #login #Form #Choice div,
+#Signup form #Choice div,
+#Signup #Form #Choice div {
+  background: #eaeaea;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 1em;
+}
+#login form #Choice div:hover, #login #Form #Choice div:hover,
+#Signup form #Choice div:hover,
+#Signup #Form #Choice div:hover {
+  color: #eaeaea;
+  background: rgba(72, 136, 233, 0.8117647059) !important;
+}
+#login form #Choice div.active, #login #Form #Choice div.active,
+#Signup form #Choice div.active,
+#Signup #Form #Choice div.active {
+  background: #03265a;
+  color: #eaeaea;
+}
+#login form .Cont, #login #Form .Cont,
+#Signup form .Cont,
+#Signup #Form .Cont {
+  margin-top: 0.6em;
   width: 100%;
-  gap: 1em;
+  gap: 0.8em;
   align-items: center;
   display: flex;
   flex-direction: column;

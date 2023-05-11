@@ -148,9 +148,12 @@
       Profile.className = 'Hidden'
 
     } else {
+
       for (let index = 0; index < DoctorTags.length; index++) {
         DoctorTags[index].classList.remove("activeDoctor");
         DoctorTags[index].classList.add("transparentDoctor");
+        DoctorTags[index].removeAttribute("data-is-selected");
+
       }
       Profile.className = ''
       this.classList.add("activeDoctor");

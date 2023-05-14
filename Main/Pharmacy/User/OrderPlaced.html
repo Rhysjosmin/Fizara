@@ -217,21 +217,12 @@
     SessionID: SessionID
   })
 })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Request failed with status ' + response.status);
-    }
-    // Handle the response here if needed
-    return response.json();
-  })
-  .then(data => {
-    // Handle the data returned by the server here if needed
+  .then(response => response.json())
+  .then(() => {
+
     jsConfetti.addConfetti();
   })
-  .catch(error => {
-    // Handle any errors that occurred during the request here
-    console.error('Error:', error);
-  });
+
 }
 
   </script>

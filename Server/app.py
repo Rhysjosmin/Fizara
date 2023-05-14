@@ -68,7 +68,7 @@ def index():
 def Signup(name, email, password, DocID=None):
     global AppointmentDB, UserDatabase
 
-    name = name.replace(' ', '').lower()
+    name = name.lower()
     email = email.replace(' ', '').lower()
     if name not in UserDatabase:
         print('Saved')
@@ -109,7 +109,7 @@ def Signup(name, email, password, DocID=None):
 def login(name, email, password):
 
     # print(f'Email:{email}')
-    name = name.replace(' ', '').lower()
+    name = name.lower()
     email = email.replace(' ', '').lower()
     # print(f'Email:{email}')
     # print('Called')
@@ -184,8 +184,6 @@ def SetRate(User, value):
 @app.route('/AppointmentDB')
 def _AppointmentDB():
     return json.dumps(AppointmentDB)
-
-
 
 
 

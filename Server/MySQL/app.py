@@ -179,7 +179,7 @@ def PlaceOrder():
     
     print(request.headers)
     print(request.get_json()['name'])
-    return 'Done'
+    return json.dumps({'Status':'Done'})
 
 
 @Pharmacy.route('/Orders')

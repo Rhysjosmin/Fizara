@@ -1,30 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="../../../Scripts/Config.js"></script>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
-<body>
-    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-    <h1>Add Item</h1>
-    <form action="http://127.0.0.1:5000/Pharmacy/AddItem" method="post" target="dummyframe"
-        enctype="multipart/form-data">
-        <input type="text" name="Name" placeholder="Name" required>
-        <input type="file" name="Image" required>
-        <input type="text" name="Price" placeholder="Price" inputmode="numeric" pattern=" [e-9]+" required>
-        <input type="submit" value="Submit">
-    </form>
-</body>
-
-<style>
-    body{
-        background-image: url('../../../media/images/bgGirl.png');
-        background-size: cover;
+  <body>
+    <img src="../../../media/images/bgGirl2.png" alt="" id="bg" />
+    <nav>
+      <h2>
+        <a
+          href="../../../index.html"
+          style="text-decoration: none; color: black"
+          >She Arogya</a
+        >
+      </h2>
+    </nav>
+    <iframe name="dummyframe" id="dummyframe" style="display: none"></iframe>
+    <main>
+      <h1>Add Item</h1>
+      <form
+        action="http://127.0.0.1:5000/Pharmacy/AddItem"
+        method="post"
+        target="dummyframe"
+        enctype="multipart/form-data"
+      >
+        <input type="text" name="Name" placeholder="Name" required />
+        <input type="file" name="Image" required />
+        <input
+          type="text"
+          name="Price"
+          placeholder="Price"
+          inputmode="numeric"
+          pattern=" [e-9]+"
+          required
+        />
+        <input type="submit" value="Submit" id="Submit" />
+      </form>
+      <br />
+      <h1>Orders</h1>
+      <section id="Orders">
+        
+      </section>
+    </main>
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+  <script src="../../Scripts/GoBack.js"></script>
+  <script src="../../../Scripts/Config.js"></script>
+  <style></style>
+  <script>
+    function closeItem(e) {
+      // const ew=document.getElementById('ele')
+      // ew.classList.add()
+      e.parentElement.parentElement
+        .getElementsByClassName("more")[0]
+        .classList.toggle("close");
     }
-</style>
+  </script>
+  <script>
+    fetch(SERVER_URL + "/Pharmacy/Orders")
+      .then((response) => response.json())
+      .then((orders) => {
+        orders.forEach((element) => {
+          let name = element.name;
+          let date = element.date;
+          let phone = element.phone;
+          let address = element.address;
+          let status = element.status;
+          let products = JSON.parse(element.products);
+
+        
+
+          const OrderElement = document.createElement("div");
+          OrderElement.className = "Order";
+
+          const Main = document.createElement("div");
+          Main.className = "main";
+          Main.innerHTML = `
+            <span>${name}</span>
+            <span>${address}</span>
+            <span>${date.split('T')[1].slice(0,8)}  ${date.split('T')[0]}</span>
+            <span class="material-symbols-outlined tick"> check </span>
+            <button class="material-symbols-outlined" onclick="closeItem(this)">expand_more</button>
+          `;
+          const More=document.createElement('div')
+          More.classList.add('more')
+          More.classList.add('close')
+          const List=document.createElement('ul')
+      
+          console.log(products)
+          let Price=0
+          for (const key in products) {
+            console.log()
+            product=products[key]
+            const li=document.createElement('li')
+            li.innerHTML=`
+            <span>${product.Name}</span><span>${product.Price}</span>
+            `
+            Price+=parseFloat(product.Price)
+            List.appendChild(li)
+          }
+          const PriceElement=document.createElement('div')
+          PriceElement.className='PriceElement'
+          PriceElement.innerText='Total : '+Price
+          List.append(PriceElement)
+ 
+          More.appendChild(List)
+          OrderElement.append(Main)
+          OrderElement.append(More)
+          document.getElementById('Orders').appendChild(OrderElement)
+
+        });
+      });
+
+    // <div class="Order">
+    //     <div class="main">
+    //   <span>Rhys</span>
+    //   <span>Address</span>
+    //   <span>15/34/22</span>
+    //   <span class="material-symbols-outlined tick"> check </span>
+    //   <button class="material-symbols-outlined" onclick="closeItem(this)">expand_more</button>
+    // </div>
+    //     <div class="more close">
+    //       Items:
+    //       <ul>
+    //         <li><span>Item</span><span>100$</span></li>
+
+    //       </ul>
+    //     </div>
+    //   </div>
+  </script>
 </html>

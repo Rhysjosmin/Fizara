@@ -15,7 +15,14 @@ USER = ''
 app = Flask(__name__)
 CORS(app)
 sock = Sock(app)
+
+
 # fetch(`http://127.0.0.1:5000/Signup/${document.getElementById('name').value}/${document.getElementById('email').value}/${document.getElementById('password').value}`)
+# @app.before_request
+# def cors_headers():
+#     request.headers['Access-Control-Allow-Origin'] = '*'
+#     request.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
+#     request.headers['Access-Control-Allow-Headers'] = 'Content-Type'
 
 
 app.config['UPLOAD_FOLDER'] = './Server/DB/Images'
@@ -179,27 +186,7 @@ def _AppointmentDB():
     return json.dumps(AppointmentDB)
 
 
-TempStorageDB = {}
-# SERVER_URL+'/TempList/'+Math.round(Math.random()*1000
 
-
-@app.route('/TempList/<ID>/<Data>')
-def TempList(ID, Data):
-    TempStorageDB[ID] = Data
-    print(TempStorageDB)
-    return 'OK'
-
-
-@app.route('/TempList/Display/<ID>', methods=['GET'])
-def TempListDisp(ID):
-
-    return TempStorageDB[ID]
-
-
-@app.route('/TempList/Display/', methods=['GET'])
-def TempListDispNOID():
-
-    return json.dumps(TempStorageDB)
 
 
 @app.route('/UserDB')
@@ -312,4 +299,4 @@ def echo(ws, Patient, Doctor):
 
 if __name__ == '__main__':
     import random
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=False)

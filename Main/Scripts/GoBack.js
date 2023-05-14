@@ -8,6 +8,7 @@ button.addEventListener('click',()=>{
 button.innerText='Go Back'
 button.style.position='fixed'
 button.style.bottom='10px'
+button.style.left='10px'
 button.style.fontSize='1.4em'
 button.style.padding='8px'
 button.style.paddingInline='30px'

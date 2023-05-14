@@ -160,7 +160,7 @@
 
     function DoCheckout() {
       console.log(ListList);
-      fetch(SERVER_URL+'/TempList/'+SessionID+'/'+JSON.stringify(ListList))
+      fetch(SERVER_URL+'/Pharmacy/TempList/'+SessionID+'/'+JSON.stringify(ListList))
       window.location='./OrderPlaced.html?User='+User+'&SessionId='+SessionID
 
 

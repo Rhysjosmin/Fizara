@@ -6,5 +6,6 @@
     "cSpell.words": [
         "wbskt",
         "werkzeug"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "off"
 }

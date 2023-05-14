@@ -27,7 +27,7 @@
 <body>
 
 
-  <section >
+  <section>
 
     <aside>
       <ul>
@@ -62,39 +62,42 @@
 
       <section style="width: calc(100% - 15rem);position:absolute;right: 0;
       height: 100vh;display: flex;justify-content: center;align-items: center;" id="1ELE">
-      <style>
-        *{
-          box-sizing: border-box;
-        }
-        input,
-        textarea,button {
-          background-color: rgba(255, 255, 255, 0.862);
-          backdrop-filter: blur(10px);
-          width: 100%;
-          border: none;
-          border: 1px solid rgba(0, 0, 0, 0.29) ;
-          min-height: 20px;
-          border-radius: 10px;
-          padding: 10px;
-        }
-        button:hover{
-          cursor: pointer;
-          background-color: #07b39b;
+        <style>
+          * {
+            box-sizing: border-box;
+          }
 
-        }
-      </style>
-      <div style="display: flex;flex-direction: column;align-items: center;gap: 6px;width: 18rem;">
-        <input type="text" name="" id="NameName" placeholder="Name" style=>
-        <input type="text" name="" id="PhonePhone" placeholder="Phone Number" style=>
-        <textarea name="" id="AddressAddress" placeholder="Address" cols="30" rows="10" style=></textarea>
-        <button onclick="Next()">Submit</button>
-      </div>
+          input,
+          textarea,
+          button {
+            background-color: rgba(255, 255, 255, 0.862);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.29);
+            min-height: 20px;
+            border-radius: 10px;
+            padding: 10px;
+          }
 
-    </section>
+          button:hover {
+            cursor: pointer;
+            background-color: #07b39b;
+
+          }
+        </style>
+        <div style="display: flex;flex-direction: column;align-items: center;gap: 6px;width: 18rem;">
+          <input type="text" name="" id="NameName" placeholder="Name" style=>
+          <input type="text" name="" id="PhonePhone" placeholder="Phone Number" style=>
+          <textarea name="" id="AddressAddress" placeholder="Address" cols="30" rows="10" style=></textarea>
+          <button onclick="Next()">Submit</button>
+        </div>
+
+      </section>
 
 
 
-    <section style="
+      <section style="
     position: absolute;
     width: calc(100vw - 15rem);
     left: 15rem;
@@ -110,42 +113,45 @@
         <div style="
         width: 18rem;
         outline: 1px solid rgba(0, 0, 0, 0.29);padding: 10px;border-radius: 10px;          ">
-        <span id="3ELE" style="display: none;opacity: 0;transition: .2s;">
-          <h1>Your Order Has Been Placed</h1>
-          <h5>Thanks For Shopping here</h5>
-          <br>
-          <hr>
-        </span>
-          
-      
+          <span id="3ELE" style="display: none;opacity: 0;transition: .2s;">
+            <h1>Your Order Has Been Placed</h1>
+            <h5>Thanks For Shopping here</h5>
+            <br>
+            <hr>
+          </span>
+
+
           <h5>Your Bill</h5>
           <ul style="list-style: none;font-size: .8em;max-height: 200px;overflow-y: scroll;" id="BILLList">
-    
 
-              <style>
-                  .billItem{
-                      display: flex;
-                      justify-content: space-between;
-                      gap: 20px;
-                  }
-                  .billTotal{
-                      display: flex;
-                      justify-content: space-between;
-                      font-size: 1.5em;
-                      font-weight: 1000;
-                  }
-                  </style>
+
+            <style>
+              .billItem {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+              }
+
+              .billTotal {
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.5em;
+                font-weight: 1000;
+              }
+            </style>
           </ul>
           <li class="billTotal"><span>Total : </span><span id="TOTAL"> </span></li>
           <div id="Addreddss" style="display: none;">
             <br>
             <span>Name : </span><span id="USERRRR"></span><br>
             <span>Phone : </span><span id="PhoneeNumberr"></span><br>
-            <span>Address : </span><p id="ADDRESSSS" style="word-wrap: break-word;max-height: 10rem;overflow-y: scroll;background: gainsboro;"></p>
+            <span>Address : </span>
+            <p id="ADDRESSSS" style="word-wrap: break-word;max-height: 10rem;overflow-y: scroll;background: gainsboro;">
+            </p>
           </div>
         </div>
-      <button id="3EleButton" onclick="Final()" style="width: 18rem;">Place Order</button>
-    </section>
+        <button id="3EleButton" onclick="Final()" style="width: 18rem;">Place Order</button>
+      </section>
 
     </section>
 
@@ -156,57 +162,87 @@
   <script src="../../Scripts/geturlparam.js"></script>
   <script src="../../../Scripts/Alert.js"></script>
   <script>
-      const jsConfetti = new JSConfetti();
-  jsConfetti.addConfetti({
+    let SessionID = GetUrlParam("SessionId");
 
-    confettiRadius: 0.01,
-  });
+    const jsConfetti = new JSConfetti();
+    jsConfetti.addConfetti({
+
+      confettiRadius: 0.01,
+    });
   </script>
   <script>
 
 
 
-  function Next(){
-    
+    function Next() {
 
-    if(document.getElementById('NameName').value.replace(' ','')!='' &&
-    document.getElementById('PhonePhone').value.replace(' ','')!='' &&
-    document.getElementById('AddressAddress').value.replace(' ','')!=''
-    ){
-       document.getElementById('1ELE').style.display='none'
-      document.getElementById('2ELE').style.display='flex' 
-    }else{
-      alert2('Fill All The Parameters','')
+
+      if (document.getElementById('NameName').value.replace(' ', '') != '' &&
+        document.getElementById('PhonePhone').value.replace(' ', '') != '' &&
+        document.getElementById('AddressAddress').value.replace(' ', '') != ''
+      ) {
+        document.getElementById('1ELE').style.display = 'none'
+        document.getElementById('2ELE').style.display = 'flex'
+      } else {
+        alert2('Fill All The Parameters', '')
+      }
+
+
+
     }
-
-  
-
-  }
-  function Final(){
+    function Final() {
 
 
-  document.getElementById('Addreddss').style.display='block'
-  document.getElementById('3EleButton').style.display='none'
-  document.getElementById('3ELE').style.display='block'
-  document.getElementById('3ELE').style.scale=1
-  document.getElementById('3ELE').style.opacity=1
-  
-document.getElementById('USERRRR').innerText=document.getElementById('NameName').value
-document.getElementById('PhoneeNumberr').innerText=document.getElementById('PhonePhone').value
-document.getElementById('ADDRESSSS').innerText=document.getElementById('AddressAddress').value
-  
-jsConfetti.addConfetti()
-  }
+      document.getElementById('Addreddss').style.display = 'block'
+      document.getElementById('3EleButton').style.display = 'none'
+      document.getElementById('3ELE').style.display = 'block'
+      document.getElementById('3ELE').style.scale = 1
+      document.getElementById('3ELE').style.opacity = 1
+      const date = new Date();
+      document.getElementById('USERRRR').innerText = document.getElementById('NameName').value
+      document.getElementById('PhoneeNumberr').innerText = document.getElementById('PhonePhone').value
+      document.getElementById('ADDRESSSS').innerText = document.getElementById('AddressAddress').value
+      fetch(SERVER_URL + '/Pharmacy/PlaceOrder', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify({
+    name: document.getElementById('NameName').value,
+    date: date,
+    phone: document.getElementById('PhonePhone').value,
+    address: document.getElementById('AddressAddress').value,
+    status: 'Placed',
+    SessionID: SessionID
+  })
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Request failed with status ' + response.status);
+    }
+    // Handle the response here if needed
+    return response.json();
+  })
+  .then(data => {
+    // Handle the data returned by the server here if needed
+    jsConfetti.addConfetti();
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the request here
+    console.error('Error:', error);
+  });
+}
+
   </script>
   <script>
-  
+
     const BILLList = document.getElementById('BILLList')
 
-    let SessionID = GetUrlParam("SessionId");
     let Total = 0
-    fetch(SERVER_URL + '/TempList/Display/' + SessionID).then(response => response.json())
+    fetch(SERVER_URL + '/Pharmacy/TempList/Display/' + SessionID).then(response => response.json())
       .then(List => {
-        LList=List
+        LList = List
         for (const key in List) {
           const li = document.createElement('li')
           li.className = 'billItem'
@@ -222,15 +258,15 @@ jsConfetti.addConfetti()
         TOTAL.innerText = '₹' + Total
       })
   </script>
-<script>
-  document.getElementById('NameName').value=GetUrlParam('User')
-</script>
-<style>
-  body{
-    background-image: url('../../../media/images/bg.png');
-    background-size: 100% ;
-  }
-</style>
+  <script>
+    document.getElementById('NameName').value = GetUrlParam('User')
+  </script>
+  <style>
+    body {
+      background-image: url('../../../media/images/bg.png');
+      background-size: 100%;
+    }
+  </style>
 </body>
 
 </html>

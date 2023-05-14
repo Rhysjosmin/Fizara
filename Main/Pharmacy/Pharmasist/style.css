@@ -1,0 +1,139 @@
+nav {
+  display: flex;
+  height: 4em;
+  align-items: center;
+  justify-content: space-between;
+}
+nav h2 {
+  font-size: 2em;
+  margin-left: 0.4em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 1000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#bg {
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: fixed;
+  z-index: -1;
+}
+
+main {
+  padding-left: 0.8em;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+form input {
+  background: rgb(255, 255, 255);
+  border: none;
+  border: 1px solid rgba(19, 19, 19, 0.708);
+  border-radius: 30px;
+}
+form input::file-selector-button {
+  border: none;
+  background: rgb(198, 198, 198);
+  padding: 7px;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+}
+form input::file-selector-button:hover {
+  background: rgb(132, 183, 255);
+}
+form #Submit {
+  padding-inline: 40px;
+  transition: background-color 0.3s;
+}
+form #Submit:hover {
+  background: rgb(132, 183, 255);
+}
+
+#Orders {
+  box-shadow: 3px 3px 10px rgba(36, 36, 36, 0.426);
+  background: hsl(0, 0%, 95%);
+  border-radius: 15px;
+  padding: 8px;
+  width: 45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.Order {
+  outline: 1px solid rgba(0, 0, 26, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  text-indent: 3px;
+}
+.Order .tick {
+  color: rgb(0, 230, 46);
+}
+.Order .cross {
+  color: rgb(230, 0, 27);
+}
+.Order .main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.1fr 0.1fr;
+}
+.Order .main span, .Order .main button {
+  border: none;
+  padding: 3px;
+  background: hsl(0, 0%, 85%);
+  transition: background-color 0.3s;
+}
+.Order .main button:hover {
+  background: rgb(0, 85, 255);
+}
+.Order .more {
+  height: 10rem;
+  transition: 0.2s;
+  overflow-y: scroll;
+}
+.Order .more.close {
+  height: 0;
+}
+.Order ul {
+  list-style: none;
+}
+.Order ul .PriceElement {
+  color: rgb(255, 0, 0);
+  padding-bottom: 10px;
+  text-align: right;
+  margin-right: 15px;
+  margin-left: 15px;
+  width: calc(100% - 15px - 15px);
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.Order ul li {
+  font-size: 0.9em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  margin-left: 15px;
+  width: calc(100% - 15px - 15px);
+  padding: 1px;
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */

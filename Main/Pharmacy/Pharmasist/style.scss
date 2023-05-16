@@ -36,6 +36,10 @@ main {
 ::-webkit-scrollbar-thumb{
     background: black;
 }
+.TextInput{
+    text-indent: 10px;
+}
+
 form {
 	display: flex;
 	gap: 10px;
@@ -51,10 +55,10 @@ form {
 			border: none;
 			background: rgb(198, 198, 198);
 			padding: 7px;
-			border-radius: 30px;
+	
 			transition: background-color .3s;
 			&:hover {
-				background: rgb(132, 183, 255);
+				background: rgb(92, 160, 255);
 			}
 		}
 	}

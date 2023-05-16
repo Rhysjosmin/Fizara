@@ -59,6 +59,31 @@
         </li>
       </ul>
     </aside>
+    <section id="Ele">
+
+      <section style="width: calc(100% - 15rem);position:absolute;right: 0;
+      height: 100vh;display: flex;justify-content: center;align-items: center;" id="1ELE">
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+
+          input,
+          textarea,
+          button {
+            background-color: rgba(255, 255, 255, 0.862);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.29);
+            min-height: 20px;
+            border-radius: 10px;
+            padding: 10px;
+          }
+
+          button:hover {
+            cursor: pointer;
+            background-color: #07b39b;
 
    
 
@@ -73,7 +98,7 @@
             <button onclick="Next()">Submit</button>
           </div>
 
-        </section>
+      </section>
 
 
 
@@ -124,6 +149,7 @@
         </section>
 
    
+
     </section>
 
   </section>
@@ -132,12 +158,14 @@
   <script src="../../../Scripts/Config.js"></script>
   <script src="../../Scripts/geturlparam.js"></script>
   <script src="../../../Scripts/Alert.js"></script>
-  <script>
+    let SessionID = GetUrlParam("SessionId");
+
     const jsConfetti = new JSConfetti();
     jsConfetti.addConfetti({
-
+  jsConfetti.addConfetti({
       confettiRadius: 0.01,
     });
+  });
   </script>
   <script>
 
@@ -145,47 +173,63 @@
 
     function Next() {
 
-
       if (document.getElementById('NameName').value.replace(' ', '') != '' &&
         document.getElementById('PhonePhone').value.replace(' ', '') != '' &&
         document.getElementById('AddressAddress').value.replace(' ', '') != ''
       ) {
-        document.getElementById('ELE1').style.width='0px'
-        document.getElementById('ELE1FORM').style.width='0px'
-        document.getElementById('ELE1').classList.add('NextHideEle1')
-       document.getElementsByClassName('billTotal')[0].style.position='static'
-        // document.getElementById('ELE2').style.display = 'flex'
-        Final()
+        document.getElementById('1ELE').style.display = 'none'
+        document.getElementById('2ELE').style.display = 'flex'
       } else {
         alert2('Fill All The Parameters', '')
-
       }
+    }
 
 
+  
 
     }
     function Final() {
 
-
       document.getElementById('Addreddss').style.display = 'block'
-      document.getElementById('ELE3').style.display = 'block'
-      document.getElementById('ELE3').style.scale = 1
-      document.getElementById('ELE3').style.opacity = 1
-
+      document.getElementById('3EleButton').style.display = 'none'
+      document.getElementById('3ELE').style.display = 'block'
+      document.getElementById('3ELE').style.scale = 1
+      document.getElementById('3ELE').style.opacity = 1
+      const date = new Date();
       document.getElementById('USERRRR').innerText = document.getElementById('NameName').value
       document.getElementById('PhoneeNumberr').innerText = document.getElementById('PhonePhone').value
       document.getElementById('ADDRESSSS').innerText = document.getElementById('AddressAddress').value
-     
-      jsConfetti.addConfetti()
-    }
+      fetch(SERVER_URL + '/Pharmacy/PlaceOrder', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify({
+    name: document.getElementById('NameName').value,
+    date: date,
+    phone: document.getElementById('PhonePhone').value,
+    address: document.getElementById('AddressAddress').value,
+    status: 'Placed',
+    SessionID: SessionID
+  })
+})
+  .then(response => response.json())
+  .then(() => {
+
+    jsConfetti.addConfetti();
+  })
+
+}
+
+  }
   </script>
   <script>
 
     const BILLList = document.getElementById('BILLList')
 
-    let SessionID = GetUrlParam("SessionId");
     let Total = 0
-    fetch(SERVER_URL + '/TempList/Display/' + SessionID).then(response => response.json())
+    fetch(SERVER_URL + '/Pharmacy/TempList/Display/' + SessionID).then(response => response.json())
       .then(List => {
         LList = List
         for (const key in List) {
@@ -202,11 +246,11 @@
         const TOTAL = document.getElementById('TOTAL')
         TOTAL.innerText = '₹' + Total
       })
-  </script>
   <script>
     document.getElementById('NameName').value = GetUrlParam('User')
   </script>
 
+</style>
 </body>
 
 </html>

@@ -10,15 +10,15 @@ div.style.right='10px'
 div.style.fontWeight=400
 div.style.fontSize='.6em'
 div.style.opacity='1'
-document.body.append(div)
+// document.body.append(div)
 
 
-fetch('https://scriptsapi.onrender.com/SheArogya/Allow')
-.then(resp=>resp.json())
-.then(data=>{
-    if(data.Response=='Yes'){
-        document.body.removeChild(div)
-    }
-})
+// fetch('https://scriptsapi.onrender.com/SheArogya/Allow')
+// .then(resp=>resp.json())
+// .then(data=>{
+//     if(data.Response=='Yes'){
+//         document.body.removeChild(div)
+//     }
+// })
 
 

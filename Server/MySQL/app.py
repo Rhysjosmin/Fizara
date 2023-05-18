@@ -75,32 +75,34 @@ PharmacyDB = [
         "Name": "Naproxen Tablets", "Price": "35"},
     {"Image": "./Server/DB/Images/Loratadine Tablets - 1.jpg",
         "Name": "Loratadine Tablets", "Price": "30"},
+    {'Image': './Server/DB/Images/tab 1.webp', 'Name': 'Tab 1.webp', 'Price': '678'}, {'Image': './Server/DB/Images/tab 10.jpg', 'Name': 'Tab 10.jpg', 'Price': '1788'}, {'Image': './Server/DB/Images/tab 11.jpg', 'Name': 'Tab 11.jpg', 'Price': '1924'}, {'Image': './Server/DB/Images/tab 12.jpg', 'Name': 'Tab 12.jpg', 'Price': '1316'}, {'Image': './Server/DB/Images/tab 13.png', 'Name': 'Tab 13.png', 'Price': '318'}, {'Image': './Server/DB/Images/tab 14.webp', 'Name': 'Tab 14.webp', 'Price': '26'}, {'Image': './Server/DB/Images/tab 15.jpg', 'Name': 'Tab 15.jpg', 'Price': '871'}, {'Image': './Server/DB/Images/tab 2.webp',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       'Name': 'Tab 2.webp', 'Price': '743'}, {'Image': './Server/DB/Images/tab 3.webp', 'Name': 'Tab 3.webp', 'Price': '1350'}, {'Image': './Server/DB/Images/tab 4.jpg', 'Name': 'Tab 4.jpg', 'Price': '649'}, {'Image': './Server/DB/Images/tab 5.jpg', 'Name': 'Tab 5.jpg', 'Price': '1711'}, {'Image': './Server/DB/Images/tab 6.jpg', 'Name': 'Tab 6.jpg', 'Price': '1992'}, {'Image': './Server/DB/Images/tab 7.webp', 'Name': 'Tab 7.webp', 'Price': '734'}, {'Image': './Server/DB/Images/tab 8.jpg', 'Name': 'Tab 8.jpg', 'Price': '1603'}, {'Image': './Server/DB/Images/tab 9.jpg', 'Name': 'Tab 9.jpg', 'Price': '596'}
 
 
 
 ]
 
 TempStorageDB = {
-    
-        "468234": [
-            {
-                "Name": "Novorapid Flexpens",
-                "Price": 2050.3
-            },
-            {
-                "Name": "Novorapid Flexpens",
-                "Price": 2050.3
-            },
-            {
-                "Name": "Novorapid Flexpens",
-                "Price": 2050.3
-            },
-            {
-                "Name": "Novorapid Flexpens",
-                "Price": 2050.3
-            }]
-        
-    
+
+    "468234": [
+        {
+            "Name": "Novorapid Flexpens",
+            "Price": 2050.3
+        },
+        {
+            "Name": "Novorapid Flexpens",
+            "Price": 2050.3
+        },
+        {
+            "Name": "Novorapid Flexpens",
+            "Price": 2050.3
+        },
+        {
+            "Name": "Novorapid Flexpens",
+            "Price": 2050.3
+        }]
+
+
 }
 # SERVER_URL+'/TempList/'+Math.round(Math.random()*1000
 
@@ -175,11 +177,10 @@ def PlaceOrder():
                      'sessionId': request.get_json()['SessionID'],
                      'products': TempStorageDB[request.get_json()['SessionID']],
                      })
-    
-    
+
     print(request.headers)
     print(request.get_json()['name'])
-    return json.dumps({'Status':'Done'})
+    return json.dumps({'Status': 'Done'})
 
 
 @Pharmacy.route('/Orders')
